@@ -17,7 +17,7 @@
     </properties>
 
     <dependencies>
-        <!-- Spring framework 2012-->
+        <!-- Spring framework -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
