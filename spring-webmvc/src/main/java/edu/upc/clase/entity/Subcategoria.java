@@ -6,7 +6,7 @@ package edu.upc.clase.entity;
 
 /**
  *
- * @author Megu
+ * @author Juan Yabiku
  */
 public class Subcategoria {
     private int codigo;

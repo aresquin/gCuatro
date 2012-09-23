@@ -12,25 +12,28 @@ public class Categoria {
     private String codigo;
     private String nombre;
     private String ruta;
+    private Integer estado;
     private String fcrea;
     private String ucrea;
     private String fmodifica;
     private String umodifica;
     
-    public Categoria (String codigo, String nombre, String ruta, String fcrea, String ucrea, String fmodifica, String umodifica) {
+    public Categoria (String codigo, String nombre, String ruta, Integer estado, String fcrea, String ucrea, String fmodifica, String umodifica) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.ruta = ruta;
+        this.estado = estado;
         this.fcrea = fcrea;
         this.ucrea = ucrea;
         this.fmodifica = fmodifica;
         this.umodifica = umodifica;
     }
 
-    public Categoria (String codigo, String nombre, String ruta, String fcrea, String ucrea) {
+    public Categoria (String codigo, String nombre, String ruta, Integer estado, String fcrea, String ucrea) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.ruta = ruta;
+        this.estado = estado;
         this.fcrea = fcrea;
         this.ucrea = ucrea;
     }
@@ -64,6 +67,14 @@ public class Categoria {
 
     public void setRuta(String ruta) {
         this.ruta = ruta;
+    }
+
+    public Integer getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Integer estado) {
+        this.estado = estado;
     }
 
     public String getFcrea() {

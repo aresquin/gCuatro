@@ -29,7 +29,7 @@ CREATE  TABLE estados (
   PRIMARY KEY (id_estado) );
 
 CREATE  TABLE categorias (
-  id_categoria VARCHAR(6) NOT NULL ,
+  id_categoria INT NOT NULL AUTO_INCREMENT,
   no_categoria VARCHAR(15) NOT NULL ,
   ru_imagen VARCHAR(50) NULL ,
   st_categoria INT NOT NULL ,
