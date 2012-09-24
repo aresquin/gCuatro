@@ -4,10 +4,17 @@
  */
 package edu.upc.clase.demo.service;
 
+import edu.upc.clase.demo.entity.Categoria;
+import java.util.List;
+
 /**
  *
- * @author Megu
+ * @author Juan Yabiku
  */
-public class CategoriaService {
-    
+public interface CategoriaService {
+    public Integer insertar (Categoria objCategoria);
+    public void actualizar (Categoria objCategoria);
+    public void eliminar (Categoria objCategoria);
+    public List<Categoria> buscarCategoria();
+    public Categoria buscarPorId(Integer id);
 }
