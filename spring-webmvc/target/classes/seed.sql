@@ -16,7 +16,7 @@ values ('Mineria','../image/mineria.jpg',1,SYSDATE(),'jp_yabiku@hotmail.com');
 insert into categorias (no_categoria,ru_imagen,st_categoria,fe_creacion,us_creacion)
 values ('Pesca','../image/pesca.jpg',1,SYSDATE(),'jp_yabiku@hotmail.com');
 insert into categorias (no_categoria,ru_imagen,st_categoria,fe_creacion,us_creacion)
-values (,'Caza','../image/caza.jpg',1,SYSDATE(),'jp_yabiku@hotmail.com');
+values ('Caza','../image/caza.jpg',1,SYSDATE(),'jp_yabiku@hotmail.com');
 insert into categorias (no_categoria,ru_imagen,st_categoria,fe_creacion,us_creacion)
 values ('Deporte','../image/deporte.jpg',1,SYSDATE(),'jp_yabiku@hotmail.com');
 

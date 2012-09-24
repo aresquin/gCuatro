@@ -7,9 +7,7 @@ package edu.upc.clases.demo;
 import edu.upc.clase.demo.dao.CategoriaDao;
 import edu.upc.clase.demo.entity.Categoria;
 import edu.upc.clase.demo.entity.ConvertirAFecha;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -35,7 +33,7 @@ public class CategoriaDaoTest {
     
     @Test
     public void debeInsertarCategoria() {
-        Categoria categoria = new Categoria ("Madedera", "", 1, convertirAFecha.getFecha("24/09/2012 00:00:00"), "jp_yabiku@hotmail.com");
+        Categoria categoria = new Categoria ("Madedera", "../image/madedera.jpg", 1, convertirAFecha.getFecha("24/09/2012 00:00:00"), "jp_yabiku@hotmail.com");
         Integer id = categoriaDao.insertar(categoria);
         Assert.assertNotNull(id);
     }

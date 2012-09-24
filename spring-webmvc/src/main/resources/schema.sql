@@ -44,7 +44,7 @@ CREATE  TABLE categorias (
 CREATE  TABLE subcategorias (
   id_subcategoria INT NOT NULL AUTO_INCREMENT,
   no_subcategoria VARCHAR(15) NOT NULL ,
-  id_categoria VARCHAR(6) NOT NULL ,
+  id_categoria INT NOT NULL ,
   fe_creacion DATE NULL ,
   us_creacion VARCHAR(30) NULL ,
   fe_modificacion DATE NULL ,
@@ -105,7 +105,7 @@ CREATE  TABLE usuarios1 (
 CREATE  TABLE plan_negocio (
   id_pl_negocio INT NOT NULL AUTO_INCREMENT,
   ti_pl_negocio VARCHAR(30) NOT NULL ,
-  id_categoria VARCHAR(6) NOT NULL ,
+  id_categoria INT NOT NULL ,
   vi_negocio VARCHAR(500) NOT NULL ,
   ra_propuesta VARCHAR(500) NOT NULL ,
   ti_ejecucion VARCHAR(30) NOT NULL ,

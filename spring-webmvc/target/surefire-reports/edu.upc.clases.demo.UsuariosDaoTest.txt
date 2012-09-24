@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.clases.demo.UsuariosDaoTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.046 sec <<< FAILURE!
-testInsertarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.046 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.045 sec <<< FAILURE!
+testInsertarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.045 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios (nombre,ape_pat,ape_mat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: APE_PAT
 	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:94)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
