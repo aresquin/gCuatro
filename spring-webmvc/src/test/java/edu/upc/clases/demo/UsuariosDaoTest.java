@@ -12,10 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author gian
- */
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring-base-test.xml")
 @Transactional
@@ -36,36 +33,33 @@ public class UsuariosDaoTest {
         Assert.assertNotNull(id);
     }
 
-    /**
-     * Quiero probar que despues de haber registrado un valor, lo pueda actualizar
-     * Primero registro, luego grabo, luego busco, actualizo.
-     */
-//    @Test
-//    public void testActualizarUsuario() {
-//        Usuario usuario = new Usuario("Giancarlo Corzo","gian.corzo@antartec.com","admin");
-//        Integer id = usuarioDao.insertar(usuario);
-//        usuario = usuarioDao.buscar(id);
-//        usuario.setNombre("Javier Corzo");
-//        usuarioDao.actualizar(usuario);
-//        usuario = usuarioDao.buscar(id);
-//        Assert.assertEquals("Javier Corzo", usuario.getNombre());
-//    }
-//
-//    @Test
-//    public void testEliminarUsuario() {
-//        Usuario usuario = new Usuario("Giancarlo Corzo","gian.corzo@antartec.com","admin");
-//        Integer id = usuarioDao.insertar(usuario);
-//        usuario = usuarioDao.buscar(id);
-//        usuarioDao.eliminar(usuario);
-//        usuario = usuarioDao.buscar(id);
-//        Assert.assertNull(usuario);
-//    }
-//
-//    @Test
-//    public void testBuscarPorLetras() {
-//        Usuario usuario = new Usuario("Giancarlo Corzo","gian.corzo@antartec.com","admin");
-//        Integer id = usuarioDao.insertar(usuario);
-//        usuario = usuarioDao.buscar(-8);
-//        Assert.assertNull(usuario);
-//    }
+  
+    @Test
+    public void testActualizarUsuario() {
+        Usuarios usuarios = new Usuarios("Johan","CHolan","Farromeque","gian.corzo@antartec.com","admin");
+        Integer id = UsuariosDao.insertar(usuarios);
+        usuarios = UsuariosDao.buscarXcodigo(id);
+        usuarios.setNombre("Johan");
+        UsuariosDao.actualizar(usuarios);
+        usuarios = UsuariosDao.buscarXcodigo(id);
+        Assert.assertEquals("Johan", usuarios.getNombre());
+    }
+
+    @Test
+    public void testEliminarUsuario() {
+        Usuarios usuarios = new Usuarios("Johan","CHolan","Farromeque","gian.corzo@antartec.com","admin");
+        Integer id = UsuariosDao.insertar(usuarios);
+        usuarios = UsuariosDao.buscarXcodigo(id);
+        UsuariosDao.eliminar(usuarios);
+        usuarios = UsuariosDao.buscarXcodigo(id);
+        Assert.assertNull(usuarios);
+    }
+
+    @Test
+    public void testBuscarPorLetras() {
+        Usuarios usuarios = new Usuarios("Johan","CHolan","Farromeque","gian.corzo@antartec.com","admin");
+        Integer id = UsuariosDao.insertar(usuarios);
+        usuarios = UsuariosDao.buscarXcodigo(-8);
+        Assert.assertNull(usuarios);
+    }
 }

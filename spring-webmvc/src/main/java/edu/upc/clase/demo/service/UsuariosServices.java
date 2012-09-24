@@ -9,7 +9,9 @@ public interface UsuariosServices
     public void actualizar(Usuarios usuarios);
     public void eliminar(Usuarios usuarios);
     public List<Usuarios> buscarTodos();
-    public Usuarios buscar(Integer id);
+    public Usuarios buscarXcodigo(Integer id);
     public List<Usuarios> buscarPorNombre(String nombre);
-    public Boolean autenticar(String correo,String password);    
+    public Boolean autenticar(String correo,String password);  
+    public Boolean validarCorreo(String correo);
+    public Boolean validarContraseña(Usuarios usuarios);
 }

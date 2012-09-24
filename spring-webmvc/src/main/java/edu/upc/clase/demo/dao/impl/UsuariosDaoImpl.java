@@ -1,6 +1,7 @@
 package edu.upc.clase.demo.dao.impl;
 
 import edu.upc.clase.demo.dao.UsuariosDao;
+import edu.upc.clase.demo.entity.Usuario;
 import edu.upc.clase.demo.entity.Usuarios;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author gian
+ * 
  */
 @Repository
 public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao {
@@ -33,17 +34,17 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
     public Integer insertar(Usuarios usuarios) {
 
         getJdbcTemplate().update(
-                "insert into usuarios (nombre,ape_pat,ape_mat,correo,password) values (?, ?, ?, ?, ?)",
-                usuarios.getNombre(), usuarios.getApe_pat(), usuarios.getApe_mat(), usuarios.getCorreo(), usuarios.getPassword());
+        "insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)",
+                usuarios.getNombre(), usuarios.getApepat(), usuarios.getApemat(), usuarios.getCorreo(), usuarios.getPassword());
         return getSimpleJdbcTemplate().queryForInt("call identity()");
     }
 
     @Override
     public void actualizar(Usuarios usuarios) {
         getJdbcTemplate().update(
-                "update usuarios set nombre = ?,ape_pat = ?, ape_mat = ?, correo = ? where ape_pat = ?",
-                usuarios.getNombre(), usuarios.getApe_pat(), usuarios.getApe_mat(), usuarios.getCorreo(), usuarios.getId());
-    }
+                "update usuarios set nombre = ?,apepat = ?, apemat = ?, correo = ? where apepat = ?",
+                  usuarios.getNombre(), usuarios.getApepat(), usuarios.getApemat(), usuarios.getCorreo(), usuarios.getId());
+    }   
 
     @Override
     public void eliminar(Usuarios usuarios) {
@@ -52,11 +53,11 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
     }
 
     @Override
-    public Usuarios buscar(Integer ape_pat) {
+    public Usuarios buscarApellido(String apepat) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select id, nombre,ape_pat, ape_mat, correo,password from usuarios where ape_pat=?",
-                    new BeanPropertyRowMapper<Usuarios>(Usuarios.class), ape_pat);
+                    "select id, nombre,apepat,apemat,correo,password from usuarios where apepat=?",
+                    new BeanPropertyRowMapper<Usuarios>(Usuarios.class), apepat);
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
@@ -65,15 +66,15 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
     @Override
     public List<Usuarios> buscarTodos() {
         return getSimpleJdbcTemplate().query(
-                "select id,nombre,correo,password from usuarios",
+                "select id,nombre,apepat,apemat,correo from usuarios",
                 new BeanPropertyRowMapper<Usuarios>(Usuarios.class));
     }
 
     @Override
-    public Usuarios buscar(String correo) {
+    public Usuarios buscarCorreo(String correo) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select id, nombre, correo,password from usuarios where correo=?",
+                    "select id, nombre,apepat,apemat, correo,password from usuarios where correo=?",
                     new BeanPropertyRowMapper<Usuarios>(Usuarios.class), correo);
         } catch (EmptyResultDataAccessException e) {
             return null;
@@ -92,9 +93,21 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
             return null;
         }
     }
-
-    @Override
-    public List<Usuarios> buscarPorApellido(String ape_pat) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    
+     @Override
+    public Usuarios buscarXcodigo(Integer id) {
+        try {
+             return getSimpleJdbcTemplate().queryForObject(
+                    "select nombre,apepat,apemat,correo,password from usuarios where id=?",
+                    new BeanPropertyRowMapper<Usuarios>(Usuarios.class), id);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
+    
+
+  
 }
+
+
+    

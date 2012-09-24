@@ -12,33 +12,33 @@ public class Usuarios implements Serializable {
     
     private Integer id;
     private String nombre;
-    private String ape_pat;
-    private String ape_mat;
+    private String apepat;
+    private String apemat;
     private String correo;
     private String password;
 
     public Usuarios() {}
     
-    public Usuarios(Integer id, String nombre,String ape_pat, String ape_mat, String correo,String password) {
+    public Usuarios(Integer id, String nombre,String apepat, String apemat, String correo,String password) {
         this.id = id;
         this.nombre = nombre;
-        this.ape_pat = ape_pat;
-        this.ape_mat= ape_mat;
+        this.apepat = apepat;
+        this.apemat= apemat;
         this.correo = correo;
         this.password = password;
     }
 
-    public Usuarios(String nombre,String ape_pat, String ape_mat, String correo, String password) {
+    public Usuarios(String nombre,String apepat, String apemat, String correo, String password) {
         this.nombre = nombre;
-        this.ape_pat = ape_pat;
-        this.ape_mat = ape_mat;
+        this.apepat = apepat;
+        this.apemat = apemat;
         this.correo = correo;
         this.password = password;
     }
     
-    public Usuarios(String nombre,String ape_pat, String ape_mat,String correo) {
+    public Usuarios(String nombre,String apepat, String apemat,String correo) {
         this.nombre = nombre;
-        this.ape_pat = ape_pat;
+        this.apepat = apepat;
         this.correo = correo;
     }
     
@@ -81,28 +81,27 @@ public class Usuarios implements Serializable {
     /**
      * @return the ape_pat
      */
-    public String getApe_pat() {
-        return ape_pat;
+    public String getApepat() {
+        return apepat;
     }
 
     /**
      * @param ape_pat the ape_pat to set
      */
-    public void setApe_pat(String ape_pat) {
-        this.ape_pat = ape_pat;
+    public void setApepat(String apepat) {
+        this.apepat = apepat;
     }
 
     /**
      * @return the ape_mat
      */
-    public String getApe_mat() {
-        return ape_mat;
+    public String getApemat() {
+        return apemat;
     }
-
     /**
      * @param ape_mat the ape_mat to set
      */
-    public void setApe_mat(String ape_mat) {
-        this.ape_mat = ape_mat;
+    public void setApemat(String apemat) {
+        this.apemat = apemat;
     }
 }

@@ -15,8 +15,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
- * @author operador
+ * @author aresquin
  */
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring-base-test.xml")
 @Transactional
@@ -27,20 +28,27 @@ public class UsuariosServiceTest {
     @Autowired
     private UsuariosServices usuariosServices;
     
+    //Validar Login
     @Test
-    public void testAutenticarPasswordVacio() {
-        Assert.assertEquals(false,usuariosServices.autenticar("aresquino@outlook.com",""));
+    public void testValidarLogin() {
+        Assert.assertEquals(false,usuariosServices.autenticar("aresquino@outlook.com","123"));
+    }
+    
+    //Validar Formato de Correo
+    @Test 
+    public void testValidarCorreo(){
+        Assert.assertEquals(true, usuariosServices.validarCorreo("aresquin@outlook.com"));
     }
 
+    //Validar Longitud de Contraseña
     @Test
-    public void testAutenticarMinimo() {
-        Usuarios usuario = new Usuarios("Antonio","Resquin","Orovio","aresquino@outlook.com","ad");
-        Integer id = usuariosServices.insertar(usuario);
-        Assert.assertNull(id);
+    public void testValidarLongitudContraseña() {
+       Assert.assertEquals(false, usuariosServices.validarContraseña("123456"));
     }
 
+    //Validar 
     @Test
-    public void testAutenticarElCorreoTieneFormatoAdecuado() {
+    public void testAutenticar() {
         Usuarios usuario = new Usuarios("Antonio","Resquin","Orovio","aresquino@outlook.com","ad");
         usuariosServices.insertar(usuario);
         Assert.assertEquals(false,usuariosServices.autenticar("aresquino@outlook.com","123"));
