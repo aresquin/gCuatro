@@ -1,6 +1,6 @@
 drop table if exists usuarios;
 drop table if exists subcategorias;
-drop table if exists detalle_plnegocio;
+drop table if exists Archivo_Adjunto;
 drop table if exists comentarios;
 drop table if exists detalle_compras;
 drop table if exists compras;
@@ -102,40 +102,37 @@ CREATE  TABLE usuarios1 (
   FOREIGN KEY (st_usuario) 
   REFERENCES estados (id_estado) );
 
-CREATE  TABLE plan_negocio (
-  id_pl_negocio INT NOT NULL AUTO_INCREMENT,
-  ti_pl_negocio VARCHAR(30) NOT NULL ,
-  id_categoria INT NOT NULL ,
-  vi_negocio VARCHAR(500) NOT NULL ,
-  ra_propuesta VARCHAR(500) NOT NULL ,
-  ti_ejecucion VARCHAR(30) NOT NULL ,
-  in_total DOUBLE NOT NULL ,
-  ma_neto DOUBLE NOT NULL ,
-  pl_roi DOUBLE NOT NULL ,
-  pr_venta DOUBLE NOT NULL ,
-  st_pl_negocio INT NOT NULL ,
-  id_usuario INT NOT NULL ,
-  co_pl_negocio VARCHAR(500) NULL ,
-  fe_validacion DATE NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_pl_negocio) ,
-  FOREIGN KEY (id_categoria)
-  REFERENCES categorias (id_categoria) ,
-  FOREIGN KEY (st_pl_negocio) 
-  REFERENCES estados (id_estado) ,
-  FOREIGN KEY (id_usuario) 
-  REFERENCES usuarios1 (id_usuario) );
+CREATE  TABLE Plan_Negocio (
+  nPlaID INT NOT NULL AUTO_INCREMENT,
+  cPlaTitulo VARCHAR(100) NULL ,
+  nCatID INT NULL ,
+  cPlaVision VARCHAR(500) NULL ,
+  cPlaRazon VARCHAR(500) NULL ,
+  cPlaTiempo VARCHAR(30) NULL ,
+  nPlaTotal DOUBLE NULL ,
+  nPlaNeto DOUBLE NULL ,
+  nPlaROI DOUBLE NULL ,
+  nPlaMargen DOUBLE NULL ,
+  nPlaPreVenta DOUBLE NULL ,
+  cPlaFecVal DATETIME NULL, 
+  nEstID INT NULL ,
+  nPlaFecCrea DATETIME NULL ,
+  nUsuCrea INT NULL ,
+  cPlaFecModi DATETIME NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nPlaID));
 
-CREATE  TABLE detalle_plnegocio (
-  id_det_plnegocio INT NOT NULL AUTO_INCREMENT,
-  id_pl_negocio INT NOT NULL ,
-  do_pl_negocio BLOB NOT NULL ,
-  PRIMARY KEY (id_det_plnegocio) ,
-  FOREIGN KEY (id_pl_negocio)
-  REFERENCES plan_negocio (id_pl_negocio) );
+CREATE  TABLE Archivo_Adjunto (
+  nAAdjID INT NOT NULL AUTO_INCREMENT,
+  nPlaID INT NULL ,
+  nAAdjSecuencia INT NULL ,
+  cAAdjNombre VARCHAR(100) NULL ,
+  cAAdjExtension VARCHAR(100) NULL ,
+  cAAdjFecCrea DATETIME NULL ,
+  nUsuCrea INT NULL ,
+  PRIMARY KEY (nAAdjID) );
+
+
   
 CREATE  TABLE comentarios (
   id_comentario INT NOT NULL AUTO_INCREMENT,

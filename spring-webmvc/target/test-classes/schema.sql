@@ -1,6 +1,6 @@
 drop table if exists usuarios;
 drop table if exists subcategorias;
-drop table if exists detalle_plnegocio;
+drop table if exists Archivo_Adjunto;
 drop table if exists comentarios;
 drop table if exists detalle_compras;
 drop table if exists compras;
@@ -85,31 +85,37 @@ CREATE  TABLE usuarios1 (
   fe_modificacion DATE ,
   us_modificacion VARCHAR(30) );
 
-CREATE  TABLE plan_negocio (
-  id_pl_negocio IDENTITY ,
-  ti_pl_negocio VARCHAR(30) ,
-  id_categoria INT ,
-  vi_negocio VARCHAR(500) ,
-  ra_propuesta VARCHAR(500) ,
-  ti_ejecucion VARCHAR(30) ,
-  in_total DOUBLE ,
-  ma_neto DOUBLE ,
-  pl_roi DOUBLE ,
-  pr_venta DOUBLE ,
-  st_pl_negocio INT ,
-  id_usuario INT ,
-  co_pl_negocio VARCHAR(500) ,
-  fe_validacion DATE ,
-  fe_creacion DATE ,
-  us_creacion VARCHAR(30) ,
-  fe_modificacion DATE ,
-  us_modificacion VARCHAR(30) );
 
-CREATE  TABLE detalle_plnegocio (
-  id_det_plnegocio IDENTITY ,
-  id_pl_negocio INT ,
-  do_pl_negocio BLOB );
-  
+CREATE  TABLE Plan_Negocio (
+  nPlaID INT NOT NULL 
+  cPlaTitulo VARCHAR(100) NULL ,
+  nCatID INT NULL ,
+  cPlaVision VARCHAR(500) NULL ,
+  cPlaRazon VARCHAR(500) NULL ,
+  cPlaTiempo VARCHAR(30) NULL ,
+  nPlaTotal DOUBLE NULL ,
+  nPlaNeto DOUBLE NULL ,
+  nPlaROI DOUBLE NULL ,
+  nPlaMargen DOUBLE NULL ,
+  nPlaPreVenta DOUBLE NULL ,
+  nEstID INT NULL ,
+  nPlaFecCrea DATETIME NULL ,
+  nUsuCrea INT NULL ,
+  cPlaFecModi DATETIME NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nPlaID));
+
+CREATE  TABLE Archivo_Adjunto (
+  nAAdjID INT NOT NULL AUTO_INCREMENT,
+  nPlaID INT NULL ,
+  nAAdjSecuencia INT NULL ,
+  cAAdjNombre VARCHAR(100) NULL ,
+  cAAdjExtension VARCHAR(100) NULL ,
+  cAAdjFecCrea DATETIME NULL ,
+  nUsuCrea INT NULL ,
+  PRIMARY KEY (nAAdjID) );
+
+
 CREATE  TABLE comentarios (
   id_comentario IDENTITY ,
   de_comentario VARCHAR(500) ,
