@@ -6,7 +6,6 @@ package edu.upc.clases.demo;
 
 import edu.upc.clase.demo.dao.CategoriaDao;
 import edu.upc.clase.demo.entity.Categoria;
-import edu.upc.clase.demo.entity.ConvertirAFecha;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +28,6 @@ public class CategoriaDaoTest {
     
     @Autowired
     CategoriaDao categoriaDao;
-    ConvertirAFecha convertirAFecha;
     
     @Test
     public void debeInsertarCategoria() {
