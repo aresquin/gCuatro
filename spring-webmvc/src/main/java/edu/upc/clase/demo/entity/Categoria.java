@@ -18,12 +18,12 @@ public class Categoria implements Serializable {
     private String nombre;
     private String ruta;
     private Integer estado;
-    private Date fe_crea;
+    private String fe_crea;
     private String us_crea;
-    private Date fe_modi;
+    private String fe_modi;
     private String us_modi;
 
-    public Categoria (String nombre, String ruta, Integer estado, Date fe_crea, String us_crea) {
+    public Categoria (String nombre, String ruta, Integer estado, String fe_crea, String us_crea) {
         this.nombre = nombre;
         this.ruta = ruta;
         this.estado = estado;
@@ -63,11 +63,11 @@ public class Categoria implements Serializable {
         this.estado = estado;
     }
 
-    public Date getFe_crea() {
+    public String getFe_crea() {
         return fe_crea;
     }
 
-    public void setFe_crea(Date fe_crea) {
+    public void setFe_crea(String fe_crea) {
         this.fe_crea = fe_crea;
     }
 
@@ -79,11 +79,11 @@ public class Categoria implements Serializable {
         this.us_crea = us_crea;
     }
 
-    public Date getFe_modi() {
+    public String getFe_modi() {
         return fe_modi;
     }
 
-    public void setFe_modi(Date fe_modi) {
+    public void setFe_modi(String fe_modi) {
         this.fe_modi = fe_modi;
     }
 

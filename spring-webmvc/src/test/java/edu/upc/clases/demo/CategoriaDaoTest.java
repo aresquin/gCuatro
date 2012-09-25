@@ -31,7 +31,7 @@ public class CategoriaDaoTest {
     
     @Test
     public void debeInsertarCategoria() {
-        Categoria categoria = new Categoria ("Madedera", "../image/madedera.jpg", 1, convertirAFecha.getFecha("24/09/2012 00:00:00"), "jp_yabiku@hotmail.com");
+        Categoria categoria = new Categoria ("Madedera", "../image/madedera.jpg", 1, "24/09/2012 00:00:00", "jp_yabiku@hotmail.com");
         Integer id = categoriaDao.insertar(categoria);
         Assert.assertNotNull(id);
     }
