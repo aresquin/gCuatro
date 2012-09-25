@@ -41,57 +41,81 @@ public class PlanNegocioDaoTest {
         //c.getTime()
                 
         PlanNegocio objPlan = new PlanNegocio();
-        objPlan.setTi_pl_negocio("Plan1");
+        objPlan.setCPlaTitulo("Plan1");
        
-//        objPlan.setId_categoria("000001");
-//        objPlan.setVi_negocio("El negocio es prospero.....");
-//        objPlan.setTi_ejecucion("6 meses");
-//        objPlan.setRa_propuesta("poner dinero en la bolsa");
-//        objPlan.setIn_total(2000.00);
-//        objPlan.setMa_neto(1500.50);
-//        objPlan.setPl_roi(3000.40);
-//        objPlan.setPr_venta(4000.00);
-//        objPlan.setId_estado("1");
-        objPlan.setUs_creacion("ADMIN");
-        objPlan.setFe_creacion(fecha);
+        objPlan.setnCatID(1);
+        objPlan.setCPlaVision("El negocio es prospero.....");
+        objPlan.setCPlaTiempo("6 meses");
+        objPlan.setNPlaInvTotal(2000.00);        
+        objPlan.setCPlaRazon("Razon1");
+        objPlan.setNPlaROI(3000.40);
+        objPlan.setNPlaNeto(1500.50);
+        objPlan.setNPlaPreVenta(4000.00);
+        objPlan.setNEstID(1);
+        objPlan.setNUsuCrea(1);
+        objPlan.setNPlaFecCrea(fecha);
           
         Integer id= plannegocioDao.insertar(objPlan);
         Assert.assertNotNull(id);
     }
       
-//      
-//    @Test
-//    public void testActualizarPlan() {
-//        iRes=0;
-//        PlanNegocio objPlan = new PlanNegocio();
-//        objPlan.setId_pl_negocio(1); 
-//        objPlan.setTi_pl_negocio("Plan2");
-//        objPlan.setVi_negocio("El negocio consta de prestar servicios a terceros");
-//        //objPlan.setId_categoria("000001");
-////        objPlan.setTi_ejecucion("6 meses");
-////        objPlan.setRa_propuesta("poner dinero en la bolsa");
-////        objPlan.setIn_total(2000.00);
-////        objPlan.setMa_neto(1500.50);
-////        objPlan.setPl_roi(3000.40);
-////        objPlan.setPr_venta(4000.00);
-////        objPlan.setId_estado("1");
-//        objPlan.setUs_modificacion("ADMIN");
-//        objPlan.setFe_modificacion(fecha);
-//          
-//        iRes= plannegocioDao.actualizar(objPlan);
-//        Assert.assertEquals(iRes>0, "Datos actualizados correctamente");
-//    }
+      
+    @Test
+    public void testActualizarPlan() {
+        iRes=0;
+        PlanNegocio objPlan = new PlanNegocio();
+        objPlan.setNPlaID(1); 
+        objPlan.setnCatID(1);
+        objPlan.setCPlaVision("El negocio es prospero.....");
+        objPlan.setCPlaRazon("Razon1");
+        objPlan.setCPlaTiempo("6 meses");
+        objPlan.setNPlaInvTotal(2000.00);
+        objPlan.setNPlaNeto(1500.50);
+        objPlan.setNPlaROI(3000.40);
+        objPlan.setNPlaPreVenta(4000.00);
+        objPlan.setNEstID(1);
+        objPlan.setNUsuModi(1);
+        objPlan.setCPlaFecModi(fecha);
+          
+        iRes= plannegocioDao.actualizar(objPlan);
+        Assert.assertEquals(iRes>0, "Datos actualizados correctamente");
+    }
     
-//    @Test
-//    public void testCambiarEstadoPlan() {
-//        iRes=0;
-//        PlanNegocio objPlan = new PlanNegocio();
-//        objPlan.setId_pl_negocio(1); 
-//        objPlan.setId_estado("0"); 
-//        objPlan.setUs_modificacion("ADMIN");
-//        objPlan.setFe_modificacion(fecha);
-//          
-//        iRes= plannegocioDao.cambiarEstado(objPlan);
-//        Assert.assertEquals(iRes>0, "Datos eliminados correctamente");
-//    }  
+    @Test
+    public void testCambiarEstadoPlan() {
+        iRes=0;
+        PlanNegocio objPlan = new PlanNegocio();
+        objPlan.setNPlaID(1); 
+        objPlan.setNEstID(0); 
+        objPlan.setNUsuModi(1);
+        objPlan.setCPlaFecModi(fecha);
+          
+        iRes= plannegocioDao.cambiarEstado(objPlan);
+        Assert.assertEquals(iRes>0, "Cambio estado satisfactorio");
+    }  
+    
+    @Test
+    public void testInsertarArchivoAdjunto() {
+        
+        PlanNegocio objPlan = new PlanNegocio();
+        objPlan.setNPlaID(1);
+       
+        objPlan.setCAAdjNombre("Documento de definicion.doc");
+        objPlan.setCAAdjExtension("*.DOC");
+        objPlan.setNUsuCrea(1);
+        objPlan.setNPlaFecCrea(fecha);
+          
+        Integer id= plannegocioDao.insertarArchivo(objPlan);
+        Assert.assertNotNull(id);
+    }
+    
+    @Test
+    public void testEliminarArchivoAdjunto() {
+        
+        PlanNegocio objPlan = new PlanNegocio();
+        objPlan.setNPlaID(1);
+        objPlan.setNAAdjID(1);
+        Integer id= plannegocioDao.eliminarArchivo(objPlan);
+        Assert.assertNotNull(id);
+    }
 }

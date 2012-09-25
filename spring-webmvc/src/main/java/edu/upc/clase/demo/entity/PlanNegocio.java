@@ -15,357 +15,328 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class PlanNegocio implements Serializable {
-   private Integer id_pl_negocio;
-   private String ti_pl_negocio;
-   private String id_categoria;
-   private String vi_negocio;
-   private String ra_propuesta;
-   private String ti_ejecucion;
-   private double in_total;
-   private double ma_neto;
-   private double pl_roi;
-   private double pr_venta;
-   private Integer st_pl_negocio;
-   private Integer id_usuario;
-   private String co_pl_negocio;
-   private String id_estado;
-   private Date fe_validacion;
-   private Date fe_creacion;
-   private String us_creacion;
-   private Date fe_modificacion;
-   private String us_modificacion;
+   private Integer nPlaID;
+   private String cPlaTitulo;
+   private Integer nCatID;
+   private String cPlaVision;
+   private String cPlaRazon;
+   private String cPlaTiempo;
+   private double nPlaInvTotal;
+   private double nPlaNeto;
+   private double nPlaROI;
+   private double nPlaPreVenta;
+   private Integer nEstID;
+   private Date cPlaFecVal;
+   private Date nPlaFecCrea;
+   private Integer nUsuCrea;
+   private Date cPlaFecModi;
+   private Integer nUsuModi;
 
    public PlanNegocio() {}
     /**
-     * @return the id_pl_negocio
+     * @return the nPlaID
      */
-    public Integer getId_pl_negocio() {
-        return id_pl_negocio;
+    public Integer getNPlaID() {
+        return nPlaID;
     }
 
     /**
-     * @param id_pl_negocio the id_pl_negocio to set
+     * @param nPlaID the nPlaID to set
      */
-    public void setId_pl_negocio(Integer id_pl_negocio) {
-        this.id_pl_negocio = id_pl_negocio;
+    public void setNPlaID(Integer nPlaID) {
+        this.nPlaID = nPlaID;
     }
 
     /**
-     * @return the ti_pl_negocio
+     * @return the cPlaTitulo
      */
-    public String getTi_pl_negocio() {
-        return ti_pl_negocio;
+    public String getCPlaTitulo() {
+        return cPlaTitulo;
     }
     
     
     
 
     /**
-     * @param ti_pl_negocio the ti_pl_negocio to set
+     * @param cPlaTitulo the cPlaTitulo to set
      */
-    public void setTi_pl_negocio(String ti_pl_negocio) {
-        this.ti_pl_negocio = ti_pl_negocio;
+    public void setCPlaTitulo(String cPlaTitulo) {
+        this.cPlaTitulo = cPlaTitulo;
     }
 
     /**
-     * @return the id_categoria
+     * @return the nCatID
      */
-    public String getId_categoria() {
-        return id_categoria;
+    public Integer getnCatID() {
+        return nCatID;
     }
 
     /**
-     * @param id_categoria the id_categoria to set
+     * @param nCatID the nCatID to set
      */
-    public void setId_categoria(String id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setnCatID(Integer nCatID) {
+        this.nCatID = nCatID;
     }
 
     /**
-     * @return the vi_negocio
+     * @return the cPlaVision
      */
-    public String getVi_negocio() {
-        return vi_negocio;
+    public String getCPlaVision() {
+        return cPlaVision;
     }
 
     /**
-     * @param vi_negocio the vi_negocio to set
+     * @param cPlaVision the cPlaVision to set
      */
-    public void setVi_negocio(String vi_negocio) {
-        this.vi_negocio = vi_negocio;
+    public void setCPlaVision(String cPlaVision) {
+        this.cPlaVision = cPlaVision;
     }
 
     /**
-     * @return the ra_propuesta
+     * @return the cPlaRazon
      */
-    public String getRa_propuesta() {
-        return ra_propuesta;
+    public String getCPlaRazon() {
+        return cPlaRazon;
     }
 
     /**
-     * @param ra_propuesta the ra_propuesta to set
+     * @param cPlaRazon the cPlaRazon to set
      */
-    public void setRa_propuesta(String ra_propuesta) {
-        this.ra_propuesta = ra_propuesta;
+    public void setCPlaRazon(String cPlaRazon) {
+        this.cPlaRazon = cPlaRazon;
     }
 
     /**
-     * @return the ti_ejecucion
+     * @return the cPlaTiempo
      */
-    public String getTi_ejecucion() {
-        return ti_ejecucion;
+    public String getCPlaTiempo() {
+        return cPlaTiempo;
     }
 
     /**
-     * @param ti_ejecucion the ti_ejecucion to set
+     * @param cPlaTiempo the cPlaTiempo to set
      */
-    public void setTi_ejecucion(String ti_ejecucion) {
-        this.ti_ejecucion = ti_ejecucion;
+    public void setCPlaTiempo(String cPlaTiempo) {
+        this.cPlaTiempo = cPlaTiempo;
     }
 
     /**
-     * @return the in_total
+     * @return the nPlaTotal
      */
-    public double getIn_total() {
-        return in_total;
+    public double getNPlaInvTotal() {
+        return nPlaInvTotal;
     }
 
     /**
-     * @param in_total the in_total to set
+     * @param nPlaTotal the nPlaTotal to set
      */
-    public void setIn_total(double in_total) {
-        this.in_total = in_total;
+    public void setNPlaInvTotal(double nPlaInvTotal) {
+        this.nPlaInvTotal = nPlaInvTotal;
     }
 
     /**
-     * @return the ma_neto
+     * @return the nPlaNeto
      */
-    public double getMa_neto() {
-        return ma_neto;
+    public double getNPlaNeto() {
+        return nPlaNeto;
     }
 
     /**
-     * @param ma_neto the ma_neto to set
+     * @param nPlaNeto the nPlaNeto to set
      */
-    public void setMa_neto(double ma_neto) {
-        this.ma_neto = ma_neto;
+    public void setNPlaNeto(double nPlaNeto) {
+        this.nPlaNeto = nPlaNeto;
     }
 
     /**
-     * @return the pl_roi
+     * @return the nPlaROI
      */
-    public double getPl_roi() {
-        return pl_roi;
+    public double getNPlaROI() {
+        return nPlaROI;
     }
 
     /**
-     * @param pl_roi the pl_roi to set
+     * @param nPlaROI the nPlaROI to set
      */
-    public void setPl_roi(double pl_roi) {
-        this.pl_roi = pl_roi;
+    public void setNPlaROI(double nPlaROI) {
+        this.nPlaROI = nPlaROI;
     }
 
     /**
-     * @return the pr_venta
+     * @return the nPlaPreVenta
      */
-    public double getPr_venta() {
-        return pr_venta;
+    public double getNPlaPreVenta() {
+        return nPlaPreVenta;
     }
 
     /**
-     * @param pr_venta the pr_venta to set
+     * @param nPlaPreVenta the nPlaPreVenta to set
      */
-    public void setPr_venta(double pr_venta) {
-        this.pr_venta = pr_venta;
+    public void setNPlaPreVenta(double nPlaPreVenta) {
+        this.nPlaPreVenta = nPlaPreVenta;
     }
 
     /**
-     * @return the st_pl_negocio
+     * @return the nEstID
      */
-    public Integer getSt_pl_negocio() {
-        return st_pl_negocio;
+    public Integer getNEstID() {
+        return nEstID;
     }
 
     /**
-     * @param st_pl_negocio the st_pl_negocio to set
+     * @param nEstID the nEstID to set
      */
-    public void setSt_pl_negocio(Integer st_pl_negocio) {
-        this.st_pl_negocio = st_pl_negocio;
+    public void setNEstID(Integer nEstID) {
+        this.nEstID = nEstID;
+    }
+    /**
+     * @return the cPlaFecVal
+     */
+    public Date getCPlaFecVal() {
+        return cPlaFecVal;
     }
 
     /**
-     * @return the id_usuario
+     * @param cPlaFecVal the cPlaFecVal to set
      */
-    public Integer getId_usuario() {
-        return id_usuario;
+    public void setCPlaFecVal(Date cPlaFecVal) {
+        this.cPlaFecVal = cPlaFecVal;
     }
 
     /**
-     * @param id_usuario the id_usuario to set
+     * @return the nPlaFecCrea
      */
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
+    public Date getNPlaFecCrea() {
+        return nPlaFecCrea;
     }
 
     /**
-     * @return the co_pl_negocio
+     * @param nPlaFecCrea the nPlaFecCrea to set
      */
-    public String getCo_pl_negocio() {
-        return co_pl_negocio;
+    public void setNPlaFecCrea(Date nPlaFecCrea) {
+        this.nPlaFecCrea = nPlaFecCrea;
     }
 
     /**
-     * @param co_pl_negocio the co_pl_negocio to set
+     * @return the nUsuCrea
      */
-    public void setCo_pl_negocio(String co_pl_negocio) {
-        this.co_pl_negocio = co_pl_negocio;
+    public Integer getNUsuCrea() {
+        return nUsuCrea;
     }
 
     /**
-     * @return the fe_validacion
+     * @param nUsuCrea the nUsuCrea to set
      */
-    public Date getFe_validacion() {
-        return fe_validacion;
+    public void setNUsuCrea(Integer nUsuCrea) {
+        this.nUsuCrea = nUsuCrea;
     }
 
     /**
-     * @param fe_validacion the fe_validacion to set
+     * @return the cPlaFecModi
      */
-    public void setFe_validacion(Date fe_validacion) {
-        this.fe_validacion = fe_validacion;
+    public Date getCPlaFecModi() {
+        return cPlaFecModi;
     }
 
     /**
-     * @return the fe_creacion
+     * @param cPlaFecModi the cPlaFecModi to set
      */
-    public Date getFe_creacion() {
-        return fe_creacion;
+    public void setCPlaFecModi(Date cPlaFecModi) {
+        this.cPlaFecModi = cPlaFecModi;
     }
 
     /**
-     * @param fe_creacion the fe_creacion to set
+     * @return the nUsuModi
      */
-    public void setFe_creacion(Date fe_creacion) {
-        this.fe_creacion = fe_creacion;
+    public Integer getNUsuModi() {
+        return nUsuModi;
     }
 
     /**
-     * @return the us_creacion
+     * @param nUsuModi the nUsuModi to set
      */
-    public String getUs_creacion() {
-        return us_creacion;
+    public void setNUsuModi(Integer nUsuModi) {
+        this.nUsuModi = nUsuModi;
     }
 
-    /**
-     * @param us_creacion the us_creacion to set
-     */
-    public void setUs_creacion(String us_creacion) {
-        this.us_creacion = us_creacion;
-    }
-
-    /**
-     * @return the fe_modificacion
-     */
-    public Date getFe_modificacion() {
-        return fe_modificacion;
-    }
-
-    /**
-     * @param fe_modificacion the fe_modificacion to set
-     */
-    public void setFe_modificacion(Date fe_modificacion) {
-        this.fe_modificacion = fe_modificacion;
-    }
-
-    /**
-     * @return the us_modificacion
-     */
-    public String getUs_modificacion() {
-        return us_modificacion;
-    }
-
-    /**
-     * @param us_modificacion the us_modificacion to set
-     */
-    public void setUs_modificacion(String us_modificacion) {
-        this.us_modificacion = us_modificacion;
-    }
-
-    /**
-     * @return the id_estado
-     */
-    public String getId_estado() {
-        return id_estado;
-    }
-
-    /**
-     * @param id_estado the id_estado to set
-     */
-    public void setId_estado(String id_estado) {
-        this.id_estado = id_estado;
-    }
-   
+      
    /**Detalle de plan de negocio*/
-     private Integer id_det_plnegocio;
+     private Integer nAAdjID;
   
-  private String id_secuencia;
-  private String no_archivo;
-  private String ti_archivo;
+    private Integer nAAdjSecuencia;
+    private String cAAdjNombre;
+    private String cAAdjExtension;
+
+    private String cAAdjFecCrea;
 
     /**
-     * @return the id_det_plnegocio
+     * @return the nAAdjID
      */
-    public Integer getId_det_plnegocio() {
-        return id_det_plnegocio;
+    public Integer getNAAdjID() {
+        return nAAdjID;
     }
 
     /**
-     * @param id_det_plnegocio the id_det_plnegocio to set
+     * @param nAAdjID the nAAdjID to set
      */
-    public void setId_det_plnegocio(Integer id_det_plnegocio) {
-        this.id_det_plnegocio = id_det_plnegocio;
+    public void setNAAdjID(Integer nAAdjID) {
+        this.nAAdjID = nAAdjID;
     }
 
     /**
-     * @return the id_secuencia
+     * @return the nAAdjSecuencia
      */
-    public String getId_secuencia() {
-        return id_secuencia;
+    public Integer getNAAdjSecuencia() {
+        return nAAdjSecuencia;
     }
 
     /**
-     * @param id_secuencia the id_secuencia to set
+     * @param nAAdjSecuencia the nAAdjSecuencia to set
      */
-    public void setId_secuencia(String id_secuencia) {
-        this.id_secuencia = id_secuencia;
+    public void setNAAdjSecuencia(Integer nAAdjSecuencia) {
+        this.nAAdjSecuencia = nAAdjSecuencia;
     }
 
     /**
-     * @return the no_archivo
+     * @return the cAAdjNombre
      */
-    public String getNo_archivo() {
-        return no_archivo;
+    public String getCAAdjNombre() {
+        return cAAdjNombre;
     }
 
     /**
-     * @param no_archivo the no_archivo to set
+     * @param cAAdjNombre the cAAdjNombre to set
      */
-    public void setNo_archivo(String no_archivo) {
-        this.no_archivo = no_archivo;
+    public void setCAAdjNombre(String cAAdjNombre) {
+        this.cAAdjNombre = cAAdjNombre;
     }
 
     /**
-     * @return the ti_archivo
+     * @return the cAAdjExtension
      */
-    public String getTi_archivo() {
-        return ti_archivo;
+    public String getCAAdjExtension() {
+        return cAAdjExtension;
     }
 
     /**
-     * @param ti_archivo the ti_archivo to set
+     * @param cAAdjExtension the cAAdjExtension to set
      */
-    public void setTi_archivo(String ti_archivo) {
-        this.ti_archivo = ti_archivo;
+    public void setCAAdjExtension(String cAAdjExtension) {
+        this.cAAdjExtension = cAAdjExtension;
+    }
+
+    /**
+     * @return the cAAdjFecCrea
+     */
+    public String getcAAdjFecCrea() {
+        return cAAdjFecCrea;
+    }
+
+    /**
+     * @param cAAdjFecCrea the cAAdjFecCrea to set
+     */
+    public void setcAAdjFecCrea(String cAAdjFecCrea) {
+        this.cAAdjFecCrea = cAAdjFecCrea;
     }
   
     

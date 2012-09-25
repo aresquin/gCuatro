@@ -37,26 +37,36 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
     @Override
     public Integer insertar(PlanNegocio objPlan)
     {
-        getJdbcTemplate().update("insert into plan_negocio( ti_pl_negocio"
-                + ", us_creacion, fe_creacion) values(?, ?, ?)"
-                , objPlan.getTi_pl_negocio(), objPlan.getUs_creacion(), objPlan.getFe_creacion() );
+        getJdbcTemplate().update("insert into plan_negocio( cPlaTitulo"
+                + ", nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaTotal  "
+                + ", nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  "
+                + ", nUsuCrea, nPlaFecCrea) "
+                + " values(?, ?, ?)"
+                , objPlan.getCPlaTitulo()
+                , objPlan.getnCatID(), objPlan.getCPlaVision(), objPlan.getCPlaRazon(), objPlan.getCPlaTiempo(), objPlan.getNPlaInvTotal()
+                , objPlan.getNPlaNeto(), objPlan.getNPlaROI(), objPlan.getNPlaPreVenta(), objPlan.getNEstID()
+                , objPlan.getNUsuCrea(), objPlan.getNPlaFecCrea() );
         return getSimpleJdbcTemplate().queryForInt("call identity()");
     }
     
     @Override
     public Integer actualizar(PlanNegocio objPlan) {
           return getJdbcTemplate().update(
-                "update Plan_Negocio set ti_pl_negocio = ?, us_modificacion=?"
-                  + " ,fe_modificacion=? where id = ?", objPlan.getTi_pl_negocio(),
-                  objPlan.getUs_modificacion(), objPlan.getFe_modificacion());
+                "update Plan_Negocio set cPlaTitulo = ?"
+                  + " , nCatID=?, cPlaVision=?, cPlaRazon=?, cPlaTiempo=?, nPlaTotal=? "
+                  + " , nPlaNeto=?, nPlaROI=?, nPlaPreVenta=?, nEstID=?  "
+                  + " , nUsuModi=?, cPlaFecModi=? where nPlaID = ?", objPlan.getCPlaTitulo(),
+                  objPlan.getnCatID(), objPlan.getCPlaVision(), objPlan.getCPlaRazon(), objPlan.getCPlaTiempo(), objPlan.getNPlaInvTotal()
+                , objPlan.getNPlaNeto(), objPlan.getNPlaROI(), objPlan.getNPlaPreVenta(), objPlan.getNEstID()
+                , objPlan.getNUsuModi(), objPlan.getCPlaFecModi(), objPlan.getNPlaID());
     }
 
     @Override
     public Integer cambiarEstado(PlanNegocio objPlan) {
-      return getJdbcTemplate().update("UPDATE Plan_Negocio Set id_estado=?, us_modificacion=?"
-              +" ,fe_modificacion=? where id_pl_negocio=?",
-               objPlan.getId_estado() , objPlan.getUs_modificacion(), 
-               objPlan.getFe_modificacion(), objPlan.getId_pl_negocio() );
+      return getJdbcTemplate().update("UPDATE Plan_Negocio Set nEstID=?"
+              +" , nUsuModi=?, cPlaFecModi=? where nPlaID=?",
+               objPlan.getNEstID() , objPlan.getNUsuModi(), 
+               objPlan.getCPlaFecModi(), objPlan.getNPlaID() );
     }
     
     @Override
@@ -64,16 +74,16 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
     {
         try{
             Map<String, Object> parametros= new HashMap<String, Object>();
-            parametros.put("nPlanID", objPlan.getId_pl_negocio());
-            parametros.put("cPlanTitulo", objPlan.getTi_pl_negocio());
-            parametros.put("nCatID", objPlan.getId_categoria());
-            parametros.put("cPlanEstado", objPlan.getId_estado());
+            parametros.put("nPlanID", objPlan.getNPlaID());
+            parametros.put("cPlanTitulo", objPlan.getCPlaTitulo());
+            parametros.put("nCatID", objPlan.getnCatID());
+            parametros.put("nEstID", objPlan.getNEstID());
             return (List<PlanNegocio>) getSimpleJdbcTemplate().queryForObject(
                     
                     "SELECT * FROM Plan_Negocio WHERE 1=1 "
-                    + " AND (:cPlanTitulo='' or ti_pl_negocio like %:cPlanTitulo%)"
-                    + " AND (:nCatID=0  or =:nCatID) "
-                    + " AND (:cPlanEstado='' or id_estado=:cPlanEstado)",
+                    + " AND (:cPlanTitulo='' or cPlaTitulo like %:cPlanTitulo%)"
+                    + " AND (:nCatID=0  or nCatID=:nCatID) "
+                    + " AND (:nEstID=-1 or nEstID=:nEstID) ",
                     new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), parametros);
         } catch(EmptyResultDataAccessException e)
         {
@@ -85,36 +95,47 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
     public PlanNegocio buscarPorId(Integer id) {
       try{
             return getSimpleJdbcTemplate().queryForObject(
-                    "SELECT * FROM Plan_Negocio where where id_pl_negocio=?", 
+                    "SELECT * FROM Plan_Negocio where where nPlaID=?", 
                     new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), id);
         } catch(EmptyResultDataAccessException e)
         {
             return null;
         }
     }
-    /*Detalle de plan de negocio*/
+    
+    
+    /* Archivos Adjuntos */
+    @Override
+    public Integer obtenerSecuencia(PlanNegocio objPlan)
+    {
+         /*Obtener la secuencia*/
+        PlanNegocio objPlan1;
+        objPlan1 = getSimpleJdbcTemplate().queryForObject(
+            "SELECT isnull(max(nAAdjSecuencia)+1,0) FROM Archivo_Adjunto "
+            + " WHERE cAAdjNombre=? and cAAdjExtension=? ", 
+            new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), 
+            objPlan.getCAAdjNombre() , objPlan.getCAAdjExtension() );
+        
+        return objPlan1.getNAAdjSecuencia();
+    }
+    
+    
     @Override
     public Integer insertarArchivo(PlanNegocio objPlan)
     {
-        /*Obtener la secuencia*/
-        PlanNegocio objPlan1;
-        objPlan1 = getSimpleJdbcTemplate().queryForObject(
-                    "SELECT isnull(max(id_secuencia)+1,0) FROM detalle_planegocio "
-                + " where where no_archivo=? and ti_archivo=?", 
-                    new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), objPlan.getNo_archivo()
-                , objPlan.getTi_archivo() );
-        objPlan.setId_secuencia(objPlan1.getId_secuencia());
-        
-        getJdbcTemplate().update("insert into detalle_planegocio( id_pl_negocio"
-                + ", id_secuencia, no_archivo, ti_archivo) values(?, ?, ?, ?)"
-                , objPlan.getId_pl_negocio(), objPlan.getId_secuencia(), objPlan.getNo_archivo()
-                , objPlan.getTi_archivo());
+       
+        objPlan.setNAAdjSecuencia(obtenerSecuencia(objPlan));
+        getJdbcTemplate().update("insert into Archivo_Adjunto( nPlaID"
+                + ", nAAdjSecuencia, cAAdjNombre, cAAdjExtension) values(?, ?, ?, ?)"
+                , objPlan.getNPlaID(), objPlan.getNAAdjSecuencia(), objPlan.getCAAdjNombre()
+                , objPlan.getCAAdjExtension());
         return getSimpleJdbcTemplate().queryForInt("call identity()");
     }
-     @Override
+    
+    @Override
     public Integer eliminarArchivo(PlanNegocio objPlan) {
-      return getJdbcTemplate().update("DELETE detalle_planegocio where id_det_plnegocio =?",
-               objPlan.getId_det_plnegocio() );
+      return getJdbcTemplate().update("DELETE Archivo_Adjunto where nAAdjID =?",
+               objPlan.getNAAdjID() );
     }
     
     

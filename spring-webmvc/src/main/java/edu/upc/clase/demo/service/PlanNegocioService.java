@@ -17,5 +17,12 @@ public interface PlanNegocioService {
     public Integer cambiarEstado(PlanNegocio plannegocio);
     public List<PlanNegocio> buscarPlanNegocio(PlanNegocio objPlan);
     public PlanNegocio buscarPorId(Integer id);
+            
+    /* Archivos Adjuntos*/
+    
+    public Integer obtenerSecuencia(PlanNegocio objPlan);    
+    public Integer insertarArchivo(PlanNegocio objPlan);
+    public Integer eliminarArchivo(PlanNegocio objPlan);
+    
     
 }

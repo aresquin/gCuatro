@@ -16,7 +16,9 @@ public interface PlanNegocioDAO {
     public Integer cambiarEstado(PlanNegocio objPlan);
     public List<PlanNegocio> buscarPlanNegocio(PlanNegocio objPlan);
     public PlanNegocio buscarPorId(Integer id);
-    /*Detalle Plan de Negocio Archivos Adjuntos*/
+    public Integer obtenerSecuencia(PlanNegocio objPlan);
+            
+    /* Archivos Adjuntos*/
     
     public Integer insertarArchivo(PlanNegocio objPlan);
     public Integer eliminarArchivo(PlanNegocio objPlan);

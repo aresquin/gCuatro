@@ -26,6 +26,12 @@ import org.springframework.stereotype.Service;
         private PlanNegocioDAO plannegocioDao;
     
         @Override
+        public Integer insertar(PlanNegocio objPlan) {
+            log.info("Registrando un nuevo plan");
+             return plannegocioDao.insertar(objPlan);
+        }
+        
+        @Override
         public Integer actualizar(PlanNegocio objPlan) {
              log.info("Actualizando plan");
             return plannegocioDao.actualizar(objPlan);
@@ -49,9 +55,24 @@ import org.springframework.stereotype.Service;
             return plannegocioDao.buscarPorId(id);
         }
 
+        
         @Override
-        public Integer insertar(PlanNegocio objPlan) {
-            log.info("Registrando un nuevo plan");
-             return plannegocioDao.insertar(objPlan);
+        public Integer obtenerSecuencia(PlanNegocio objPlan) {
+            log.info("Obteniendo la secuencia de Archivo Adjunto");
+            return plannegocioDao.obtenerSecuencia(objPlan);
         }
+        
+        @Override
+        public Integer insertarArchivo(PlanNegocio objPlan) {
+            log.info("Registrando un archivo adjunto");
+            return plannegocioDao.insertarArchivo(objPlan);
+        }
+          
+        @Override
+        public Integer eliminarArchivo(PlanNegocio objPlan) {
+            log.info("Eliminando un archivo adjunto");
+            return plannegocioDao.eliminarArchivo(objPlan);
+        }
+        
+       
 }
