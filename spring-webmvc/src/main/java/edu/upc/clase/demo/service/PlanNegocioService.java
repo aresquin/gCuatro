@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface PlanNegocioService {
     public Integer insertar(PlanNegocio plannegocio);
-    public void actualizar(PlanNegocio plannegocio);
-    public void eliminar(PlanNegocio plannegocio);
-    public List<PlanNegocio> buscarPlanNegocio();
+    public Integer actualizar(PlanNegocio plannegocio);
+    public Integer cambiarEstado(PlanNegocio plannegocio);
+    public List<PlanNegocio> buscarPlanNegocio(PlanNegocio objPlan);
     public PlanNegocio buscarPorId(Integer id);
     
 }

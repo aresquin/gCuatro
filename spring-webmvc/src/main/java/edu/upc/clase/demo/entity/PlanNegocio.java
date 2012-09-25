@@ -305,6 +305,69 @@ public class PlanNegocio implements Serializable {
         this.id_estado = id_estado;
     }
    
-   
+   /**Detalle de plan de negocio*/
+     private Integer id_det_plnegocio;
+  
+  private String id_secuencia;
+  private String no_archivo;
+  private String ti_archivo;
+
+    /**
+     * @return the id_det_plnegocio
+     */
+    public Integer getId_det_plnegocio() {
+        return id_det_plnegocio;
+    }
+
+    /**
+     * @param id_det_plnegocio the id_det_plnegocio to set
+     */
+    public void setId_det_plnegocio(Integer id_det_plnegocio) {
+        this.id_det_plnegocio = id_det_plnegocio;
+    }
+
+    /**
+     * @return the id_secuencia
+     */
+    public String getId_secuencia() {
+        return id_secuencia;
+    }
+
+    /**
+     * @param id_secuencia the id_secuencia to set
+     */
+    public void setId_secuencia(String id_secuencia) {
+        this.id_secuencia = id_secuencia;
+    }
+
+    /**
+     * @return the no_archivo
+     */
+    public String getNo_archivo() {
+        return no_archivo;
+    }
+
+    /**
+     * @param no_archivo the no_archivo to set
+     */
+    public void setNo_archivo(String no_archivo) {
+        this.no_archivo = no_archivo;
+    }
+
+    /**
+     * @return the ti_archivo
+     */
+    public String getTi_archivo() {
+        return ti_archivo;
+    }
+
+    /**
+     * @param ti_archivo the ti_archivo to set
+     */
+    public void setTi_archivo(String ti_archivo) {
+        this.ti_archivo = ti_archivo;
+    }
+  
+    
    
 }

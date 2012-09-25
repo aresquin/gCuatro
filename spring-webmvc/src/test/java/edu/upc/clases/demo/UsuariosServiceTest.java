@@ -42,8 +42,8 @@ public class UsuariosServiceTest {
 
     //Validar Longitud de Contraseña
     @Test
-    public void testValidarLongitudContraseña() {
-       Assert.assertEquals(false, usuariosServices.validarContraseña("123456"));
+    public void testValidarLongitudContrasena() {
+       Assert.assertEquals(false, usuariosServices.validarContrasena("123456"));
     }
 
     //Validar 

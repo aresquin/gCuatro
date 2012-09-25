@@ -13,5 +13,5 @@ public interface UsuariosServices
     public List<Usuarios> buscarPorNombre(String nombre);
     public Boolean autenticar(String correo,String password);  
     public Boolean validarCorreo(String correo);
-    public Boolean validarContraseña(Usuarios usuarios);
+    public Boolean validarContrasena(String contrasena);
 }

@@ -26,31 +26,32 @@ import org.springframework.stereotype.Service;
         private PlanNegocioDAO plannegocioDao;
     
         @Override
-        public void actualizar(PlanNegocio objPlan) {
-             log.info("Actualizando Plan");
-            plannegocioDao.actualizar(objPlan);
+        public Integer actualizar(PlanNegocio objPlan) {
+             log.info("Actualizando plan");
+            return plannegocioDao.actualizar(objPlan);
         }
 
         @Override
-        public void eliminar(PlanNegocio objPlan) {
-            log.info("Eliminando Plan");
-            plannegocioDao.eliminar(objPlan);
+        public Integer cambiarEstado(PlanNegocio objPlan) {
+            log.info("Cambiando el estado del plan");
+            return plannegocioDao.cambiarEstado(objPlan);
         }
 
         @Override
-        public List<PlanNegocio> buscarPlanNegocio() {
-            log.info("Buscando todos los usuarios");
-            return plannegocioDao.buscarPlanNegocio();
+        public List<PlanNegocio> buscarPlanNegocio(PlanNegocio objPlan) {
+            log.info("Buscando todos los planes");
+            return plannegocioDao.buscarPlanNegocio(objPlan);
         }
 
         @Override
         public PlanNegocio buscarPorId(Integer id) {
-            log.info("Buscar usuario por id");
+            log.info("Buscar plan por id");
             return plannegocioDao.buscarPorId(id);
         }
 
         @Override
         public Integer insertar(PlanNegocio objPlan) {
+            log.info("Registrando un nuevo plan");
              return plannegocioDao.insertar(objPlan);
         }
 }

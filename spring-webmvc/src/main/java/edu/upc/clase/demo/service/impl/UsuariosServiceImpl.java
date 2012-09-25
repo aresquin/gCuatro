@@ -23,8 +23,8 @@ public class UsuariosServiceImpl implements UsuariosServices {
     private UsuariosDao usuariosDao;    
     
         @Override
-        public Boolean validarContraseña(String contraseña){
-            if(contraseña.length() > 8){
+        public Boolean validarContrasena(String contrasena){
+            if(contrasena.length() > 8){
                log.info("Contraseña valida"); }
             else{ 
                 log.info("Ingrese Contraseña Valida");}
