@@ -41,12 +41,12 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
                 + ", nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaTotal  "
                 + ", nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  "
                 + ", nUsuCrea, nPlaFecCrea) "
-                + " values(?, ?, ?)"
+                + " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                 , objPlan.getCPlaTitulo()
                 , objPlan.getnCatID(), objPlan.getCPlaVision(), objPlan.getCPlaRazon(), objPlan.getCPlaTiempo(), objPlan.getNPlaInvTotal()
                 , objPlan.getNPlaNeto(), objPlan.getNPlaROI(), objPlan.getNPlaPreVenta(), objPlan.getNEstID()
                 , objPlan.getNUsuCrea(), objPlan.getNPlaFecCrea() );
-        return getSimpleJdbcTemplate().queryForInt("call identity()");
+        return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
     
     @Override
@@ -111,10 +111,10 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
          /*Obtener la secuencia*/
         PlanNegocio objPlan1;
         objPlan1 = getSimpleJdbcTemplate().queryForObject(
-            "SELECT isnull(max(nAAdjSecuencia)+1,0) FROM Archivo_Adjunto "
-            + " WHERE cAAdjNombre=? and cAAdjExtension=? ", 
+            "SELECT max(ifnull(nAAdjSecuencia,0))+1 FROM Archivo_Adjunto "
+            + " WHERE cAAdjNombre=?", 
             new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), 
-            objPlan.getCAAdjNombre() , objPlan.getCAAdjExtension() );
+            objPlan.getCAAdjNombre() );
         
         return objPlan1.getNAAdjSecuencia();
     }
@@ -129,12 +129,12 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
                 + ", nAAdjSecuencia, cAAdjNombre, cAAdjExtension) values(?, ?, ?, ?)"
                 , objPlan.getNPlaID(), objPlan.getNAAdjSecuencia(), objPlan.getCAAdjNombre()
                 , objPlan.getCAAdjExtension());
-        return getSimpleJdbcTemplate().queryForInt("call identity()");
+        return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
     
     @Override
     public Integer eliminarArchivo(PlanNegocio objPlan) {
-      return getJdbcTemplate().update("DELETE Archivo_Adjunto where nAAdjID =?",
+      return getJdbcTemplate().update("DELETE FROM Archivo_Adjunto where nAAdjID =?",
                objPlan.getNAAdjID() );
     }
     

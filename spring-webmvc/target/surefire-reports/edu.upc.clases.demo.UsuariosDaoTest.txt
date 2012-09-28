@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.clases.demo.UsuariosDaoTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.023 sec <<< FAILURE!
-testInsertarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.008 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.231 sec <<< FAILURE!
+testInsertarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.183 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -68,7 +68,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
 	... 39 more
-testActualizarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.004 sec  <<< ERROR!
+testActualizarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.01 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -134,7 +134,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
 	... 39 more
-testEliminarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.005 sec  <<< ERROR!
+testEliminarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.017 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -200,7 +200,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
 	... 39 more
-testBuscarPorLetras(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.005 sec  <<< ERROR!
+testBuscarPorLetras(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.016 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)

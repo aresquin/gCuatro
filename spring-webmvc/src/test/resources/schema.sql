@@ -91,24 +91,36 @@ CREATE  TABLE Usuario (
   nUsuModi INT NULL ,
   PRIMARY KEY (nUsuID) );
 
+
 CREATE  TABLE Plan_Negocio (
   nPlaID INT NOT NULL AUTO_INCREMENT ,
-  cPlaTitulo VARCHAR(100) NOT NULL ,
-  nCatID INT NOT NULL ,
-  cPlaVision VARCHAR(500) NOT NULL ,
-  cPlaRazon VARCHAR(500) NOT NULL ,
-  cPlaTiempo VARCHAR(30) NOT NULL ,
-  nPlaInvTot DOUBLE NOT NULL ,
-  nPlaNeto DOUBLE NOT NULL ,
-  nPlaROI DOUBLE NOT NULL ,
-  nPlaPreVenta DOUBLE NOT NULL ,
-  cPlaFecValidacion DATE NULL ,
-  nEstID INT NOT NULL ,
-  nPlaFecCrea DATE NOT NULL ,
+  cPlaTitulo VARCHAR(100) NULL ,
+  nCatID INT NULL ,
+  cPlaVision VARCHAR(500) NULL ,
+  cPlaRazon VARCHAR(500) NULL ,
+  cPlaTiempo VARCHAR(30) NULL ,
+  nPlaTotal DOUBLE NULL ,
+  nPlaNeto DOUBLE NULL ,
+  nPlaROI DOUBLE NULL ,
+  nPlaMargen DOUBLE NULL ,
+  nPlaPreVenta DOUBLE NULL ,
+  cPlaFecVal DATETIME NULL, 
+  nEstID INT NULL ,
+  nPlaFecCrea DATETIME NULL ,
   nUsuCrea INT NULL ,
-  cPlaFecModi DATE NULL ,
+  cPlaFecModi DATETIME NULL ,
   nUsuModi INT NULL ,
-  PRIMARY KEY (nPlaID) );
+  PRIMARY KEY (nPlaID));
+
+CREATE  TABLE Archivo_Adjunto (
+  nAAdjID INT NOT NULL AUTO_INCREMENT,
+  nPlaID INT NULL ,
+  nAAdjSecuencia INT NULL ,
+  cAAdjNombre VARCHAR(100) NULL ,
+  cAAdjExtension VARCHAR(100) NULL ,
+  cAAdjFecCrea DATETIME NULL ,
+  nUsuCrea INT NULL ,
+  PRIMARY KEY (nAAdjID) );
 
 CREATE  TABLE Comentario (
   nComID INT NOT NULL AUTO_INCREMENT ,
@@ -137,13 +149,3 @@ CREATE  TABLE Detalle_Compra (
   nDComID INT NOT NULL ,
   nPlaID INT NOT NULL ,
   PRIMARY KEY (nDComID) );
-
-CREATE  TABLE Archivo_Adjunto (
-  nAAdjID INT NOT NULL AUTO_INCREMENT ,
-  nPlaID INT NOT NULL ,
-  nAAdjSecuencia INT NULL ,
-  cAAdjNombre VARCHAR(100) NULL ,
-  cAAdjExtension VARCHAR(100) NULL ,
-  cAAdjFecCrea DATE NULL ,
-  nUsuCrea INT NULL ,
-  PRIMARY KEY (nAAdjID) );

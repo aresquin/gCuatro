@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.clases.demo.CategoriaServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
-debeValidarNombreNulo(edu.upc.clases.demo.CategoriaServiceTest)  Time elapsed: 0.002 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.02 sec <<< FAILURE!
+debeValidarNombreNulo(edu.upc.clases.demo.CategoriaServiceTest)  Time elapsed: 0.016 sec  <<< ERROR!
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'edu.upc.clases.demo.CategoriaServiceTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private edu.upc.clase.demo.service.CategoriaService edu.upc.clases.demo.CategoriaServiceTest.categoriaService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No matching bean of type [edu.upc.clase.demo.service.CategoriaService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:285)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1074)
