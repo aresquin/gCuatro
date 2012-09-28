@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="1" time="0.1" errors="4" skipped="0" tests="5" name="edu.upc.clases.demo.PlanNegocioDaoTest">
+<testsuite failures="1" time="0.077" errors="4" skipped="0" tests="5" name="edu.upc.clases.demo.PlanNegocioDaoTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_05\jre\bin"/>
@@ -60,7 +60,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.06" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testEliminarArchivoAdjunto">
+  <testcase time="0.048" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testEliminarArchivoAdjunto">
     <error message="PreparedStatementCallback; bad SQL grammar [DELETE Archivo_Adjunto where nAAdjID =?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;where nAAdjID =1&apos; at line 1" type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE Archivo_Adjunto where nAAdjID =?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;where nAAdjID =1&apos; at line 1
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -128,7 +128,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have a
 	... 39 more
 </error>
   </testcase>
-  <testcase time="0.01" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testInsertarArchivoAdjunto">
+  <testcase time="0.009" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testInsertarArchivoAdjunto">
     <error message="PreparedStatementCallback; bad SQL grammar [SELECT isnull(max(nAAdjSecuencia)+1,0) FROM Archivo_Adjunto  WHERE cAAdjNombre=? and cAAdjExtension=? ]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect parameter count in the call to native function &apos;isnull&apos;" type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT isnull(max(nAAdjSecuencia)+1,0) FROM Archivo_Adjunto  WHERE cAAdjNombre=? and cAAdjExtension=? ]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect parameter count in the call to native function &apos;isnull&apos;
 	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:94)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -197,7 +197,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect 
 	... 42 more
 </error>
   </testcase>
-  <testcase time="0.01" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testCambiarEstadoPlan">
+  <testcase time="0.011" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testCambiarEstadoPlan">
     <failure message="expected:&lt;false&gt; but was:&lt;Cambio estado satisfactorio&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;false&gt; but was:&lt;Cambio estado satisfactorio&gt;
 	at org.junit.Assert.fail(Assert.java:91)
 	at org.junit.Assert.failNotEquals(Assert.java:645)
@@ -240,7 +240,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect 
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
   </testcase>
-  <testcase time="0.01" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testActualizarPlan">
+  <testcase time="0.005" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testActualizarPlan">
     <error message="PreparedStatementCallback; bad SQL grammar [update Plan_Negocio set cPlaTitulo = ? , nCatID=?, cPlaVision=?, cPlaRazon=?, cPlaTiempo=?, nPlaTotal=?  , nPlaNeto=?, nPlaROI=?, nPlaPreVenta=?, nEstID=?   , nUsuModi=?, cPlaFecModi=? where nPlaID = ?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &apos;nPlaTotal&apos; in &apos;field list&apos;" type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [update Plan_Negocio set cPlaTitulo = ? , nCatID=?, cPlaVision=?, cPlaRazon=?, cPlaTiempo=?, nPlaTotal=?  , nPlaNeto=?, nPlaROI=?, nPlaPreVenta=?, nEstID=?   , nUsuModi=?, cPlaFecModi=? where nPlaID = ?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &apos;nPlaTotal&apos; in &apos;field list&apos;
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -308,7 +308,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	... 39 more
 </error>
   </testcase>
-  <testcase time="0" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testInsertarPlan">
+  <testcase time="0.004" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testInsertarPlan">
     <error message="PreparedStatementCallback; SQL [insert into plan_negocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaTotal  , nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, nPlaFecCrea)  values(?, ?, ?)]; Parameter index out of range (4 &gt; number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 &gt; number of parameters, which is 3)." type="org.springframework.dao.TransientDataAccessResourceException">org.springframework.dao.TransientDataAccessResourceException: PreparedStatementCallback; SQL [insert into plan_negocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaTotal  , nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, nPlaFecCrea)  values(?, ?, ?)]; Parameter index out of range (4 &gt; number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 &gt; number of parameters, which is 3).
 	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:107)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)

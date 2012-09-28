@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.clases.demo.UsuariosServiceTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.03 sec <<< FAILURE!
-testValidarLogin(edu.upc.clases.demo.UsuariosServiceTest)  Time elapsed: 0.01 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.045 sec <<< FAILURE!
+testValidarLogin(edu.upc.clases.demo.UsuariosServiceTest)  Time elapsed: 0.035 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select id, nombre,apepat,apemat, correo,password from usuarios where correo=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
@@ -68,7 +68,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:643)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
 	... 42 more
-testAutenticar(edu.upc.clases.demo.UsuariosServiceTest)  Time elapsed: 0.02 sec  <<< ERROR!
+testAutenticar(edu.upc.clases.demo.UsuariosServiceTest)  Time elapsed: 0.003 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [select id, nombre,apepat,apemat, correo,password from usuarios where correo=?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)

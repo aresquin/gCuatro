@@ -26,7 +26,11 @@ public class CategoriaServiceImpl implements CategoriaService {
     
     @Override
     public Integer insertar(Categoria objCategoria) {
-        return categoriaDao.insertar(objCategoria);
+        if (!"".equals(objCategoria.getNombre())) {
+            log.info("Creando categoria");
+            return categoriaDao.insertar(objCategoria);
+        }
+        return null;
     }
 
     @Override
