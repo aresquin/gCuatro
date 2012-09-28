@@ -1,15 +1,15 @@
 drop table if exists usuarios;
-drop table if exists subcategorias;
-drop table if exists detalle_plnegocio;
-drop table if exists comentarios;
-drop table if exists detalle_compras;
-drop table if exists compras;
-drop table if exists plan_negocio;
-drop table if exists categorias;
-drop table if exists usuarios1;
-drop table if exists tipo_usuario;
-drop table if exists tipo_documento;
-drop table if exists estados;
+drop table if exists Subcategoria;
+drop table if exists Archivo_Adjunto;
+drop table if exists Comentario;
+drop table if exists Detalle_Compra;
+drop table if exists Plan_Negocio;
+drop table if exists Categoria;
+drop table if exists Compra;
+drop table if exists Usuario;
+drop table if exists Perfil;
+drop table if exists Estado;
+drop table if exists Tipo_Documento;
 
 CREATE  TABLE usuarios (
   id INT NOT NULL AUTO_INCREMENT ,
@@ -18,161 +18,162 @@ CREATE  TABLE usuarios (
   password VARCHAR(45) NULL ,
   PRIMARY KEY (id) );
 
-CREATE  TABLE estados (
-  id_estado INT NOT NULL AUTO_INCREMENT,
-  ti_estado VARCHAR(30) NOT NULL ,
-  de_tabla VARCHAR(15) NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_estado) );
+CREATE  TABLE Estado (
+  nEstID INT NOT NULL AUTO_INCREMENT ,
+  cEstNombre VARCHAR(30) NOT NULL ,
+  cEstFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  cEstFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nEstID) );
 
-CREATE  TABLE categorias (
-  id_categoria INT NOT NULL AUTO_INCREMENT,
-  no_categoria VARCHAR(15) NOT NULL ,
-  ru_imagen VARCHAR(50) NULL ,
-  st_categoria INT NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_categoria) ,
-  FOREIGN KEY (st_categoria)
-  REFERENCES estados (id_estado) );
+CREATE  TABLE Categoria (
+  nCatID INT NOT NULL AUTO_INCREMENT ,
+  cCatNombre VARCHAR(30) NOT NULL ,
+  nEstID INT NULL ,
+  sCatRutaImagen VARCHAR(100) NULL ,
+  cCatFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  cCatFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nCatID) ,
+  FOREIGN KEY (nEstID)
+  REFERENCES Estado (nEstID));
 
-CREATE  TABLE subcategorias (
-  id_subcategoria INT NOT NULL AUTO_INCREMENT,
-  no_subcategoria VARCHAR(15) NOT NULL ,
-  id_categoria INT NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_subcategoria),
-  FOREIGN KEY (id_categoria)
-  REFERENCES categorias (id_categoria) );
+CREATE  TABLE Subcategoria (
+  nSCatID INT NOT NULL AUTO_INCREMENT ,
+  cSCatNombre VARCHAR(50) NOT NULL ,
+  nCatID INT NOT NULL ,
+  cSCatFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  cSCatFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nSCatID) ,
+  FOREIGN KEY (nCatID )
+  REFERENCES Categoria (nCatID ));
 
-CREATE  TABLE tipo_usuario (
-  id_ti_usuario INT NOT NULL AUTO_INCREMENT,
-  no_ti_usuario VARCHAR(15) NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_ti_usuario) );
+CREATE  TABLE Perfil (
+  nPerID INT NOT NULL AUTO_INCREMENT ,
+  cPerNombre VARCHAR(50) NOT NULL ,
+  cPerFecCrea DATE NULL ,
+  us_creacion INT NULL ,
+  cPerFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nPerID) );
 
-CREATE  TABLE tipo_documento (
-  id_documento INT NOT NULL AUTO_INCREMENT,
-  ti_documento VARCHAR(25) NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_documento) );
+CREATE  TABLE Tipo_Documento (
+  nTDocID INT NOT NULL AUTO_INCREMENT ,
+  cTDocNombre VARCHAR(25) NOT NULL ,
+  cTDocFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  cTDocFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nTDocID) );
 
-CREATE  TABLE usuarios1 (
-  id_usuario INT NOT NULL AUTO_INCREMENT,
-  no_usuario VARCHAR(25) NOT NULL ,
-  ap_paterno VARCHAR(15) NOT NULL ,
-  ap_materno VARCHAR(15) NOT NULL ,
-  us_sexo BOOLEAN NOT NULL ,
-  id_documento INT NOT NULL ,
-  nu_documento VARCHAR(15) NOT NULL ,
-  us_email VARCHAR(30) NOT NULL ,
-  us_telefono VARCHAR(9) NOT NULL ,
-  us_direccion VARCHAR(60) NOT NULL ,
-  fe_nacimiento DATE NOT NULL ,
-  us_clave VARCHAR(10) NOT NULL ,
-  id_ti_usuario INT NOT NULL ,
-  sa_apelativo VARCHAR(30) NULL ,
-  re_autobiografico VARCHAR(500) NULL ,
-  si_web VARCHAR(30) NULL ,
-  nu_cuenta INT NULL ,
-  st_usuario INT NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_usuario) ,
-  FOREIGN KEY (id_documento)
-  REFERENCES tipo_documento (id_documento) ,
-  FOREIGN KEY (id_ti_usuario) 
-  REFERENCES tipo_usuario (id_ti_usuario) ,
-  FOREIGN KEY (st_usuario) 
-  REFERENCES estados (id_estado) );
+CREATE  TABLE Usuario (
+  nUsuID INT NOT NULL AUTO_INCREMENT ,
+  cUsuNombre VARCHAR(25) NOT NULL ,
+  cUsuApePat VARCHAR(30) NOT NULL ,
+  cUsuApeMat VARCHAR(30) NOT NULL ,
+  cUsuSexi VARCHAR(2) NOT NULL ,
+  nTDocID INT NOT NULL ,
+  cUsuNumDocumento VARCHAR(30) NOT NULL ,
+  cUsuEmail VARCHAR(30) NOT NULL ,
+  cUsuTelefono VARCHAR(9) NOT NULL ,
+  cUsuDireccion VARCHAR(60) NOT NULL ,
+  cUsuFecNacimiento DATE NOT NULL ,
+  cUsuClave VARCHAR(10) NOT NULL ,
+  nPerID INT NOT NULL ,
+  cUsuApelativo VARCHAR(30) NULL ,
+  cUsuRegAutografico VARCHAR(500) NULL ,
+  cUsuSitWeb VARCHAR(30) NULL ,
+  cUsuNumCuenta VARCHAR(50) NULL ,
+  nEstID INT NULL ,
+  cUsuFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  cUsuFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nUsuID) ,
+  FOREIGN KEY (nPerID )
+  REFERENCES Perfil (nPerID ) ,
+  FOREIGN KEY (nTDocID )
+  REFERENCES Tipo_Documento (nTDocID ) ,
+  FOREIGN KEY (nEstID )
+  REFERENCES Estado (nEstID ));
 
-CREATE  TABLE plan_negocio (
-  id_pl_negocio INT NOT NULL AUTO_INCREMENT,
-  ti_pl_negocio VARCHAR(30) NOT NULL ,
-  id_categoria INT NOT NULL ,
-  vi_negocio VARCHAR(500) NOT NULL ,
-  ra_propuesta VARCHAR(500) NOT NULL ,
-  ti_ejecucion VARCHAR(30) NOT NULL ,
-  in_total DOUBLE NOT NULL ,
-  ma_neto DOUBLE NOT NULL ,
-  pl_roi DOUBLE NOT NULL ,
-  pr_venta DOUBLE NOT NULL ,
-  st_pl_negocio INT NOT NULL ,
-  id_usuario INT NOT NULL ,
-  co_pl_negocio VARCHAR(500) NULL ,
-  fe_validacion DATE NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_pl_negocio) ,
-  FOREIGN KEY (id_categoria)
-  REFERENCES categorias (id_categoria) ,
-  FOREIGN KEY (st_pl_negocio) 
-  REFERENCES estados (id_estado) ,
-  FOREIGN KEY (id_usuario) 
-  REFERENCES usuarios1 (id_usuario) );
+CREATE  TABLE Plan_Negocio (
+  nPlaID INT NOT NULL AUTO_INCREMENT ,
+  cPlaTitulo VARCHAR(100) NOT NULL ,
+  nCatID INT NOT NULL ,
+  cPlaVision VARCHAR(500) NOT NULL ,
+  cPlaRazon VARCHAR(500) NOT NULL ,
+  cPlaTiempo VARCHAR(30) NOT NULL ,
+  nPlaInvTot DOUBLE NOT NULL ,
+  nPlaNeto DOUBLE NOT NULL ,
+  nPlaROI DOUBLE NOT NULL ,
+  nPlaPreVenta DOUBLE NOT NULL ,
+  cPlaFecValidacion DATE NULL ,
+  nEstID INT NOT NULL ,
+  nPlaFecCrea DATE NOT NULL ,
+  nUsuCrea INT NULL ,
+  cPlaFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nPlaID) ,
+  FOREIGN KEY (nCatID)
+  REFERENCES Categoria (nCatID),
+  FOREIGN KEY (nUsuCrea)
+  REFERENCES Usuario (nUsuID),
+  FOREIGN KEY (nEstID )
+  REFERENCES Estado (nEstID) );
 
-CREATE  TABLE detalle_plnegocio (
-  id_det_plnegocio INT NOT NULL AUTO_INCREMENT,
-  id_pl_negocio INT NOT NULL ,
-  do_pl_negocio BLOB NOT NULL ,
-  PRIMARY KEY (id_det_plnegocio) ,
-  FOREIGN KEY (id_pl_negocio)
-  REFERENCES plan_negocio (id_pl_negocio) );
-  
-CREATE  TABLE comentarios (
-  id_comentario INT NOT NULL AUTO_INCREMENT,
-  de_comentario VARCHAR(500) NOT NULL ,
-  id_pl_negocio INT NOT NULL ,
-  id_usuario INT NOT NULL ,
-  fe_registro DATE NOT NULL ,
-  PRIMARY KEY (id_comentario) ,
-  FOREIGN KEY (id_pl_negocio)
-  REFERENCES plan_negocio (id_pl_negocio) ,
-  FOREIGN KEY (id_usuario)
-  REFERENCES usuarios1 (id_usuario) );
+CREATE  TABLE Comentario (
+  nComID INT NOT NULL AUTO_INCREMENT ,
+  cComDescripcion VARCHAR(500) NOT NULL ,
+  nPlaID INT NOT NULL ,
+  nUsuID INT NOT NULL ,
+  cComFecCrea DATE NOT NULL ,
+  PRIMARY KEY (nComID) ,
+  FOREIGN KEY (nPlaID )
+  REFERENCES Plan_Negocio (nPlaID ) ,
+  FOREIGN KEY (nUsuID )
+  REFERENCES Usuario (nUsuID ) );
 
-CREATE  TABLE compras (
-  id_compra INT NOT NULL AUTO_INCREMENT,
-  nu_tarjeta VARCHAR(14) NOT NULL ,
-  fe_caducidad DATE NOT NULL ,
+CREATE  TABLE Compra (
+  nComID INT NOT NULL AUTO_INCREMENT ,
+  cComNumero VARCHAR(14) NOT NULL ,
+  cComFecCaducidad DATE NOT NULL ,
   co_verificacion VARCHAR(9) NOT NULL ,
-  di_facturacion VARCHAR (50) NOT NULL ,
-  id_usuario INT NOT NULL ,
-  st_compra INT NOT NULL ,
-  fe_creacion DATE NULL ,
-  us_creacion VARCHAR(30) NULL ,
-  fe_modificacion DATE NULL ,
-  us_modificacion VARCHAR(30) NULL ,
-  PRIMARY KEY (id_compra) ,
-  FOREIGN KEY (st_compra)
-  REFERENCES estados (id_estado) ,
-  FOREIGN KEY (id_usuario)
-  REFERENCES usuarios1 (id_usuario) );
+  di_facturacion VARCHAR(50) NOT NULL ,
+  nUsuID INT NOT NULL ,
+  nEstID INT NOT NULL ,
+  cComFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  cComFecModi DATE NULL ,
+  nUsuModi INT NULL ,
+  PRIMARY KEY (nComID) ,
+  FOREIGN KEY (nUsuID )
+  REFERENCES Usuario (nUsuID ) ,
+  FOREIGN KEY (nEstID )
+  REFERENCES Estado (nEstID ) );
 
-CREATE  TABLE detalle_compras (
-  id_det_compra INT NOT NULL ,
-  id_compra INT NOT NULL ,
-  id_pl_negocio INT NOT NULL ,
-  PRIMARY KEY (id_det_compra) ,
-  FOREIGN KEY (id_compra)
-  REFERENCES compras (id_compra) ,
-  FOREIGN KEY (id_pl_negocio)
-  REFERENCES plan_negocio (id_pl_negocio) );
+CREATE  TABLE Detalle_Compra (
+  nComID INT NOT NULL ,
+  nDComID INT NOT NULL ,
+  nPlaID INT NOT NULL ,
+  PRIMARY KEY (nDComID) ,
+  FOREIGN KEY (nComID )
+  REFERENCES Compra (nComID ) ,
+  FOREIGN KEY (nPlaID )
+  REFERENCES Plan_Negocio (nPlaID ) );
+
+CREATE  TABLE Archivo_Adjunto (
+  nAAdjID INT NOT NULL AUTO_INCREMENT ,
+  nPlaID INT NOT NULL ,
+  nAAdjSecuencia INT NULL ,
+  cAAdjNombre VARCHAR(100) NULL ,
+  cAAdjExtension VARCHAR(100) NULL ,
+  cAAdjFecCrea DATE NULL ,
+  nUsuCrea INT NULL ,
+  PRIMARY KEY (nAAdjID) ,
+  FOREIGN KEY (nPlaID )
+  REFERENCES Plan_Negocio (nPlaID ) );

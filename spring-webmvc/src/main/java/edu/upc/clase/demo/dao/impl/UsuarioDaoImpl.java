@@ -35,7 +35,7 @@ public class UsuarioDaoImpl extends SimpleJdbcDaoSupport implements UsuarioDao {
         getJdbcTemplate().update(
                 "insert into usuarios (nombre,correo,password) values (?, ?, ?)",
                 usuario.getNombre(), usuario.getCorreo(), usuario.getPassword());
-        return getSimpleJdbcTemplate().queryForInt("call identity()");
+        return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
 
     @Override

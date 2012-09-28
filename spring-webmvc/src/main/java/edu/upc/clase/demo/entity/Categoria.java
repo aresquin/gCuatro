@@ -18,19 +18,22 @@ public class Categoria implements Serializable {
     private String nombre;
     private String ruta;
     private Integer estado;
-    private Date fe_crea;
-    private String us_crea;
-    private Date fe_modi;
-    private String us_modi;
+    private Date fecha;
+    private Integer usuario;
 
-    public Categoria (String nombre, String ruta, Integer estado, Date fe_crea, String us_crea) {
+    public Categoria (String nombre, String ruta, Integer estado, Integer usuario) {
         this.nombre = nombre;
         this.ruta = ruta;
         this.estado = estado;
-        this.fe_crea = fe_crea;
-        this.us_crea = us_crea;
+        this.usuario = usuario;
     }
     
+    public Categoria (Integer id, String nombre, String ruta) {
+        this.id = id;
+        this.nombre = nombre;
+        this.ruta = ruta;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -63,35 +66,19 @@ public class Categoria implements Serializable {
         this.estado = estado;
     }
 
-    public Date getFe_crea() {
-        return fe_crea;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setFe_crea(Date fe_crea) {
-        this.fe_crea = fe_crea;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
-    public String getUs_crea() {
-        return us_crea;
+    public Integer getUsuario() {
+        return usuario;
     }
 
-    public void setUs_crea(String us_crea) {
-        this.us_crea = us_crea;
-    }
-
-    public Date getFe_modi() {
-        return fe_modi;
-    }
-
-    public void setFe_modi(Date fe_modi) {
-        this.fe_modi = fe_modi;
-    }
-
-    public String getUs_modi() {
-        return us_modi;
-    }
-
-    public void setUs_modi(String us_modi) {
-        this.us_modi = us_modi;
+    public void setUsuario(Integer usuario) {
+        this.usuario = usuario;
     }
 }

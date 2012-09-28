@@ -18,7 +18,7 @@ import org.springframework.stereotype.Controller;
 public class CategoriaController {
     
     @Autowired
-    private CategoriaService categoriaService;
+    //private CategoriaService categoriaService;
     private static Logger log = LoggerFactory.getLogger(CategoriaController.class);
     
     

@@ -6,10 +6,7 @@ package edu.upc.clases.demo;
 
 import edu.upc.clase.demo.dao.CategoriaDao;
 import edu.upc.clase.demo.entity.Categoria;
-import edu.upc.clase.demo.entity.ConvertirAFecha;
-import java.util.Date;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,13 +27,39 @@ public class CategoriaDaoTest {
     
     @Autowired
     CategoriaDao categoriaDao;
-    ConvertirAFecha convertirAFecha;
-    Date fecha =new Date();
+    
     @Test
     public void debeInsertarCategoria() {
-        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, fecha, "jp_yabiku@hotmail.com");
+        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
         Integer id = categoriaDao.insertar(categoria);
         Assert.assertNotNull(id);
     }
+
+    //@Test
+    public void debeActualizarCategoria () {
+        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
+        Integer id = categoriaDao.insertar(categoria);
+        categoria = categoriaDao.buscarPorId(id);
+        categoria.setNombre("Orfebreria");
+        categoriaDao.actualizar(categoria);
+        Assert.assertEquals("Orfebreria", categoria.getNombre());
+    }
     
+    //@Test
+    public void debeEliminarCategoria () {
+        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
+        Integer id = categoriaDao.insertar(categoria);
+        categoria = categoriaDao.buscarPorId(id);
+        categoriaDao.eliminar(categoria);
+        categoria = categoriaDao.buscarPorId(id);
+        Assert.assertNull(categoria);
+    }
+    
+    @Test
+    public void debeBuscarPorID() {
+        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
+        Integer id = categoriaDao.insertar(categoria);
+        categoria = categoriaDao.buscarPorId(-1);
+        Assert.assertNull(categoria);
+    }
 }
