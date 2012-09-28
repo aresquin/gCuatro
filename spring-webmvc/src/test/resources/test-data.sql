@@ -26,8 +26,6 @@ values ('Organica',1,SYSDATE(),1);
 insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea)
 values ('Tradicional',1,SYSDATE(),1);
 insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea)
-values ('Industrial',1,SYSDATE(),1);
-insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea)
 values ('Ovino',2,SYSDATE(),1);
 insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea)
 values ('Vacuno',2,SYSDATE(),1);

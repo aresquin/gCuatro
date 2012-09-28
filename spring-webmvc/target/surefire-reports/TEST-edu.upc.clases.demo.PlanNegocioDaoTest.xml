@@ -1,17 +1,75 @@
--------------------------------------------------------------------------------
-Test set: edu.upc.clases.demo.UsuariosDaoTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.02 sec <<< FAILURE!
-testInsertarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.01 sec  <<< ERROR!
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="1" time="0.1" errors="4" skipped="0" tests="5" name="edu.upc.clases.demo.PlanNegocioDaoTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_05\jre\bin"/>
+    <property name="java.vm.version" value="23.1-b03"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="PE"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\JPYK\DEW\gCuatro\spring-webmvc"/>
+    <property name="java.runtime.version" value="1.7.0_05-b06"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_05\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Megu\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans 7.2\java\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_05\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\DMIX;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\WinMerge;C:\PROGRA~2\ULTRAE~1;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="D:"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="Megu"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans 7.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.7.0_05\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="es"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_05"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_05\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.7.0_05\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_05\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_05\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_05\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_05\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_05\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_05\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_05\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans 7.2\java\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase time="0.06" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testEliminarArchivoAdjunto">
+    <error message="PreparedStatementCallback; bad SQL grammar [DELETE Archivo_Adjunto where nAAdjID =?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;where nAAdjID =1&apos; at line 1" type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE Archivo_Adjunto where nAAdjID =?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;where nAAdjID =1&apos; at line 1
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:602)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:811)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:867)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:875)
-	at edu.upc.clase.demo.dao.impl.UsuariosDaoImpl.insertar(UsuariosDaoImpl.java:36)
-	at edu.upc.clases.demo.UsuariosDaoTest.testInsertarUsuario(UsuariosDaoTest.java:32)
+	at edu.upc.clase.demo.dao.impl.PlanNegocioImpl.eliminarArchivo(PlanNegocioImpl.java:137)
+	at edu.upc.clases.demo.PlanNegocioDaoTest.testEliminarArchivoAdjunto(PlanNegocioDaoTest.java:118)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -46,7 +104,7 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;where nAAdjID =1&apos; at line 1
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -68,16 +126,22 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
 	... 39 more
-testActualizarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0 sec  <<< ERROR!
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
+</error>
+  </testcase>
+  <testcase time="0.01" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testInsertarArchivoAdjunto">
+    <error message="PreparedStatementCallback; bad SQL grammar [SELECT isnull(max(nAAdjSecuencia)+1,0) FROM Archivo_Adjunto  WHERE cAAdjNombre=? and cAAdjExtension=? ]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect parameter count in the call to native function &apos;isnull&apos;" type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [SELECT isnull(max(nAAdjSecuencia)+1,0) FROM Archivo_Adjunto  WHERE cAAdjNombre=? and cAAdjExtension=? ]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect parameter count in the call to native function &apos;isnull&apos;
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:94)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:80)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:602)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:811)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:867)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:875)
-	at edu.upc.clase.demo.dao.impl.UsuariosDaoImpl.insertar(UsuariosDaoImpl.java:36)
-	at edu.upc.clases.demo.UsuariosDaoTest.testActualizarUsuario(UsuariosDaoTest.java:40)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:636)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:665)
+	at org.springframework.jdbc.core.JdbcTemplate.query(JdbcTemplate.java:673)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForObject(JdbcTemplate.java:728)
+	at org.springframework.jdbc.core.simple.SimpleJdbcTemplate.queryForObject(SimpleJdbcTemplate.java:169)
+	at edu.upc.clase.demo.dao.impl.PlanNegocioImpl.obtenerSecuencia(PlanNegocioImpl.java:113)
+	at edu.upc.clase.demo.dao.impl.PlanNegocioImpl.insertarArchivo(PlanNegocioImpl.java:127)
+	at edu.upc.clases.demo.PlanNegocioDaoTest.testInsertarArchivoAdjunto(PlanNegocioDaoTest.java:108)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -112,7 +176,7 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Incorrect parameter count in the call to native function &apos;isnull&apos;
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -126,24 +190,20 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2140)
 	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2626)
 	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2111)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2407)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2325)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2310)
-	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:102)
-	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:817)
-	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2273)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:93)
+	at org.springframework.jdbc.core.JdbcTemplate$1.doInPreparedStatement(JdbcTemplate.java:643)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
-	... 39 more
-testEliminarUsuario(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0.01 sec  <<< ERROR!
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:602)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:811)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:867)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:875)
-	at edu.upc.clase.demo.dao.impl.UsuariosDaoImpl.insertar(UsuariosDaoImpl.java:36)
-	at edu.upc.clases.demo.UsuariosDaoTest.testEliminarUsuario(UsuariosDaoTest.java:51)
+	... 42 more
+</error>
+  </testcase>
+  <testcase time="0.01" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testCambiarEstadoPlan">
+    <failure message="expected:&lt;false&gt; but was:&lt;Cambio estado satisfactorio&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;false&gt; but was:&lt;Cambio estado satisfactorio&gt;
+	at org.junit.Assert.fail(Assert.java:91)
+	at org.junit.Assert.failNotEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:126)
+	at org.junit.Assert.assertEquals(Assert.java:145)
+	at edu.upc.clases.demo.PlanNegocioDaoTest.testCambiarEstadoPlan(PlanNegocioDaoTest.java:94)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -178,38 +238,18 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
-	at com.mysql.jdbc.Util.handleNewInstance(Util.java:407)
-	at com.mysql.jdbc.Util.getInstance(Util.java:382)
-	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3593)
-	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3525)
-	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1986)
-	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2140)
-	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2626)
-	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2111)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2407)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2325)
-	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2310)
-	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:102)
-	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:817)
-	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
-	... 39 more
-testBuscarPorLetras(edu.upc.clases.demo.UsuariosDaoTest)  Time elapsed: 0 sec  <<< ERROR!
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
+</failure>
+  </testcase>
+  <testcase time="0.01" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testActualizarPlan">
+    <error message="PreparedStatementCallback; bad SQL grammar [update Plan_Negocio set cPlaTitulo = ? , nCatID=?, cPlaVision=?, cPlaRazon=?, cPlaTiempo=?, nPlaTotal=?  , nPlaNeto=?, nPlaROI=?, nPlaPreVenta=?, nEstID=?   , nUsuModi=?, cPlaFecModi=? where nPlaID = ?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &apos;nPlaTotal&apos; in &apos;field list&apos;" type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [update Plan_Negocio set cPlaTitulo = ? , nCatID=?, cPlaVision=?, cPlaRazon=?, cPlaTiempo=?, nPlaTotal=?  , nPlaNeto=?, nPlaROI=?, nPlaPreVenta=?, nEstID=?   , nUsuModi=?, cPlaFecModi=? where nPlaID = ?]; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &apos;nPlaTotal&apos; in &apos;field list&apos;
 	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:233)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:602)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:811)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:867)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:875)
-	at edu.upc.clase.demo.dao.impl.UsuariosDaoImpl.insertar(UsuariosDaoImpl.java:36)
-	at edu.upc.clases.demo.UsuariosDaoTest.testBuscarPorLetras(UsuariosDaoTest.java:61)
+	at edu.upc.clase.demo.dao.impl.PlanNegocioImpl.actualizar(PlanNegocioImpl.java:54)
+	at edu.upc.clases.demo.PlanNegocioDaoTest.testActualizarPlan(PlanNegocioDaoTest.java:80)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -244,7 +284,7 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'apepat' in 'field list'
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &apos;nPlaTotal&apos; in &apos;field list&apos;
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -266,3 +306,72 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown co
 	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
 	... 39 more
+</error>
+  </testcase>
+  <testcase time="0" classname="edu.upc.clases.demo.PlanNegocioDaoTest" name="testInsertarPlan">
+    <error message="PreparedStatementCallback; SQL [insert into plan_negocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaTotal  , nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, nPlaFecCrea)  values(?, ?, ?)]; Parameter index out of range (4 &gt; number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 &gt; number of parameters, which is 3)." type="org.springframework.dao.TransientDataAccessResourceException">org.springframework.dao.TransientDataAccessResourceException: PreparedStatementCallback; SQL [insert into plan_negocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaTotal  , nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, nPlaFecCrea)  values(?, ?, ?)]; Parameter index out of range (4 &gt; number of parameters, which is 3).; nested exception is java.sql.SQLException: Parameter index out of range (4 &gt; number of parameters, which is 3).
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:80)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:80)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:602)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:811)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:867)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:875)
+	at edu.upc.clase.demo.dao.impl.PlanNegocioImpl.insertar(PlanNegocioImpl.java:40)
+	at edu.upc.clases.demo.PlanNegocioDaoTest.testInsertarPlan(PlanNegocioDaoTest.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:49)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: java.sql.SQLException: Parameter index out of range (4 &gt; number of parameters, which is 3).
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:927)
+	at com.mysql.jdbc.PreparedStatement.checkBounds(PreparedStatement.java:3709)
+	at com.mysql.jdbc.PreparedStatement.setInternal(PreparedStatement.java:3693)
+	at com.mysql.jdbc.PreparedStatement.setString(PreparedStatement.java:4544)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.setString(DelegatingPreparedStatement.java:132)
+	at org.springframework.jdbc.core.StatementCreatorUtils.setValue(StatementCreatorUtils.java:340)
+	at org.springframework.jdbc.core.StatementCreatorUtils.setParameterValueInternal(StatementCreatorUtils.java:216)
+	at org.springframework.jdbc.core.StatementCreatorUtils.setParameterValue(StatementCreatorUtils.java:144)
+	at org.springframework.jdbc.core.ArgPreparedStatementSetter.doSetValue(ArgPreparedStatementSetter.java:65)
+	at org.springframework.jdbc.core.ArgPreparedStatementSetter.setValues(ArgPreparedStatementSetter.java:46)
+	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:815)
+	at org.springframework.jdbc.core.JdbcTemplate$2.doInPreparedStatement(JdbcTemplate.java:1)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:586)
+	... 39 more
+</error>
+  </testcase>
+</testsuite>

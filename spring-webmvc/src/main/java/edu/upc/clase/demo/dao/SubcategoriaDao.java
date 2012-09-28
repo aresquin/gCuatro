@@ -4,10 +4,17 @@
  */
 package edu.upc.clase.demo.dao;
 
+import edu.upc.clase.demo.entity.Subcategoria;
+import java.util.List;
+
 /**
  *
- * @author Megu
+ * @author Juan Yabiku
  */
-public class SubcategoriaDao {
-    
+public interface SubcategoriaDao {
+    public Integer insertar (Subcategoria objSubcategoria);
+    public void actualizar (Subcategoria objSubcategoria);
+    public void eliminar (Subcategoria objCategoria);
+    public List<Subcategoria> buscarSubCategoria();
+    public Subcategoria buscarPorId(Integer id);
 }
