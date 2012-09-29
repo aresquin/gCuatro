@@ -14,11 +14,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Juan Yabiku
  */
+@Service
 public class SubcategoriaServiceImpl implements SubcategoriaService {
     private static Logger log= LoggerFactory.getLogger(CategoriaDaoImpl.class);
     
@@ -27,30 +29,37 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
             
     @Override
     public Integer insertar (Subcategoria objSubcategoria) {
-        return subCategoriaDao.insertar(objSubcategoria);
+        if (!"".equals(objSubcategoria.getcSCatNombre())) {
+            if (objSubcategoria.getnCatID() > 0) {
+                log.info("Creando subcategoria");
+                return subCategoriaDao.insertar(objSubcategoria);
+            }
+            return null;
+        }
+        return null;
     }
     
     @Override
     public void actualizar(Subcategoria objSubcategoria) {
-         log.info("Actualizando categoria");
+         log.info("Actualizando subcategoria");
          subCategoriaDao.actualizar(objSubcategoria); 
     }
 
     @Override
     public void eliminar(Subcategoria objSubcategoria) {
-        log.info("Eliminando categoria");
+        log.info("Eliminando subcategoria");
         subCategoriaDao.eliminar(objSubcategoria);
     }
 
     @Override
     public List<Subcategoria> buscarSubCategoria() {
-        log.info("Buscando todas las categorias");
+        log.info("Buscando todas las subcategoria");
         return subCategoriaDao.buscarSubCategoria();
     }
 
     @Override
     public Subcategoria buscarPorId(Integer id) {
-        log.info("Buscando categoria por ID");
+        log.info("Buscando subcategoria por ID");
         return subCategoriaDao.buscarPorId(id);
     }
 }

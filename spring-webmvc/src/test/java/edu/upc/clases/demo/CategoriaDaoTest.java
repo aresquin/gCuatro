@@ -30,36 +30,32 @@ public class CategoriaDaoTest {
     
     @Test
     public void debeInsertarCategoria() {
-        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
+        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1);
         Integer id = categoriaDao.insertar(categoria);
         Assert.assertNotNull(id);
     }
 
-    //@Test
+    @Test
     public void debeActualizarCategoria () {
-        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
+        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1);
         Integer id = categoriaDao.insertar(categoria);
         categoria = categoriaDao.buscarPorId(id);
-        categoria.setNombre("Orfebreria");
+        categoria.setcCatNombre("Orfebreria");
         categoriaDao.actualizar(categoria);
-        Assert.assertEquals("Orfebreria", categoria.getNombre());
+        Assert.assertEquals("Orfebreria", categoria.getcCatNombre());
     }
     
-    //@Test
+    @Test
     public void debeEliminarCategoria () {
-        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
-        Integer id = categoriaDao.insertar(categoria);
-        categoria = categoriaDao.buscarPorId(id);
+        Categoria categoria = new Categoria(1,5);
         categoriaDao.eliminar(categoria);
-        categoria = categoriaDao.buscarPorId(id);
+        categoria = categoriaDao.buscarPorId(5);
         Assert.assertNull(categoria);
     }
     
     @Test
     public void debeBuscarPorID() {
-        Categoria categoria = new Categoria("Madedera", "../image/madedera.jpg", 1, 1);
-        Integer id = categoriaDao.insertar(categoria);
-        categoria = categoriaDao.buscarPorId(-1);
-        Assert.assertNull(categoria);
+        Categoria categoria = categoriaDao.buscarPorId(4);
+        Assert.assertEquals("Pesca",categoria.getcCatNombre());
     }
 }

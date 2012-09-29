@@ -32,7 +32,7 @@ public class CategoriaServiceTest {
     
     @Test
     public void debeValidarNombreNulo () {
-        Categoria categoria = new Categoria("", "", 1, 1);
+        Categoria categoria = new Categoria("", "", 1);
         Integer id = categoriaService.insertar(categoria);
         Assert.assertNull(id);
     }

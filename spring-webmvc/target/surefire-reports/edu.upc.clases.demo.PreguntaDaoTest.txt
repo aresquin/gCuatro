@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.clases.demo.PreguntaDaoTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE!
-testEnviarPregunta(edu.upc.clases.demo.PreguntaDaoTest)  Time elapsed: 0.009 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.005 sec <<< FAILURE!
+testEnviarPregunta(edu.upc.clases.demo.PreguntaDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'edu.upc.clases.demo.PreguntaDaoTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: edu.upc.clase.demo.dao.PreguntaDao edu.upc.clases.demo.PreguntaDaoTest.preguntaDao; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No matching bean of type [edu.upc.clase.demo.dao.PreguntaDao] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:285)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1074)
@@ -48,7 +48,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No m
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:703)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:474)
 	... 34 more
-testEliminarPregunta(edu.upc.clases.demo.PreguntaDaoTest)  Time elapsed: 0.004 sec  <<< ERROR!
+testEliminarPregunta(edu.upc.clases.demo.PreguntaDaoTest)  Time elapsed: 0.001 sec  <<< ERROR!
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'edu.upc.clases.demo.PreguntaDaoTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: edu.upc.clase.demo.dao.PreguntaDao edu.upc.clases.demo.PreguntaDaoTest.preguntaDao; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No matching bean of type [edu.upc.clase.demo.dao.PreguntaDao] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:285)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1074)

@@ -12,11 +12,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Juan Yabiku
  */
+
+@Service
 public class CategoriaServiceImpl implements CategoriaService {
 
     private static Logger log = LoggerFactory.getLogger(CategoriaDaoImpl.class);
@@ -26,7 +29,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     
     @Override
     public Integer insertar(Categoria objCategoria) {
-        if (!"".equals(objCategoria.getNombre())) {
+        if (!"".equals(objCategoria.getcCatNombre())) {
             log.info("Creando categoria");
             return categoriaDao.insertar(objCategoria);
         }

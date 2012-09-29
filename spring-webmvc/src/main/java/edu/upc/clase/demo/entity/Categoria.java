@@ -14,71 +14,90 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Categoria implements Serializable {
-    private Integer id;
-    private String nombre;
-    private String ruta;
-    private Integer estado;
-    private Date fecha;
-    private Integer usuario;
+    private Integer nCatID;
+    private String cCatNombre;
+    private String sCatRutaImagen;
+    private Integer nEstID;
+    private Date cCatFecCrea;
+    private Integer nUsuCrea;
+    private Date cCatFecModi;
+    private Integer nUsuModi;
 
-    public Categoria (String nombre, String ruta, Integer estado, Integer usuario) {
-        this.nombre = nombre;
-        this.ruta = ruta;
-        this.estado = estado;
-        this.usuario = usuario;
+    public Categoria() {
     }
     
-    public Categoria (Integer id, String nombre, String ruta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.ruta = ruta;
+    public Categoria(String cCatNombre, String sCatRutaImagen, Integer nUsuCrea) {
+        this.cCatNombre = cCatNombre;
+        this.sCatRutaImagen = sCatRutaImagen;
+        this.nUsuCrea = nUsuCrea;
+    }
+    
+    public Categoria(Integer nUsuModi, Integer nCatID) {
+        this.nUsuModi = nUsuModi;
+        this.nCatID = nCatID;
+    }
+    
+    public Integer getnCatID() {
+        return nCatID;
     }
 
-    public Integer getId() {
-        return id;
+    public void setnCatID(Integer nCatID) {
+        this.nCatID = nCatID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getcCatNombre() {
+        return cCatNombre;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setcCatNombre(String cCatNombre) {
+        this.cCatNombre = cCatNombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getsCatRutaImagen() {
+        return sCatRutaImagen;
     }
 
-    public String getRuta() {
-        return ruta;
+    public void setsCatRutaImagen(String sCatRutaImagen) {
+        this.sCatRutaImagen = sCatRutaImagen;
     }
 
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
+    public Integer getnEstID() {
+        return nEstID;
     }
 
-    public Integer getEstado() {
-        return estado;
+    public void setnEstID(Integer nEstID) {
+        this.nEstID = nEstID;
     }
 
-    public void setEstado(Integer estado) {
-        this.estado = estado;
+    public Date getcCatFecCrea() {
+        return cCatFecCrea;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public void setcCatFecCrea(Date cCatFecCrea) {
+        this.cCatFecCrea = cCatFecCrea;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public Integer getnUsuCrea() {
+        return nUsuCrea;
     }
 
-    public Integer getUsuario() {
-        return usuario;
+    public void setnUsuCrea(Integer nUsuCrea) {
+        this.nUsuCrea = nUsuCrea;
     }
 
-    public void setUsuario(Integer usuario) {
-        this.usuario = usuario;
+    public Date getcCatFecModi() {
+        return cCatFecModi;
+    }
+
+    public void setcCatFecModi(Date cCatFecModi) {
+        this.cCatFecModi = cCatFecModi;
+    }
+
+    public Integer getnUsuModi() {
+        return nUsuModi;
+    }
+
+    public void setnUsuModi(Integer nUsuModi) {
+        this.nUsuModi = nUsuModi;
     }
 }

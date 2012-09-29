@@ -14,55 +14,62 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Subcategoria implements Serializable {
-    private Integer id;
-    private String nombre;
-    private Integer categoria;
-    private Date fecha;
-    private Integer usuario;
+    private Integer nSCatID;
+    private String cSCatNombre;
+    private Integer nCatID;
+    private Date cSCatFecCrea;
+    private Integer nUsuCrea;
 
-    public Subcategoria (String nombre, Integer categoria, Integer usuario) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.usuario = usuario;
+    public Subcategoria () {
     }
     
-    public Integer getId() {
-        return id;
+    public Subcategoria (String cSCatNombre, Integer nCatID, Integer nUsuCrea) {
+        this.cSCatNombre = cSCatNombre;
+        this.nCatID = nCatID;
+        this.nUsuCrea = nUsuCrea;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Subcategoria (Integer nSCatID) {
+        this.nSCatID = nSCatID;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Integer getnSCatID() {
+        return nSCatID;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setnSCatID(Integer nSCatID) {
+        this.nSCatID = nSCatID;
     }
 
-    public Integer getCategoria() {
-        return categoria;
+    public String getcSCatNombre() {
+        return cSCatNombre;
     }
 
-    public void setCategoria(Integer categoria) {
-        this.categoria = categoria;
+    public void setcSCatNombre(String cSCatNombre) {
+        this.cSCatNombre = cSCatNombre;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Integer getnCatID() {
+        return nCatID;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setnCatID(Integer nCatID) {
+        this.nCatID = nCatID;
     }
 
-    public Integer getUsuario() {
-        return usuario;
+    public Date getcSCatFecCrea() {
+        return cSCatFecCrea;
     }
 
-    public void setUsuario(Integer usuario) {
-        this.usuario = usuario;
+    public void setcSCatFecCrea(Date cSCatFecCrea) {
+        this.cSCatFecCrea = cSCatFecCrea;
+    }
+
+    public Integer getnUsuCrea() {
+        return nUsuCrea;
+    }
+
+    public void setnUsuCrea(Integer nUsuCrea) {
+        this.nUsuCrea = nUsuCrea;
     }
 }

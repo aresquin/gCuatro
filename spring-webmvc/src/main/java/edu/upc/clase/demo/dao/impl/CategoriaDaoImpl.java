@@ -34,22 +34,22 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
     @Override
     public Integer insertar(Categoria objCategoria) {
         getJdbcTemplate().update("insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)"
-                + " values (?, ?, ?, SYSDATE(), ?)", objCategoria.getNombre(), objCategoria.getRuta(), objCategoria.getEstado(), 
-                objCategoria.getUsuario());
+                + " values (?, ?, 1, SYSDATE(), ?)", objCategoria.getcCatNombre(), objCategoria.getsCatRutaImagen(), 
+                objCategoria.getnUsuCrea());
         return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
 
     @Override
     public void actualizar(Categoria objCategoria) {
         getJdbcTemplate().update("update Categoria set cCatNombre = ?, sCatRutaImagen = ?, cCatFecModi = SYSDATE(),"
-                + " nUsuModi = ? WHERE nCatID = ?", objCategoria.getNombre(), objCategoria.getRuta(), 
-                objCategoria.getUsuario(), objCategoria.getId());
+                + " nUsuModi = ? WHERE nCatID = ?", objCategoria.getcCatNombre(), objCategoria.getsCatRutaImagen(), 
+                objCategoria.getnUsuModi(), objCategoria.getnCatID());
     }
 
     @Override
     public void eliminar(Categoria objCategoria) {
         getJdbcTemplate().update("update Categoria set nEstID=2, cCatFecModi=SYSDATE(), nUsuModi=? WHERE nCatID=?"
-                , objCategoria.getUsuario(), objCategoria.getId());
+                , objCategoria.getnUsuModi(), objCategoria.getnCatID());
      }
 
     @Override
@@ -66,7 +66,7 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
     public Categoria buscarPorId(Integer id) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select cCatNombre, sCatRutaImagen from Categoria where nCatID=?",
+                    "select cCatNombre, sCatRutaImagen from Categoria where nCatID=? and nEstID=1",
                     new BeanPropertyRowMapper<Categoria>(Categoria.class), id);
         } catch (EmptyResultDataAccessException e) {
             return null;

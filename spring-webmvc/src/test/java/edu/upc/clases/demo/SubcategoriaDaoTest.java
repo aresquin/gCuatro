@@ -35,31 +35,27 @@ public class SubcategoriaDaoTest {
         Assert.assertNotNull(id);
     }
 
-    //@Test
+    @Test
     public void debeActualizarSubCategoria () {
         Subcategoria subCategoria = new Subcategoria("Industrial", 1, 1);
         Integer id = subCategoriaDao.insertar(subCategoria);
         subCategoria = subCategoriaDao.buscarPorId(id);
-        subCategoria.setNombre("Empresarial");
+        subCategoria.setcSCatNombre("Empresarial");
         subCategoriaDao.actualizar(subCategoria);
-        Assert.assertEquals("Empresarial", subCategoria.getNombre());
+        Assert.assertEquals("Empresarial", subCategoria.getcSCatNombre());
     }
     
-    //@Test
+    @Test
     public void debeEliminarSubCategoria () {
-        Subcategoria subCategoria = new Subcategoria("Industrial", 1, 1);
-        Integer id = subCategoriaDao.insertar(subCategoria);
-        subCategoria = subCategoriaDao.buscarPorId(id);
+        Subcategoria subCategoria = new Subcategoria(4);
         subCategoriaDao.eliminar(subCategoria);
-        subCategoria = subCategoriaDao.buscarPorId(id);
+        subCategoria = subCategoriaDao.buscarPorId(4);
         Assert.assertNull(subCategoria);
     }
     
     @Test
     public void debeBuscarPorID() {
-        Subcategoria subCategoria = new Subcategoria("Industrial", 1, 1);
-        Integer id = subCategoriaDao.insertar(subCategoria);
-        subCategoria = subCategoriaDao.buscarPorId(-1);
-        Assert.assertNull(subCategoria);
+        Subcategoria subCategoria = subCategoriaDao.buscarPorId(2);
+        Assert.assertEquals("Tradicional", subCategoria.getcSCatNombre());
     }
 }

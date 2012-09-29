@@ -34,20 +34,21 @@ public class SubcategoriaDaoImpl extends SimpleJdbcDaoSupport implements Subcate
     @Override
     public Integer insertar (Subcategoria objSubcategoria) {
         getJdbcTemplate().update("insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea) "
-                + "values (?,?,SYSDATE(),?)", objSubcategoria.getNombre(), objSubcategoria.getCategoria(),
-                objSubcategoria.getUsuario());
+                + "values (?,?,SYSDATE(),?)", objSubcategoria.getcSCatNombre(), objSubcategoria.getnCatID(),
+                objSubcategoria.getnUsuCrea());
         return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
     
     @Override
     public void actualizar(Subcategoria objSubcategoria) {
         getJdbcTemplate().update("update Subcategoria set cSCatNombre = ?, cSCatFecModi = SYSDATE(), nUsuModi = ? "
-                + "WHERE nSCatID = ?", objSubcategoria.getNombre(), objSubcategoria.getUsuario(), objSubcategoria.getId());
+                + "WHERE nSCatID = ?", objSubcategoria.getcSCatNombre(), objSubcategoria.getnUsuCrea(), 
+                objSubcategoria.getnSCatID());
     }
 
     @Override
     public void eliminar(Subcategoria objSubcategoria) {
-        getJdbcTemplate().update("delete from Subcategoria WHERE nSCatID=?", objSubcategoria.getId());
+        getJdbcTemplate().update("delete from Subcategoria WHERE nSCatID=?", objSubcategoria.getnSCatID());
      }
 
     @Override
