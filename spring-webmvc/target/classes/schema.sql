@@ -36,9 +36,7 @@ CREATE  TABLE Categoria (
   nUsuCrea INT NULL ,
   cCatFecModi DATE NULL ,
   nUsuModi INT NULL ,
-  PRIMARY KEY (nCatID) ,
-  FOREIGN KEY (nEstID)
-  REFERENCES Estado (nEstID));
+  PRIMARY KEY (nCatID));
 
 CREATE  TABLE Subcategoria (
   nSCatID INT NOT NULL AUTO_INCREMENT ,
@@ -48,9 +46,7 @@ CREATE  TABLE Subcategoria (
   nUsuCrea INT NULL ,
   cSCatFecModi DATE NULL ,
   nUsuModi INT NULL ,
-  PRIMARY KEY (nSCatID) ,
-  FOREIGN KEY (nCatID )
-  REFERENCES Categoria (nCatID ));
+  PRIMARY KEY (nSCatID) );
 
 CREATE  TABLE Perfil (
   nPerID INT NOT NULL AUTO_INCREMENT ,
@@ -93,13 +89,9 @@ CREATE  TABLE Usuario (
   nUsuCrea INT NULL ,
   cUsuFecModi DATE NULL ,
   nUsuModi INT NULL ,
-  PRIMARY KEY (nUsuID) ,
-  FOREIGN KEY (nPerID )
-  REFERENCES Perfil (nPerID ) ,
-  FOREIGN KEY (nTDocID )
-  REFERENCES Tipo_Documento (nTDocID ) ,
-  FOREIGN KEY (nEstID )
-  REFERENCES Estado (nEstID ));
+  PRIMARY KEY (nUsuID) );
+
+
 
 CREATE  TABLE PlanNegocio (
   nPlaID INT NOT NULL AUTO_INCREMENT,
@@ -138,11 +130,7 @@ CREATE  TABLE Comentario (
   nPlaID INT NOT NULL ,
   nUsuID INT NOT NULL ,
   cComFecCrea DATE NOT NULL ,
-  PRIMARY KEY (nComID) ,
-  FOREIGN KEY (nPlaID )
-  REFERENCES Plan_Negocio (nPlaID ) ,
-  FOREIGN KEY (nUsuID )
-  REFERENCES Usuario (nUsuID ) );
+  PRIMARY KEY (nComID)  );
 
 CREATE  TABLE Compra (
   nComID INT NOT NULL AUTO_INCREMENT ,
@@ -156,18 +144,12 @@ CREATE  TABLE Compra (
   nUsuCrea INT NULL ,
   cComFecModi DATE NULL ,
   nUsuModi INT NULL ,
-  PRIMARY KEY (nComID) ,
-  FOREIGN KEY (nUsuID )
-  REFERENCES Usuario (nUsuID ) ,
-  FOREIGN KEY (nEstID )
-  REFERENCES Estado (nEstID ) );
+  PRIMARY KEY (nComID) );
 
 CREATE  TABLE Detalle_Compra (
   nComID INT NOT NULL ,
   nDComID INT NOT NULL ,
   nPlaID INT NOT NULL ,
-  PRIMARY KEY (nDComID) ,
-  FOREIGN KEY (nComID )
-  REFERENCES Compra (nComID ) ,
-  FOREIGN KEY (nPlaID )
-  REFERENCES Plan_Negocio (nPlaID ) );
+  PRIMARY KEY (nDComID));
+
+

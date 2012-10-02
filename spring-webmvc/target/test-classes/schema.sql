@@ -1,4 +1,6 @@
+
 drop table if exists usuarios;
+
 drop table if exists Subcategoria;
 drop table if exists Archivo_Adjunto;
 drop table if exists Comentario;
