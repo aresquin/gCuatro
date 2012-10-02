@@ -25,16 +25,68 @@ import org.springframework.stereotype.Service;
         @Autowired
         private PlanNegocioDAO plannegocioDao;
     
+        
+        public String ValidarDatos(PlanNegocio objPlan)
+        {
+           String sMsg="";
+            if (objPlan.getcPlaTitulo().equals(""))
+            {
+                sMsg="Debe ingresar un titulo del plan";
+            }
+            else if (objPlan.getnCatID().equals(0))
+            {
+                sMsg="Debe elegir una categoria";
+            }
+            else if (objPlan.getcPlaVision().equals(""))
+            {
+                sMsg="Debe ingresar un descripcion de vision";
+            }
+            else if (objPlan.getcPlaTiempo().equals(""))
+            {
+                sMsg="Debe ingresar un tiempo";
+            }
+            else if (objPlan.getnPlaInvTotal()==0.00)
+            {
+                sMsg="Debe ingresar un monto de inversion";
+            }
+           else if (objPlan.getnPlaPreVenta()==0.00)
+            {
+                sMsg="Debe ingresar un precio de venta";
+            }
+            return sMsg;
+        }
+        
         @Override
         public Integer insertar(PlanNegocio objPlan) {
-            log.info("Registrando un nuevo plan");
-             return plannegocioDao.insertar(objPlan);
+            String sMsg=ValidarDatos(objPlan);
+            if (sMsg.equals(""))
+            {
+                
+                log.info("Registrando un nuevo plan");
+                return plannegocioDao.insertar(objPlan);
+            }
+            else
+            {
+                log.info(sMsg);
+                return 0;
+            }
+            
+            
         }
         
         @Override
         public Integer actualizar(PlanNegocio objPlan) {
-             log.info("Actualizando plan");
-            return plannegocioDao.actualizar(objPlan);
+           String sMsg=ValidarDatos(objPlan);
+            if (sMsg.equals(""))
+            {
+                log.info("Actualizando plan");
+                return plannegocioDao.actualizar(objPlan);
+            } 
+            else
+            {
+                log.info(sMsg);
+                return 0;
+            }
         }
 
         @Override
@@ -51,8 +103,20 @@ import org.springframework.stereotype.Service;
 
         @Override
         public PlanNegocio buscarPorId(Integer id) {
-            log.info("Buscar plan por id");
-            return plannegocioDao.buscarPorId(id);
+            PlanNegocio objReturn= new PlanNegocio();
+            if (id==0)
+            {
+                log.info("Debe ingresar un código");
+                objReturn=null;
+                
+            }
+            else if (id!=0)
+            {
+                log.info("Buscando por ID");
+                objReturn =plannegocioDao.buscarPorId(id);
+            }
+            return objReturn;
+            
         }
 
         
@@ -64,14 +128,43 @@ import org.springframework.stereotype.Service;
         
         @Override
         public Integer insertarArchivo(PlanNegocio objPlan) {
-            log.info("Registrando un archivo adjunto");
-            return plannegocioDao.insertarArchivo(objPlan);
+            String sMsg="";
+            if(objPlan.getcAAdjNombre().trim().equals(""))
+            {
+                sMsg="Debe ingresar un archivo a cargar";
+            }
+            
+            if(sMsg.equals(""))
+            {
+                log.info("Registrando un archivo adjunto");
+                return plannegocioDao.insertarArchivo(objPlan);
+            }
+            else
+            {
+                log.info(sMsg);
+                return 0;
+            } 
         }
           
         @Override
         public Integer eliminarArchivo(PlanNegocio objPlan) {
-            log.info("Eliminando un archivo adjunto");
-            return plannegocioDao.eliminarArchivo(objPlan);
+             String sMsg="";
+            if(objPlan.getcAAdjNombre().trim().equals(""))
+            {
+                sMsg="Debe elegir un archivo a eliminar";
+            }
+            
+            if(sMsg.equals(""))
+            {
+                log.info("Eliminando un archivo adjunto");
+                return plannegocioDao.eliminarArchivo(objPlan);
+            }
+            else
+            {
+                log.info(sMsg);
+                return 0;
+            } 
+            
         }
         
        
