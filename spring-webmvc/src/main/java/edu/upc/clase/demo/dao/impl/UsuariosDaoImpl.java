@@ -32,27 +32,43 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
 
     @Override
     public Integer insertar(Usuarios usuarios) {
-
-        getJdbcTemplate().update(
-        "insert into usuarios(nombre,apepat,apemat,correo,password) values (?, ?, ?, ?, ?)",
-                usuarios.getNombre(), usuarios.getApepat(), usuarios.getApemat(), usuarios.getCorreo(), usuarios.getPassword());
-        return getSimpleJdbcTemplate().queryForInt("call identity()");
+        getJdbcTemplate().update("insert into usuario(cUsuNombre,cUsuApePat,cUsuApeMat,"
+                + "cUsuSexo,nTDocID,cUsuNumDocumento,cUsuEmail,cUsuTelefono,cUsuDireccion,"
+                + "cUsuFecNacimiento,cUsuClave,nEstID,cUsuFecCrea,nUsuCrea,nPerID)"
+                + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                usuarios.getcUsuNombre(), usuarios.getcUsuApePat(),usuarios.getcUsuApeMat(),
+                usuarios.getcUsuSexo(),usuarios.getnTDocID(),usuarios.getcUsuNumDocumento(),
+                usuarios.getcUsuEmail(),usuarios.getcUsuTelefono(),usuarios.getcUsuDireccion(),
+                usuarios.getcUsuFecNacimiento(),usuarios.getcUsuClave(),usuarios.getnEstID(),
+                usuarios.getcUsuFecCrea(),usuarios.getnUsuCrea(),usuarios.getnPerID());
+        return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
+  
     }
 
-    @Override
-    public void actualizar(Usuarios usuarios) {
-        getJdbcTemplate().update(
-                "update usuarios set nombre = ?,apepat = ?, apemat = ?, correo = ? where apepat = ?",
-                  usuarios.getNombre(), usuarios.getApepat(), usuarios.getApemat(), usuarios.getCorreo(), usuarios.getId());
+    //@Override
+    public Integer actualizar(Usuarios usuarios) {
+       
+      return getJdbcTemplate().update("update usuario set cUsuNombre= ? , cUsuApePat = ? ,"
+                     + "cUsuApeMat = ? , cUsuSexo = ? , nTDocID = ? ,cUsuNumDocumento = ? ,"
+                     + "cUsuEmail = ? ,cUsuTelefono = ? , cUsuDireccion = ? ,"
+                     + "cUsuFecNacimiento = ? ,cUsuClave = ? ,nUsuModi = ?,cUsuFecModi = ? "
+                     + "where nUsuID = ?",
+                usuarios.getcUsuNombre(), usuarios.getcUsuApePat(),usuarios.getcUsuApeMat(),
+                usuarios.getcUsuSexo(),usuarios.getnTDocID(),usuarios.getcUsuNumDocumento(),
+                usuarios.getcUsuEmail(),usuarios.getcUsuTelefono(),usuarios.getcUsuDireccion(),
+                usuarios.getcUsuFecNacimiento(),usuarios.getcUsuClave(),usuarios.getnUsuModi(),
+                usuarios.getcUsuFecModi(),usuarios.getnUsuID());         
     }   
 
     @Override
-    public void eliminar(Usuarios usuarios) {
-        getJdbcTemplate().update(
-                "delete from usuarios where id = ?", usuarios.getId());
+    public Integer eliminar(Usuarios usuarios) {
+        return getJdbcTemplate().update("update usuario set nEstID = ?,"
+                + " nUsuModi=?,cUsuFecModi=? where nUsuID =?",
+                usuarios.getnEstID(),usuarios.getnUsuModi(),
+                usuarios.getcUsuFecModi(),usuarios.getnUsuID());        
     }
 
-    @Override
+    //@Override
     public Usuarios buscarApellido(String apepat) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
@@ -63,14 +79,14 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
         }
     }
 
-    @Override
+    //@Override
     public List<Usuarios> buscarTodos() {
         return getSimpleJdbcTemplate().query(
                 "select id,nombre,apepat,apemat,correo from usuarios",
                 new BeanPropertyRowMapper<Usuarios>(Usuarios.class));
     }
 
-    @Override
+    //@Override
     public Usuarios buscarCorreo(String correo) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
@@ -81,7 +97,7 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
         }
     }
 
-    @Override
+    //@Override
     public List<Usuarios> buscarPorNombre(String nombre) {
         try {
             Map<String,String> parametros = new HashMap<String,String>();
@@ -94,7 +110,7 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
         }
     }
     
-     @Override
+    // @Override
     public Usuarios buscarXcodigo(Integer id) {
         try {
              return getSimpleJdbcTemplate().queryForObject(
@@ -104,8 +120,6 @@ public class UsuariosDaoImpl extends SimpleJdbcDaoSupport implements UsuariosDao
             return null;
         }
     }
-    
-
   
 }
 

@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration("/spring-base-test.xml")
 @Transactional
 public class PlanNegocioServiceTest {
-     private static Logger log = LoggerFactory.getLogger(UsuariosServiceTest.class);
+     private static Logger log = LoggerFactory.getLogger(PlanNegocioServiceTest.class);
 
     @Autowired
     private PlanNegocioService planNService;
@@ -100,7 +100,7 @@ public class PlanNegocioServiceTest {
     
     
     
-   @Test 
+  // @Test 
     public void testListarPlanes()
     {
         PlanNegocio objPlan2 = new PlanNegocio();

@@ -129,7 +129,7 @@ public class PlanNegocioDaoTest {
     
     
     
-   @Test 
+  // @Test 
     public void testListarPlanes()
     {
         PlanNegocio objPlan2 = new PlanNegocio();
@@ -138,7 +138,7 @@ public class PlanNegocioDaoTest {
         objPlan2.setnEstID(-1);
         List<PlanNegocio> objListado=new ArrayList<PlanNegocio>();
                 objListado=plannegocioDao.buscarPlanNegocio(objPlan2);
-        Assert.assertNotNull(objListado);    
+        Assert.assertEquals(objListado.size(),2);    
     }
     
     @Test 
