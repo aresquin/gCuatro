@@ -72,4 +72,15 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
             return null;
         }
     }
+    
+    @Override
+    public Categoria buscarPorNombre(String nombre) {
+        try {
+            return getSimpleJdbcTemplate().queryForObject(
+                    "select cCatNombre, sCatRutaImagen from Categoria where cCatNombre=? and nEstID=1",
+                    new BeanPropertyRowMapper<Categoria>(Categoria.class), nombre);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
 }

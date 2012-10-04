@@ -17,4 +17,5 @@ public interface CategoriaDao {
     public void eliminar (Categoria objCategoria);
     public List<Categoria> buscarCategoria();
     public Categoria buscarPorId(Integer id);
+    public Categoria buscarPorNombre(String nombre);
 }

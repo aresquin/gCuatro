@@ -91,8 +91,6 @@ CREATE  TABLE Usuario (
   nUsuModi INT NULL ,
   PRIMARY KEY (nUsuID) );
 
-
-
 CREATE  TABLE PlanNegocio (
   nPlaID INT NOT NULL AUTO_INCREMENT,
   cPlaTitulo VARCHAR(100) NULL ,
@@ -151,5 +149,3 @@ CREATE  TABLE Detalle_Compra (
   nDComID INT NOT NULL ,
   nPlaID INT NOT NULL ,
   PRIMARY KEY (nDComID));
-
-

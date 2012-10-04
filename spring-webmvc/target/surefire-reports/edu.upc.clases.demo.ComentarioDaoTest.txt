@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
-Test set: edu.upc.clases.demo.SubcategoriaServiceTest
+Test set: edu.upc.clases.demo.ComentarioDaoTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.103 sec <<< FAILURE!
-debeValidarNombreNulo(edu.upc.clases.demo.SubcategoriaServiceTest)  Time elapsed: 0.049 sec  <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.17 sec <<< FAILURE!
+testEliminarComentario(edu.upc.clases.demo.ComentarioDaoTest)  Time elapsed: 0.078 sec  <<< ERROR!
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
 	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
@@ -62,7 +62,8 @@ Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedExcepti
 	at org.springframework.jdbc.datasource.init.DataSourceInitializer.afterPropertiesSet(DataSourceInitializer.java:80)
 	... 45 more
 Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails
-	at sun.reflect.GeneratedConstructorAccessor36.newInstance(Unknown Source)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
 	at com.mysql.jdbc.Util.handleNewInstance(Util.java:407)
@@ -78,7 +79,7 @@ Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExce
 	at org.apache.commons.dbcp.DelegatingStatement.executeUpdate(DelegatingStatement.java:228)
 	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.executeSqlScript(ResourceDatabasePopulator.java:169)
 	... 47 more
-debeValidarCategoriaNula(edu.upc.clases.demo.SubcategoriaServiceTest)  Time elapsed: 0.053 sec  <<< ERROR!
+debeInsertarComentario(edu.upc.clases.demo.ComentarioDaoTest)  Time elapsed: 0.091 sec  <<< ERROR!
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
 	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
@@ -138,7 +139,8 @@ Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedExcepti
 	at org.springframework.jdbc.datasource.init.DataSourceInitializer.afterPropertiesSet(DataSourceInitializer.java:80)
 	... 45 more
 Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails
-	at sun.reflect.GeneratedConstructorAccessor36.newInstance(Unknown Source)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
 	at com.mysql.jdbc.Util.handleNewInstance(Util.java:407)
