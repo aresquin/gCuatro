@@ -55,8 +55,8 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
     @Override
     public List<Categoria> buscarCategoria() {
         try {
-            return (List<Categoria>) getSimpleJdbcTemplate().queryForObject(
-                    "select * from Categoria", new BeanPropertyRowMapper<Categoria>(Categoria.class));
+            return (List<Categoria>) getSimpleJdbcTemplate().query(
+                    "select * from Categoria where nEstID=1", new BeanPropertyRowMapper<Categoria>(Categoria.class));
         } catch(EmptyResultDataAccessException e) {
             return null;
         }

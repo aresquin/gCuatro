@@ -29,5 +29,9 @@
 	<definition name="usuarios/resultadoBusqueda" extends="defaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/usuarios/resultadoBusqueda.jsp" />
 	</definition>
+
+        <definition name="categorias/index" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/categorias/index.jsp" />
+	</definition>
         
 </tiles-definitions>

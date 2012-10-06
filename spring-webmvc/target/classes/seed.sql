@@ -8,17 +8,17 @@ values ('Inactivo',SYSDATE(),1);
 
 /* Ingreso de categorias */
 insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)
-values ('Agricultura','../image/agricultura.jpg',1,SYSDATE(),1);
+values ('Agricultura','/image/agricultura.jpg',1,SYSDATE(),1);
 insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)
-values ('Ganaderia','../image/ganaderia.jpg',1,SYSDATE(),1);
+values ('Ganaderia','/image/ganaderia.jpg',1,SYSDATE(),1);
 insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)
-values ('Mineria','../image/mineria.jpg',1,SYSDATE(),1);
+values ('Mineria','/image/mineria.jpg',1,SYSDATE(),1);
 insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)
-values ('Pesca','../image/pesca.jpg',1,SYSDATE(),1);
+values ('Pesca','/image/pesca.jpg',1,SYSDATE(),1);
 insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)
-values ('Caza','../image/caza.jpg',1,SYSDATE(),1);
+values ('Caza','/image/caza.jpg',1,SYSDATE(),1);
 insert into Categoria (cCatNombre,sCatRutaImagen,nEstID,cCatFecCrea,nUsuCrea)
-values ('Deporte','../image/deporte.jpg',1,SYSDATE(),1);
+values ('Deporte','/image/deporte.jpg',1,SYSDATE(),1);
 
 /* Ingreso de subcategorias */
 insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea)

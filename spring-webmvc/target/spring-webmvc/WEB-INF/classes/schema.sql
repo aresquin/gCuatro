@@ -3,10 +3,10 @@ drop table if exists Subcategoria;
 drop table if exists Archivo_Adjunto;
 drop table if exists Comentario;
 drop table if exists Detalle_Compra;
-drop table if exists Plan_Negocio;
-drop table if exists Categoria;
+drop table if exists PlanNegocio;
 drop table if exists Compra;
 drop table if exists Usuario;
+drop table if exists Categoria;
 drop table if exists Perfil;
 drop table if exists Estado;
 drop table if exists Tipo_Documento;
@@ -36,7 +36,7 @@ CREATE  TABLE Categoria (
   nUsuCrea INT NULL ,
   cCatFecModi DATE NULL ,
   nUsuModi INT NULL ,
-  PRIMARY KEY (nCatID) );
+  PRIMARY KEY (nCatID));
 
 CREATE  TABLE Subcategoria (
   nSCatID INT NOT NULL AUTO_INCREMENT ,
@@ -68,18 +68,18 @@ CREATE  TABLE Tipo_Documento (
 
 CREATE  TABLE Usuario (
   nUsuID INT NOT NULL AUTO_INCREMENT ,
-  cUsuNombre VARCHAR(25) NOT NULL ,
-  cUsuApePat VARCHAR(30) NOT NULL ,
-  cUsuApeMat VARCHAR(30) NOT NULL ,
-  cUsuSexi VARCHAR(2) NOT NULL ,
-  nTDocID INT NOT NULL ,
-  cUsuNumDocumento VARCHAR(30) NOT NULL ,
-  cUsuEmail VARCHAR(30) NOT NULL ,
-  cUsuTelefono VARCHAR(9) NOT NULL ,
-  cUsuDireccion VARCHAR(60) NOT NULL ,
-  cUsuFecNacimiento DATE NOT NULL ,
-  cUsuClave VARCHAR(10) NOT NULL ,
-  nPerID INT NOT NULL ,
+  cUsuNombre VARCHAR(25) NULL ,
+  cUsuApePat VARCHAR(30) NULL ,
+  cUsuApeMat VARCHAR(30) NULL ,
+  cUsuSexo VARCHAR(2) NULL ,
+  nTDocID INT NULL ,
+  cUsuNumDocumento VARCHAR(30) NULL ,
+  cUsuEmail VARCHAR(30) NULL ,
+  cUsuTelefono VARCHAR(9) NULL ,
+  cUsuDireccion VARCHAR(60) NULL ,
+  cUsuFecNacimiento DATE NULL ,
+  cUsuClave VARCHAR(10) NULL ,
+  nPerID INT NULL ,
   cUsuApelativo VARCHAR(30) NULL ,
   cUsuRegAutografico VARCHAR(500) NULL ,
   cUsuSitWeb VARCHAR(30) NULL ,
@@ -91,22 +91,21 @@ CREATE  TABLE Usuario (
   nUsuModi INT NULL ,
   PRIMARY KEY (nUsuID) );
 
-
-CREATE  TABLE Plan_Negocio (
-  nPlaID INT NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE PlanNegocio (
+  nPlaID INT NOT NULL AUTO_INCREMENT,
   cPlaTitulo VARCHAR(100) NULL ,
   nCatID INT NULL ,
   cPlaVision VARCHAR(500) NULL ,
   cPlaRazon VARCHAR(500) NULL ,
   cPlaTiempo VARCHAR(30) NULL ,
-  nPlaTotal DOUBLE NULL ,
+  nPlaInvTotal DOUBLE NULL ,
   nPlaNeto DOUBLE NULL ,
   nPlaROI DOUBLE NULL ,
   nPlaMargen DOUBLE NULL ,
   nPlaPreVenta DOUBLE NULL ,
   cPlaFecVal DATETIME NULL, 
   nEstID INT NULL ,
-  nPlaFecCrea DATETIME NULL ,
+  cPlaFecCrea DATETIME NULL ,
   nUsuCrea INT NULL ,
   cPlaFecModi DATETIME NULL ,
   nUsuModi INT NULL ,
@@ -122,13 +121,14 @@ CREATE  TABLE Archivo_Adjunto (
   nUsuCrea INT NULL ,
   PRIMARY KEY (nAAdjID) );
 
+
 CREATE  TABLE Comentario (
   nComID INT NOT NULL AUTO_INCREMENT ,
   cComDescripcion VARCHAR(500) NOT NULL ,
   nPlaID INT NOT NULL ,
   nUsuID INT NOT NULL ,
   cComFecCrea DATE NOT NULL ,
-  PRIMARY KEY (nComID) );
+  PRIMARY KEY (nComID)  );
 
 CREATE  TABLE Compra (
   nComID INT NOT NULL AUTO_INCREMENT ,
@@ -148,4 +148,4 @@ CREATE  TABLE Detalle_Compra (
   nComID INT NOT NULL ,
   nDComID INT NOT NULL ,
   nPlaID INT NOT NULL ,
-  PRIMARY KEY (nDComID) );
+  PRIMARY KEY (nDComID));
