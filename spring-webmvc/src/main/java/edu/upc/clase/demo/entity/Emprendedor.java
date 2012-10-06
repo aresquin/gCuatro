@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author JOEL
+ * @author Aresquin
  */
 @XmlRootElement
 public class Emprendedor implements Serializable{
@@ -43,7 +43,7 @@ public class Emprendedor implements Serializable{
      */
       public Emprendedor()
    {     
-   }
+   }    
 
     /**
      * @return the id_usuario

@@ -138,10 +138,13 @@ CREATE  TABLE Compra (
   cComNumero VARCHAR(14) NOT NULL ,
   cComFecCrea DATE NULL ,
   cComFecModi DATE NULL ,
+  dComSubTotal double ,
+  dComIgv double ,
+  dComTotal double ,
   nUsuModi INT NULL ,
   nEstID INT NOT NULL ,
   nEnvID INT NOT NULL ,
-  nUsuID INT NOT NULL ,  
+  nUsuID INT NOT NULL ,     
   PRIMARY KEY (nComID) );
 
 CREATE  TABLE Detalle_Compra (
