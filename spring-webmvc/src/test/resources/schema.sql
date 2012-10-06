@@ -10,6 +10,9 @@ drop table if exists Usuario;
 drop table if exists Perfil;
 drop table if exists Estado;
 drop table if exists Tipo_Documento;
+drop table if exists TEnvio;
+drop table if exists Pasarela;
+
 
 CREATE  TABLE usuarios (
   id INT NOT NULL AUTO_INCREMENT ,
@@ -133,19 +136,38 @@ CREATE  TABLE Comentario (
 CREATE  TABLE Compra (
   nComID INT NOT NULL AUTO_INCREMENT ,
   cComNumero VARCHAR(14) NOT NULL ,
-  cComFecCaducidad DATE NOT NULL ,
-  co_verificacion VARCHAR(9) NOT NULL ,
-  di_facturacion VARCHAR(50) NOT NULL ,
-  nUsuID INT NOT NULL ,
-  nEstID INT NOT NULL ,
   cComFecCrea DATE NULL ,
-  nUsuCrea INT NULL ,
   cComFecModi DATE NULL ,
   nUsuModi INT NULL ,
+  nEstID INT NOT NULL ,
+  nEnvID INT NOT NULL ,
+  nUsuID INT NOT NULL ,  
   PRIMARY KEY (nComID) );
 
 CREATE  TABLE Detalle_Compra (
-  nComID INT NOT NULL ,
+  nComID INT NOT NULL , 
   nDComID INT NOT NULL ,
   nPlaID INT NOT NULL ,
+  nDComCantidad int not null ,
+  dDcomSubTotal double not null ,
   PRIMARY KEY (nDComID) );
+
+create table TEnvio(
+    nEnvID INT NOT NULL AUTO_INCREMENT ,
+    nEnvTipo int not null ,
+    cEnvCorreo varchar(45) null ,
+    cEnvNombre varchar(45) null ,
+    cEnvDistrito varchar(45) null ,
+    cEnvDireccion varchar(45) null ,
+    cEnvTelefono varchar(8) null ,
+    nEnvDni int null , 
+    PRIMARY KEY (nEnvID) );
+
+Create table Pasarela (
+    nPasID int not null AUTO_INCREMENT ,
+    cPasPais varchar(30) not null,
+    nPasNumTarjeta int not null ,
+    cPasFecVencimiento DATE NOT NULL ,
+    nPasCodVerificacion int NOT NULL ,
+    cPasDireccion VARCHAR(50) NOT NULL ,
+PRIMARY KEY (nPasID) );
