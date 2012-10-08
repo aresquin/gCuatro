@@ -34,7 +34,17 @@
 		<put-attribute name="body" value="/WEB-INF/views/categorias/index.jsp" />
 	</definition>
         
-                
+        <definition name="categorias/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/categorias/new.jsp"/>
+        </definition>
+        
+        <definition name="categorias/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/categorias/edit.jsp"/>
+        </definition>
+       
+	<definition name="categorias/resultadoBusqueda" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/categorias/resultadoBusqueda.jsp" />
+	</definition>                
          
         <definition name="plan/lista" extends="defaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/plan/index.jsp" />
