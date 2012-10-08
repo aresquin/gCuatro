@@ -5,7 +5,6 @@
 package edu.upc.clase.demo.controller;
 
 import edu.upc.clase.demo.entity.Categoria;
-import edu.upc.clase.demo.entity.CriterioBusqueda;
 import edu.upc.clase.demo.service.CategoriaService;
 import java.util.List;
 import org.slf4j.Logger;
@@ -34,6 +33,8 @@ public class CategoriaController {
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("categorias/index");
         List<Categoria> categoria = categoriaService.buscarCategoria();
+        Categoria criterioBusqueda = new Categoria();
+        mav.addObject("criterioBusqueda",criterioBusqueda);
         mav.addObject("categoria", categoria);
         return mav;
     }
@@ -80,10 +81,10 @@ public class CategoriaController {
     }    
     
     @RequestMapping(value = "/categorias/buscar", method=RequestMethod.POST)
-    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") CriterioBusqueda criterio, SessionStatus status) {
+    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") Categoria categoria, SessionStatus status) {
         ModelAndView mav = new ModelAndView("categorias/resultadoBusqueda");
-        log.info("resultado = " + categoriaService.buscarPorNombre(criterio.getNombre()));
-        mav.getModel().put("resultado",categoriaService.buscarPorNombre(criterio.getNombre()));
+        log.info("resultado = " + categoriaService.buscarPorNombre(categoria.getcCatNombre()));
+        mav.getModel().put("resultado",categoriaService.buscarPorNombre(categoria.getcCatNombre()));
         return mav;
     }
 }
