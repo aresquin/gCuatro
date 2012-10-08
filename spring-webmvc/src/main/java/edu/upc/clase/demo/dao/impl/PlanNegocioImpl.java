@@ -78,14 +78,16 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
             parametros.put("cPlanTitulo", objPlan.getcPlaTitulo());
             parametros.put("nCatID", objPlan.getnCatID());
             parametros.put("nEstID", objPlan.getnEstID());
+            parametros.put("cPlanTitulo2","%"+ objPlan.getcPlaTitulo()+"%");
             return (List<PlanNegocio>) getSimpleJdbcTemplate().query(
-                    
-                    "SELECT * FROM PlanNegocio WHERE 1=1 ",
-                    //+ " AND (:cPlanTitulo='' or cPlaTitulo like %:cPlanTitulo%)"
-                    //+ " AND (:cPlanTitulo='' or cPlaTitulo =:cPlanTitulo)"
-                    //+ " AND (:nCatID=0  or nCatID=:nCatID) "
-                    //+ " AND (:nEstID=-1 or nEstID=:nEstID) ",
-                    new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), parametros);
+                    "SELECT pl.*, c.cCatNombre  "
+                   + ", CASE pl.nEstID  When 1 then 'Registrado' When 2 then 'Aprobado'  When 3 then 'Rechazado'  else ''  END  cEstNombre "
+                    + "FROM PlanNegocio pl Left Join categoria c ON (pl.nCatID=c.nCatID)"
+                    + " WHERE 1=1 "
+                   + " AND (:cPlanTitulo='' or pl.cPlaTitulo like :cPlanTitulo2)"
+                   + " AND (:nCatID=-1  or pl.nCatID=:nCatID) "
+                   + " AND (:nEstID=-1 or pl.nEstID=:nEstID) "
+                   , new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), parametros);
         } catch(EmptyResultDataAccessException e)
         {
             return null;
@@ -112,7 +114,7 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
          /*Obtener la secuencia*/
         PlanNegocio objPlan1;
         objPlan1 = getSimpleJdbcTemplate().queryForObject(
-            "SELECT max(ifnull(nAAdjSecuencia,0))+1 FROM Archivo_Adjunto "
+            "SELECT COUNT(nAAdjSecuencia)+1 as nAAdjSecuencia FROM Archivo_Adjunto "
             + " WHERE cAAdjNombre=?", 
             new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), 
             objPlan.getcAAdjNombre() );
@@ -127,7 +129,7 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
        
         objPlan.setnAAdjSecuencia(obtenerSecuencia(objPlan));
         getJdbcTemplate().update("insert into Archivo_Adjunto( nPlaID"
-                + ", nAAdjSecuencia, cAAdjNombre, cAAdjExtension) values(?, ?, ?, ?)"
+                + ", nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea ) values(?, ?, ?, ?, SYSDATE(), 1)"
                 , objPlan.getnPlaID(), objPlan.getnAAdjSecuencia(), objPlan.getcAAdjNombre()
                 , objPlan.getcAAdjExtension());
         return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
@@ -143,11 +145,10 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
     public List<PlanNegocio> buscarArchivosPlanID(PlanNegocio objPlan) {
         
           try{
-            Map<String, Object> parametros= new HashMap<String, Object>();
-            parametros.put("nPlanID", objPlan.getnPlaID());
+         
            return (List<PlanNegocio>) getSimpleJdbcTemplate().query(
                    "SELECT  * FROM Archivo_Adjunto where nPlaID=? "
-                   , new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), parametros);
+                   , new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class),  objPlan.getnAAdjID());
         } catch(EmptyResultDataAccessException e)
         {
             return null;

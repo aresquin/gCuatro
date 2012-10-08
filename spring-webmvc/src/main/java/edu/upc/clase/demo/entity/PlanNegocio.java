@@ -36,6 +36,9 @@ public class PlanNegocio implements Serializable {
     private String cAAdjNombre;
     private String cAAdjExtension;
     private String cAAdjFecCrea;
+     private String  cEstNombre;
+    
+    private String cCatNombre;
 
     public PlanNegocio() {
     }
@@ -333,5 +336,33 @@ public class PlanNegocio implements Serializable {
      */
     public void setcAAdjFecCrea(String cAAdjFecCrea) {
         this.cAAdjFecCrea = cAAdjFecCrea;
+    }
+
+    /**
+     * @return the cCatNombre
+     */
+    public String getcCatNombre() {
+        return cCatNombre;
+    }
+
+    /**
+     * @param cCatNombre the cCatNombre to set
+     */
+    public void setcCatNombre(String cCatNombre) {
+        this.cCatNombre = cCatNombre;
+    }
+
+    /**
+     * @return the cEstNombre
+     */
+    public String getcEstNombre() {
+        return cEstNombre;
+    }
+
+    /**
+     * @param cEstNombre the cEstNombre to set
+     */
+    public void setcEstNombre(String cEstNombre) {
+        this.cEstNombre = cEstNombre;
     }
 }
