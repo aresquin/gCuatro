@@ -14,13 +14,8 @@
 </script>
 
 <div class="container">
-    <h1 style="float:left">Administracion de Categorias</h1>
-    <div style="float:right;margin-bottom:30px">
-        <a href="<c:url value='/pages/categorias/new' />" class="btn btn-primary">Agregar nueva categoria</a>
-    </div>
-    <div class="clear"></div>
     <ul class="columnas">
-        <c:forEach var="categoria" items="${categoria}">
+        <c:forEach var="categoria" items="${resultado}">
             <li>
                 <div class="card">
                     <div style="float:left">
