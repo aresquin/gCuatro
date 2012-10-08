@@ -24,7 +24,7 @@ public class ColaboradorServiceImpl implements ColaboradorServices {
     
         @Override
         public Boolean validarContrasena(String contrasena){
-            if(contrasena.length() > 8){
+            if(contrasena.length() >= 8){
                log.info("Contraseña valida"); }
             else{ 
                 log.info("Ingrese Contraseña Valida");}
@@ -33,7 +33,7 @@ public class ColaboradorServiceImpl implements ColaboradorServices {
     
         @Override
         public Integer insertar(Colaborador colaborador) {
-        if (colaborador.getPassword().length() > 8) {
+        if (colaborador.getPassword().length() >= 8) {
             return colaboradorDao.insertar(colaborador);
         }       
         return null;
@@ -74,8 +74,8 @@ public class ColaboradorServiceImpl implements ColaboradorServices {
                 log.info("Correo Valido");
                 return true;
             }
-            else {log.info("Correo Valido");}
-            return Boolean.FALSE;
+            else {log.info("Correo InvalidoValido");}
+            return Boolean.TRUE;
         }
         
         @Override
@@ -89,7 +89,7 @@ public class ColaboradorServiceImpl implements ColaboradorServices {
                    
                }
             }
-           return Boolean.FALSE;
+           return Boolean.TRUE;
         }
 
         @Override

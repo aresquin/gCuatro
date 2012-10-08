@@ -1,7 +1,6 @@
 package edu.upc.clase.demo.dao.impl;
 
 import edu.upc.clase.demo.dao.ColaboradorDao;
-import edu.upc.clase.demo.entity.Usuario;
 import edu.upc.clase.demo.entity.Colaborador;
 import java.util.HashMap;
 import java.util.List;
@@ -34,8 +33,8 @@ public class ColaboradorDaoImpl extends SimpleJdbcDaoSupport implements Colabora
     public Integer insertar(Colaborador colaborador) {
 
         getJdbcTemplate().update(
-        "insert into Colaboradores (cColNombre ,cColApePaterno,cColApeMaterno ,cColCorreo ,cColPassword ) values (?, ?, ?, ?, ?)",
-                colaborador.getNombre(), colaborador.getApepat(), colaborador.getApemat(), colaborador.getCorreo(), colaborador.getPassword());
+        "insert into Colaboradores (cColNombre ,cColApePaterno,cColApeMaterno ,cColCorreo ,cColPassword, nColUsuModificador ) values (?, ?, ?, ?, ?,?)",
+                colaborador.getNombre(), colaborador.getApepat(), colaborador.getApemat(), colaborador.getCorreo(), colaborador.getPassword(),colaborador.getUmodificador());
         return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
 
@@ -49,14 +48,14 @@ public class ColaboradorDaoImpl extends SimpleJdbcDaoSupport implements Colabora
     @Override
     public void eliminar(Colaborador colaborador) {
         getJdbcTemplate().update(
-                "delete from colaboradores where cColCorreo = ?", colaborador.getId());
+                "delete from colaboradores where cColCorreo = ?", colaborador.getCorreo());
     }
 
     @Override
     public Colaborador buscarApellido(String apepat) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select nColId , cColNombre,cColApePaterno ,cColApeMaterno ,cColCorreo ,cColPassword  from colaboradores where cColApePaterno =?",
+                    "select nColId , cColNombre,cColApePaterno ,cColApeMaterno ,cColCorreo ,cColPassword, nColUsuModificador  from colaboradores where cColApePaterno =?",
                     new BeanPropertyRowMapper<Colaborador>(Colaborador.class), apepat);
         } catch (EmptyResultDataAccessException e) {
             return null;
@@ -66,7 +65,7 @@ public class ColaboradorDaoImpl extends SimpleJdbcDaoSupport implements Colabora
     @Override
     public List<Colaborador> buscarTodos() {
         return getSimpleJdbcTemplate().query(
-                "select nColId ,cColNombre ,cColApePaterno ,cColApeMaterno ,cColCorreo  from colaboradores",
+                "select nColId ,cColNombre ,cColApePaterno ,cColApeMaterno ,cColCorreo,nColUsuModificador  from colaboradores",
                 new BeanPropertyRowMapper<Colaborador>(Colaborador.class));
     }
 
@@ -74,7 +73,7 @@ public class ColaboradorDaoImpl extends SimpleJdbcDaoSupport implements Colabora
     public Colaborador buscarCorreo(String correo) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select nColId , cColNombre ,cColApePaterno ,cColApeMaterno , cColCorreo ,cColPassword  from colaboradores where cColCorreo=?",
+                    "select nColId , cColNombre , cColApePaterno ,cColApeMaterno , cColCorreo ,nColUsuModificador  from colaboradores where cColCorreo=?",
                     new BeanPropertyRowMapper<Colaborador>(Colaborador.class), correo);
         } catch (EmptyResultDataAccessException e) {
             return null;
@@ -98,7 +97,7 @@ public class ColaboradorDaoImpl extends SimpleJdbcDaoSupport implements Colabora
     public Colaborador buscarXcodigo(Integer id) {
         try {
              return getSimpleJdbcTemplate().queryForObject(
-                    "select cColNombre ,cColApePaterno ,cColApeMaterno ,cColCorreo ,cColPassword  from Colaboradores  where nColId =?",
+                    "select cColNombre ,cColApePaterno ,cColApeMaterno ,cColCorreo ,nColUsuModificador  from Colaboradores  where nColId =?",
                     new BeanPropertyRowMapper<Colaborador>(Colaborador.class), id);
         } catch (EmptyResultDataAccessException e) {
             return null;

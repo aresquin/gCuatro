@@ -69,11 +69,11 @@ public class CategoriaController {
         return mav;
     }
     
-    @RequestMapping(value = "/categorias/buscar", method=RequestMethod.POST)
-    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") CriterioBusqueda criterio, SessionStatus status) {
-        ModelAndView mav = new ModelAndView("categorias/resultadoBusqueda");
-        log.info("resultado = " + categoriaService.buscarPorNombre(criterio.getcCatNombre()));
-        mav.getModel().put("resultado",categoriaService.buscarPorNombre(criterio.getcCatNombre()));
-        return mav;
-    }
+//    @RequestMapping(value = "/categorias/buscar", method=RequestMethod.POST)
+//    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") CriterioBusqueda criterio, SessionStatus status) {
+//        ModelAndView mav = new ModelAndView("categorias/resultadoBusqueda");
+//        log.info("resultado = " + categoriaService.buscarPorNombre(criterio.getcCatNombre()));
+//        mav.getModel().put("resultado",categoriaService.buscarPorNombre(criterio.getcCatNombre()));
+//        return mav;
+//    }
 }

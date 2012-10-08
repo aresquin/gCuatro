@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: edu.upc.clases.demo.EmprendedorDaoTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.106 sec <<< FAILURE!
-testInsertarEmprendedor(edu.upc.clases.demo.EmprendedorDaoTest)  Time elapsed: 0.105 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+testInsertarEmprendedor(edu.upc.clases.demo.EmprendedorDaoTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException
 	at edu.upc.clases.demo.EmprendedorDaoTest.testInsertarEmprendedor(EmprendedorDaoTest.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)

@@ -28,15 +28,15 @@ public class ColaboradorDaoTest {
         
     @Test
     public void testInsertarUsuario() {
-        Colaborador colaborador = new Colaborador("Antonio","Resquin","Orovio","aresquino@outlook.com","123");
+        Colaborador colaborador = new Colaborador("Antonio","Resquin","Orovio","aresquino@outlook.com","123",1);
         Integer id = colaboradorDao.insertar(colaborador);
         Assert.assertNotNull(id);
     }
 
   
-    @Test
+   @Test
     public void testActualizarUsuario() {
-        Colaborador colaborador = new Colaborador("Johan","Cholan","Farromeque","jcholan@outlook.com","admin");
+        Colaborador colaborador = new Colaborador("Johan","Cholan","Farromeque","jcholan@outlook.com","admin",1);
         Integer id = colaboradorDao.insertar(colaborador);
         colaborador = colaboradorDao.buscarXcodigo(id);
         colaborador.setNombre("Joel");
@@ -56,7 +56,7 @@ public class ColaboradorDaoTest {
     
     @Test
     public void testBuscarPorLetras() {
-        Colaborador colaborador = new Colaborador("Antonio","Resquin","Orovio","aresquino@outlook.com","123");
+        Colaborador colaborador = new Colaborador("Antonio","Resquin","Orovio","aresquino@outlook.com","123",1);
         Integer id = colaboradorDao.insertar(colaborador);
         colaborador = colaboradorDao.buscarXcodigo(-8);
         Assert.assertNull(colaborador);

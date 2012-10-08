@@ -30,12 +30,13 @@ public class Colaborador implements Serializable {
         this.password = password;
     }
 
-    public Colaborador(String nombre,String apepat, String apemat, String correo, String password) {
+    public Colaborador(String nombre,String apepat, String apemat, String correo, String password, Integer umod) {
         this.nombre = nombre;
         this.apepat = apepat;
         this.apemat = apemat;
         this.correo = correo;
         this.password = password;
+        this.umodificador=umod;
     }
     
     public Colaborador(String nombre,String apepat, String apemat,String correo) {
@@ -54,6 +55,12 @@ public class Colaborador implements Serializable {
         this.umodificador=nColId;
         this.correo=correo;
     }
+    
+    public Colaborador (String nombre)
+    {
+        this.nombre=nombre;
+    }
+    
     
     
     public Integer getUmodificador() {

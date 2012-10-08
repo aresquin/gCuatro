@@ -31,7 +31,7 @@ public class ColaboradorServiceTest {
     //Validar Login
     @Test
     public void testValidarLogin() {
-        Assert.assertEquals(false,colaboradorServices.autenticar("aresquino@outlook.com","123"));
+        Assert.assertEquals(true,colaboradorServices.autenticar("aresquin@outlook.com","12345678"));
     }
     
     //Validar Formato de Correo
@@ -43,14 +43,9 @@ public class ColaboradorServiceTest {
     //Validar Longitud de Contraseña
     @Test
     public void testValidarLongitudContrasena() {
-       Assert.assertEquals(false, colaboradorServices.validarContrasena("123456"));
+       Assert.assertEquals(false, colaboradorServices.validarContrasena("123456789"));
     }
 
-    //Validar 
-    @Test
-    public void testAutenticar() {
-        Colaborador colaborador = new Colaborador("Antonio","Resquin","Orovio","aresquino@outlook.com","ad");
-        colaboradorServices.insertar(colaborador);
-        Assert.assertEquals(false,colaboradorServices.autenticar("aresquino@outlook.com","123"));
-    }    
 }
+
+

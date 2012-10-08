@@ -1,4 +1,4 @@
-drop table if exists usuarios;
+drop table if exists Colaboradores;
 drop table if exists Subcategoria;
 drop table if exists Archivo_Adjunto;
 drop table if exists Comentario;
@@ -14,12 +14,15 @@ drop table if exists TEnvio;
 drop table if exists Pasarela;
 
 
-CREATE  TABLE usuarios (
-  id INT NOT NULL AUTO_INCREMENT ,
-  nombre VARCHAR(45) NULL ,
-  correo VARCHAR(45) NULL ,
-  password VARCHAR(45) NULL ,
-  PRIMARY KEY (id) );
+CREATE  TABLE Colaboradores (
+  nColId INT NOT NULL AUTO_INCREMENT ,
+  cColNombre VARCHAR(45) not NULL ,
+  cColApePaterno VARCHAR(45) not NULL ,
+  cColApeMaterno VARCHAR(45) not NULL ,
+  cColCorreo varchar(45) not null,
+  cColPassword varchar(8) not null ,
+  nColUsuModificador int not null,
+  PRIMARY KEY (nColId) );
 
 CREATE  TABLE Estado (
   nEstID INT NOT NULL AUTO_INCREMENT ,

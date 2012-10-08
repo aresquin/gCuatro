@@ -1,4 +1,8 @@
-insert into usuarios (nombre,correo,password) values ('gian.corzo','gian.corzo@antartec.com','admin');
+/*Ingreso de Colaboradores */
+insert into colaboradores (cColNombre ,cColApePaterno,cColApeMaterno ,cColCorreo ,cColPassword,nColUsuModificador ) 
+values ('Johan','Cholan','Farromeque','jcholan@outlook.com','admin123',1);
+insert into colaboradores (cColNombre ,cColApePaterno,cColApeMaterno ,cColCorreo ,cColPassword,nColUsuModificador ) 
+values ('Antonio','Resquin','Orovio','aresquino@outlook.com','12345678',1);
 
 /* Ingreso de estados */
 insert into Estado (cEstNombre,cEstFecCrea,nUsuCrea) 
