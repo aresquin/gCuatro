@@ -94,31 +94,42 @@ public class PlanNegocioController {
     
     /*Archivos adjuntos*/
     
-    @RequestMapping(value = "/plan/Archivo", method = RequestMethod.GET)
+    @RequestMapping(value = "/plan/CargarArchivo", method = RequestMethod.GET)
     public ModelAndView listadoArchivos() {
         ModelAndView mav = new ModelAndView("plan/listaArchivo");
         PlanNegocio objPlan= new PlanNegocio();
+        objPlan.setnPlaID(1); 
         List<PlanNegocio> ListadoArchivo = planNService.buscarArchivosPlanID(objPlan);
         mav.addObject("ListadoArchivos", ListadoArchivo);
+        PlanNegocio criterioBusqueda = new PlanNegocio();
+        criterioBusqueda.setnPlaID(1); 
+        mav.addObject("fileupload",criterioBusqueda);
         return mav;
     }
     
     
-   @RequestMapping(value = "/plan/Archivo", method = RequestMethod.POST)
-    public String Cargar(@ModelAttribute("Archivo")PlanNegocio objPlan, SessionStatus status) {    
-        planNService.insertar(objPlan);
+   @RequestMapping(value = "/plan/CargarArchivo", method = RequestMethod.POST)
+    public ModelAndView CargarArchivo(@ModelAttribute("fileupload") PlanNegocio objPlan, SessionStatus status) { 
+        log.info("Cargaa File: " + objPlan.getcAAdjNombre());
+        log.info("Cargaa File: " + objPlan.getnPlaID());
+        ModelAndView mav = new ModelAndView("plan/listaArchivo");
+        objPlan.setcAAdjExtension("*.DOC"); 
+        planNService.insertarArchivo(objPlan);
         status.setComplete();
-        return "redirect:/pages/plan/Archivo";
+        return mav;
         
     }
-      
+    
+   
+   
     @RequestMapping("/plan/eliminarArchivo")
     public ModelAndView EliminarArchivo(@RequestParam("id")Integer id)
     {
         ModelAndView mav = new ModelAndView("redirect:/pages/plan/Archivo");
-        PlanNegocio objPlan = planNService.buscarPorId(id);
-        objPlan.setnEstID(3);
-        planNService.cambiarEstado(objPlan);
+        PlanNegocio objPlan= new PlanNegocio();
+        objPlan.setnPlaID(id);
+        planNService.eliminarArchivo(objPlan);
+       
         return mav;
     }
     

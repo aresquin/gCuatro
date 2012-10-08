@@ -52,3 +52,24 @@ insert into PlanNegocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, 
 values ('Plan de Negocio 1', 1, 'Vision 1', 'Razon indescriptible', '6 meses',123456, 123456, 12345, 1234567, 1, 1, SYSDATE());
 insert into PlanNegocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaInvTotal, nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, cPlaFecCrea)
 values ('Plan de Negocio 1', 2, 'Vision 2', 'Razon indescriptible', '6 meses',12.3456, 1234.56, 123.45, 12345.67, 1, 1, SYSDATE());
+
+
+
+/*Archivos Adjuntos*/
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(1, 1, 'Documento de Definición.doc', '*.DOC', SYSDATE(), 1);
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(1, 2, '2Documento de Definición.doc', '*.DOC', SYSDATE(), 1);
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(1, 3, '3Documento de Definición.doc', '*.DOC', SYSDATE(), 1);
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(1, 4, '4Documento de Definición.doc', '*.DOC', SYSDATE(), 1);
+
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(2, 1, 'Definición.doc', '*.DOC', SYSDATE(), 1);
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(2, 2, '2Definición.doc', '*.DOC', SYSDATE(), 1);
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(2, 3, '3Definición.doc', '*.DOC', SYSDATE(), 1);
+INSERT INTO archivo_adjunto(nPlaID, nAAdjSecuencia, cAAdjNombre, cAAdjExtension, cAAdjFecCrea, nUsuCrea)
+Values(2, 4, '4Definición.doc', '*.DOC', SYSDATE(), 1);

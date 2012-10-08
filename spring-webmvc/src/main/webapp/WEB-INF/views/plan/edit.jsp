@@ -10,12 +10,12 @@
         <div class="row">
             
             <form:hidden path="nPlaID"></form:hidden>
-            <table class="style1" cellpadding="0" cellspacing="0" >
+            <table  >
                 <tr>
                     <td class="style10" style="text-align:center; "    >
                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                     <td class="style5" colspan="6" style="text-align:center; height:50px; "    >
-                            <span class="Titulo" >Mantenimiento de Plan de Negocio </span>
+                            <span class="Subtitulo" >Mantenimiento de Plan de Negocio </span>
                     </td>
                 </tr>
                 <tr>
@@ -25,7 +25,7 @@
                         <span class="Label" >Titulo:</span>
                     </td>
                     <td colspan="5" class="style7">
-                       <form:input path="cPlaTitulo"></form:input>
+                        <form:input path="cPlaTitulo"  maxlength="80" cssStyle="width:600px" ></form:input>
                     </td>
                 </tr>
                 <tr>
@@ -58,7 +58,7 @@
                         <span class="Label" >Visión de Negocio:</span>   
                     </td>
                     <td colspan="5">
-                        <form:input path="cPlaVision"></form:input>
+                        <form:textarea path="cPlaVision"  maxlength="80" cssStyle="width:600px;" ></form:textarea>
                     </td>
                 </tr>
                 <tr>
@@ -85,7 +85,7 @@
                     <td class="style14">
                         <span class="Label" >Razonamiento de Negocio:</span></td>
                     <td colspan="5">
-                        <form:input path="cPlaRazon"></form:input>
+                        <form:textarea path="cPlaRazon"   maxlength="80" cssStyle="width:600px" ></form:textarea>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                     <td class="style14">
                         <span class="Label" >ROI:</span></td>
                     <td class="style13">
-                        <input id="txtROI" type="text" />
+                         <form:input path="nPlaROI" onkeypress="return fSoloNumeros(event);"></form:input>                     
                     </td>
                     <td>
                         &nbsp;</td>
@@ -102,6 +102,24 @@
                         <span class="Label" >Margen neto en el primer año:</span></td>
                     <td class="style3">
                         <form:input path="nPlaNeto" onkeypress="return fSoloNumeros(event);"></form:input>
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                 <tr>
+                    <td class="style12">
+                        &nbsp;</td>
+                    <td class="style14">
+                        <span class="Label" >Precio de Venta</span></td>
+                    <td class="style13">
+                       <form:input path="nPlaPreVenta" onkeypress="return fSoloNumeros(event);"></form:input>
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style2">
+                       &nbsp;</td>
+                    <td class="style3">
+                         &nbsp;
                     </td>
                     <td>
                         &nbsp;</td>
@@ -129,67 +147,13 @@
                     <td>
                         &nbsp;</td>
                 </tr>
-                <tr>
-                    <td class="style12">
-                        &nbsp;</td>
-                    <td colspan="6">
-                        <fieldset >
-                                <legend>Datos de Venta</legend>
-                                <table>
-                                <tr>
-                                    <td> <span class="Label" >Precio de Venta:</span></td>
-                                    <td><form:input path="nPlaPreVenta" onkeypress="return fSoloNumeros(event);"></form:input></td>
-                                    <td>&nbsp;</td>
-                                </tr>  
-                                <tr>
-                                    <td colspan="2" >
-                                        <input id="FileUploadArchivo" type="file" onclick="return FileUploadArchivo_onclick()" />
-                                        <input id="btnAdjuntar" type="button" value="Adjuntar" />
-                                    </td>
-                                    <td>
-                                        &nbsp;</td>
-                                </tr>  
-                                <tr>
-                                    <td colspan="3">
-                                        <table border="1" width="90%"   >
-                                            <tr class="CabeceraListado" >
-                                                <td><span>Item</span></td>
-                                                <td><span>Archivo</span></td>
-                                                <td><span>Extension</span></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span>1</span></td>
-                                                <td><span>Plan de Negocio</span></td>
-                                                <td><span>doc</span></td>
-                                                <td>
-                                                    <img alt="Eliminar" src="images/bt_Delete.gif" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span>2</span></td>
-                                                <td><span>Presentacion</span></td>
-                                                <td><span>ppt</span></td>
-                                                <td> <img alt="Eliminar" src="images/bt_Delete.gif" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span>3</span></td>
-                                                <td><span>Balance de Caja</span></td>
-                                                <td><span>xls</span></td>
-                                                <td> <img alt="Eliminar" src="images/bt_Delete.gif" /></td>
-                                            </tr>
-                                        </table>   
-
-                                    </td>
-                                </tr>  
-                                </table>      
-                        </fieldset >   
-                    </td>
-                       
+                
             </table>   
-        </div>    
+        </div>   
+            <br />    
         <div class="actions" style="margin-left: 160px;">
             <input name="" value="Grabar" type="submit" class="btn btn-primary">
-            <a style="margin-left: 5px;" href="<c:url value='/pages/plan/listado'/>">Cancelar</a>
+            <a style="margin-left: 5px;" href="<c:url value='/pages/plan/listado'/>"  class="btn btn-primary" >Cancelar</a>
         </div>
         </form:form>
 </div>

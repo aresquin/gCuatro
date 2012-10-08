@@ -45,7 +45,6 @@
                     <span style="font-size: 45px; font-family: Arial; font-weight:bold;   text-align:center; "><i>PLANES EMPRESARIALES</i> </span><br />
                     <br />
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="txtBuscar" type="text" size="700px" style="width:80%;"   /><input id="btnBuscar" type="button" value="Buscar" /> 
                     </td>
                 </tr>
             </table>

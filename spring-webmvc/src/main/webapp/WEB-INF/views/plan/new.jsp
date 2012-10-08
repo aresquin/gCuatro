@@ -13,12 +13,12 @@
 <div class="container">
         <form:form action="nuevo" method="post" commandName="Plan" cssClass="form-horizontal">
         <div class="row">
-            <table class="style1" cellpadding="0" cellspacing="0" >
+            <table  >
                 <tr>
                     <td   style="text-align:center; "    >
                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                     <td colspan="6" style="text-align:center; height:50px; "    >
-                            <span class="Titulo" >Mantenimiento de Plan de Negocio </span>
+                            <span class="Subtitulo" >Mantenimiento de Plan de Negocio </span>
                     </td>
                 </tr>
                 <tr>
@@ -28,7 +28,7 @@
                         <span class="Label" >Titulo:</span>
                     </td>
                     <td colspan="5" class="style7">
-                       <form:input path="cPlaTitulo"></form:input>
+                       <form:input path="cPlaTitulo"  maxlength="80" cssStyle="width:600px" ></form:input>
                         <form:errors path="cPlaTitulo" cssstyle="color:red"></form:errors>
                     </td>
                 </tr>
@@ -36,7 +36,7 @@
                     <td class="style12">
                         &nbsp;</td>
                     <td class="style14">
-                        <span  class="Label" >Categoria:</span>   
+                        <span class="Label" >Categoria:</span>   
                     </td>
                     <td class="style13">
                         <form:select path="nCatID">
@@ -63,7 +63,7 @@
                         <span class="Label" >Visión de Negocio:</span>   
                     </td>
                     <td colspan="5">
-                        <form:input path="cPlaVision"></form:input>
+                        <form:textarea path="cPlaVision"  maxlength="80" cssStyle="width:600px;" ></form:textarea>
                         <form:errors path="cPlaVision" cssstyle="color:red"></form:errors>
                     </td>
                 </tr>
@@ -93,7 +93,7 @@
                     <td class="style14">
                         <span class="Label" >Razonamiento de Negocio:</span></td>
                     <td colspan="5">
-                        <form:input path="cPlaRazon"></form:input>
+                        <form:textarea path="cPlaRazon"  maxlength="80" cssStyle="width:600px" ></form:textarea>
                         <form:errors path="cPlaRazon" cssstyle="color:red"></form:errors>                        
                     </td>
                 </tr>
@@ -113,6 +113,24 @@
                     <td class="style3">
                         <form:input path="nPlaNeto" onkeypress="return fSoloNumeros(event);"></form:input>
                         <form:errors path="nPlaNeto" cssstyle="color:red"></form:errors>  
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                 <tr>
+                    <td class="style12">
+                        &nbsp;</td>
+                    <td class="style14">
+                        <span class="Label" >Precio de Venta</span></td>
+                    <td class="style13">
+                       <form:input path="nPlaPreVenta" onkeypress="return fSoloNumeros(event);"></form:input>
+                    </td>
+                    <td>
+                        &nbsp;</td>
+                    <td class="style2">
+                       &nbsp;</td>
+                    <td class="style3">
+                         &nbsp;
                     </td>
                     <td>
                         &nbsp;</td>
@@ -139,69 +157,13 @@
                         &nbsp;</td>
                     <td>
                         &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style12">
-                        &nbsp;</td>
-                    <td colspan="6">
-                        <fieldset >
-                                <legend>Datos de Venta</legend>
-                                <table>
-                                <tr>
-                                    <td> <span class="Label" >Precio de Venta:</span></td>
-                                    <td><form:input path="nPlaPreVenta" onkeypress="return fSoloNumeros(event);"></form:input>
-                                        <form:errors path="nPlaPreVenta" cssstyle="color:red"></form:errors>  </td>
-                                    <td>&nbsp;</td>
-                                </tr>  
-                                <tr>
-                                    <td colspan="2" >
-                                        <input id="FileUploadArchivo" type="file" onclick="return FileUploadArchivo_onclick()" />
-                                        <input id="btnAdjuntar" type="button" value="Adjuntar" />
-                                    </td>
-                                    <td>
-                                        &nbsp;</td>
-                                </tr>  
-                                <tr>
-                                    <td colspan="3">
-                                        <table border="1" width="90%"   >
-                                            <tr class="CabeceraListado" >
-                                                <td><span>Item</span></td>
-                                                <td><span>Archivo</span></td>
-                                                <td><span>Extension</span></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span>1</span></td>
-                                                <td><span>Plan de Negocio</span></td>
-                                                <td><span>doc</span></td>
-                                                <td>
-                                                    <img alt="Eliminar" src="images/bt_Delete.gif" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span>2</span></td>
-                                                <td><span>Presentacion</span></td>
-                                                <td><span>ppt</span></td>
-                                                <td> <img alt="Eliminar" src="images/bt_Delete.gif" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td><span>3</span></td>
-                                                <td><span>Balance de Caja</span></td>
-                                                <td><span>xls</span></td>
-                                                <td> <img alt="Eliminar" src="images/bt_Delete.gif" /></td>
-                                            </tr>
-                                        </table>   
-
-                                    </td>
-                                </tr>  
-                                </table>      
-                        </fieldset >   
-                    </td>
-                       
+                </tr>  
             </table>   
         </div>    
-        <div class="actions" style="margin-left: 160px;">
+            <br />         
+        <div class="actions" style="margin-left: 160px; alignment-baseline: central; ">
             <input name="" value="Grabar" type="submit" class="btn btn-primary">
-            <a style="margin-left: 5px;" href="<c:url value='/pages/plan/listado'/>">Cancelar</a>
+            <a style="margin-left: 5px;" href="<c:url value='/pages/plan/listado'/>"  class="btn btn-primary" >Cancelar</a>
         </div>
         </form:form>
 </div>

@@ -20,9 +20,13 @@
 </script>
 <div class="container">
     <div >
-        <form:input path="cPlaTitulo" size="10" type="cAAdjNombre" ></form:input>
-        <input id="btnAdjuntar" type="button" value="Adjuntar"  class="btn btn-primary"/>
-        <a style="margin-left: 5px;"  class="btn btn-primary" href="<c:url value='/pages/plan/listado'/>">Cancelar</a>
+    <form:form action="CargarArchivo" method="post" commandName="fileupload">        
+        <form:hidden path="nPlaID"></form:hidden>
+        <form:input path="cAAdjNombre" size="100" type="file"  ></form:input>
+        <br/>  
+        <input id="btnAdjuntar" type="submit" value="Adjuntar"  class="btn btn-primary"/>
+        <a href="<c:url value='/pages/plan/listado'/>" class="btn btn-primary">Cancelar</a>
+    </form:form>
     <div>
     <br/>
     <table class="table table-striped">
@@ -34,7 +38,7 @@
             <th style="width: 150px;"></th>
             <th style="width: 150px;"></th>
         </tr>
-        <c:forEach var="archivo" items="${usuarios}">
+        <c:forEach var="archivo" items="${listaArchivo}">
             <tr>
                 <td>${archivo.nAAdjSecuencia}</td>
                 <td>${archivo.cAAdjNombre}</td>

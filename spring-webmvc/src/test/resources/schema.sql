@@ -100,10 +100,10 @@ CREATE  TABLE Usuario (
 
 CREATE  TABLE PlanNegocio (
   nPlaID INT NOT NULL AUTO_INCREMENT ,
-  cPlaTitulo VARCHAR(100) NULL ,
+  cPlaTitulo VARCHAR(4000) NULL ,
   nCatID INT NULL ,
-  cPlaVision VARCHAR(500) NULL ,
-  cPlaRazon VARCHAR(500) NULL ,
+  cPlaVision VARCHAR(4000) NULL ,
+  cPlaRazon VARCHAR(4000) NULL ,
   cPlaTiempo VARCHAR(30) NULL ,
   nPlaInvTotal DOUBLE NULL ,
   nPlaNeto DOUBLE NULL ,

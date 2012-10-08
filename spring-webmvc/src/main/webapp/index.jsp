@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="Refresh" content="0; URL=pages/categorias/index">
+        <meta http-equiv="Refresh" content="0; URL=pages/usuarios/login">
         <title>Canchas Online</title>
     </head>
     <body>

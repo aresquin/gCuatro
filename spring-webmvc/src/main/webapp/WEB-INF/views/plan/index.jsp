@@ -27,7 +27,7 @@
             <td style="text-align:center;height: 50px;width: 56px; "    >
                  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
             <td style="text-align:center; height:50px; "    >
-                 <span class="Titulo" >Listado de Plan de Negocio </span>
+                 <span class="Subtitulo" >Listado de Plan de Negocio </span>
             </td>
         </tr>
         <tr>
@@ -35,15 +35,15 @@
                  &nbsp;</td>
             <td style="text-align:left ; height:50px; "    >
                  <fieldset >
-                     <legend><span class="Label" >Filtros de Búsqueda</span></legend>
+                     <legend>Filtros de Búsqueda</legend>
                      <form:form action="buscar" method="post" commandName="criterioBusqueda">
                       <table class="style1" cellpadding="0" cellspacing="0" >
                         <tr>
                             <td style="width: 112px;">
-                               <span class="Label" >Titulo:</span>
+                              Titulo:
                             </td>
                             <td colspan="5" class="style7">
-                                 <form:input path="cPlaTitulo" size="10"></form:input>
+                                 <form:input path="cPlaTitulo"  maxlength="80" cssStyle="width:600px" ></form:input>
                             </td>    
                         </tr>
                         <tr>
@@ -126,6 +126,7 @@
                         <td><span>Estado</span></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                     </tr>
                     <% int fila=0; %>
                     <c:forEach var="Listado" items="${ListadoPlanes}">
@@ -141,6 +142,7 @@
                         <td>${Listado.nEstID}</td>
                         <td><a href="<c:url value='/pages/plan/editar?id=${Listado.nPlaID}'/>"><img alt="Editar" src="<c:url value='/image/bt_edit.gif' />" /></a></td>
                         <td><a href="<c:url value='/pages/plan/eliminar?id=${Listado.nPlaID}'/>" onclick="if (Eliminar()) { return true; } else { return false; }"><img alt="Editar" src="<c:url value='/image/bt_Delete.gif' />" /></a></td>
+                        <td><a href="<c:url value='/pages/plan/CargarArchivo?id=${Listado.nPlaID}'/>"><img alt="Cargar" src="<c:url value='/image/file_upload.png' />" width="16" width="16" /></a></td>
                     </tr>
                     </c:forEach>    
                 </table>  
