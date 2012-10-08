@@ -58,4 +58,10 @@ public class CategoriaDaoTest {
         Categoria categoria = categoriaDao.buscarPorId(4);
         Assert.assertEquals("Pesca",categoria.getcCatNombre());
     }
+    
+    @Test
+    public void debeBuscarPorNombre() {
+        Categoria categoria = categoriaDao.buscarPorNombre("Agricultura");
+        Assert.assertEquals("Agricultura",categoria.getcCatNombre());
+    }
 }

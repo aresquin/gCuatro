@@ -41,6 +41,7 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
 
     @Override
     public void actualizar(Categoria objCategoria) {
+          log.info("Asig:"+objCategoria.getnCatID());
         getJdbcTemplate().update("update Categoria set cCatNombre = ?, sCatRutaImagen = ?, cCatFecModi = SYSDATE(),"
                 + " nUsuModi = ? WHERE nCatID = ?", objCategoria.getcCatNombre(), objCategoria.getsCatRutaImagen(), 
                 objCategoria.getnUsuModi(), objCategoria.getnCatID());
@@ -56,7 +57,8 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
     public List<Categoria> buscarCategoria() {
         try {
             return (List<Categoria>) getSimpleJdbcTemplate().query(
-                    "select * from Categoria where nEstID=1", new BeanPropertyRowMapper<Categoria>(Categoria.class));
+                    "select * from Categoria where nEstID=1", 
+                    new BeanPropertyRowMapper<Categoria>(Categoria.class));
         } catch(EmptyResultDataAccessException e) {
             return null;
         }
@@ -66,7 +68,7 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
     public Categoria buscarPorId(Integer id) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select cCatNombre, sCatRutaImagen from Categoria where nCatID=? and nEstID=1",
+                    "select nCatID, cCatNombre, sCatRutaImagen from Categoria where nCatID=? and nEstID=1",
                     new BeanPropertyRowMapper<Categoria>(Categoria.class), id);
         } catch (EmptyResultDataAccessException e) {
             return null;
@@ -77,7 +79,7 @@ public class CategoriaDaoImpl extends SimpleJdbcDaoSupport implements CategoriaD
     public Categoria buscarPorNombre(String nombre) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select cCatNombre, sCatRutaImagen from Categoria where cCatNombre=? and nEstID=1",
+                    "select nCatID, cCatNombre, sCatRutaImagen from Categoria where cCatNombre=? and nEstID=1",
                     new BeanPropertyRowMapper<Categoria>(Categoria.class), nombre);
         } catch (EmptyResultDataAccessException e) {
             return null;

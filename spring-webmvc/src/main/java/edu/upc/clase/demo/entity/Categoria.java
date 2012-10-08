@@ -31,7 +31,7 @@ public class Categoria implements Serializable {
         this.sCatRutaImagen = sCatRutaImagen;
         this.nUsuCrea = nUsuCrea;
     }
-    
+
     public Categoria(Integer nUsuModi, Integer nCatID) {
         this.nUsuModi = nUsuModi;
         this.nCatID = nCatID;

@@ -33,47 +33,57 @@ public class CategoriaController {
     @RequestMapping("/categorias/index")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("categorias/index");
-        List<Categoria> categorias = categoriaService.buscarCategoria();
-        mav.addObject("categorias", categorias);
+        List<Categoria> categoria = categoriaService.buscarCategoria();
+        mav.addObject("categoria", categoria);
         return mav;
     }
     
     @RequestMapping(value = "/categorias/new", method = RequestMethod.GET)
     public ModelAndView newCategoria() {
         ModelAndView mav = new ModelAndView("categorias/new");
-        Categoria categorias = new Categoria();
-        mav.getModelMap().put("categorias", categorias);
+        Categoria categoria = new Categoria();
+        mav.getModelMap().put("categoria", categoria);
         return mav;
-    }    
+    }
     
     @RequestMapping(value = "/categorias/new", method = RequestMethod.POST)
-    public String createUsuario(@ModelAttribute("categorias")Categoria categorias, SessionStatus status) {    
-        categoriaService.insertar(categorias);
+    public String createCategoria(@ModelAttribute("categoria") Categoria categoria, SessionStatus status) {
+        categoriaService.insertar(categoria);
         status.setComplete();
         return "redirect:/pages/categorias/index";
-    }    
+    }
+    
+    @RequestMapping(value="/categorias/edit", method=RequestMethod.GET)
+    public ModelAndView editCategoria (@RequestParam("nCatID")Integer id) {
+        ModelAndView mav = new ModelAndView("categorias/edit");
+        Categoria categoria = categoriaService.buscarPorId(id);
+        mav.getModelMap().put("categoria", categoria);
+        return mav;
+    }
     
     @RequestMapping(value="/categorias/edit", method=RequestMethod.POST)
-    public String update(@ModelAttribute("categorias") Categoria categorias, SessionStatus status) {
-        categoriaService.actualizar(categorias);
+    public String update(@ModelAttribute("categoria") Categoria categoria, SessionStatus status) {
+        categoria.setnUsuModi(1);
+        categoriaService.actualizar(categoria);
         status.setComplete();
         return "redirect:/pages/categorias/index";
-    }    
+    }
     
     @RequestMapping("/categorias/delete")
     public ModelAndView delete(@RequestParam("nCatID")Integer id)
     {
         ModelAndView mav = new ModelAndView("redirect:/pages/categorias/index");
-        Categoria categorias = categoriaService.buscarPorId(id);
-        categoriaService.eliminar(categorias);
+        Categoria categoria = categoriaService.buscarPorId(id);
+        categoria.setnUsuModi(1);
+        categoriaService.eliminar(categoria);
+        return mav;
+    }    
+    
+    @RequestMapping(value = "/categorias/buscar", method=RequestMethod.POST)
+    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") CriterioBusqueda criterio, SessionStatus status) {
+        ModelAndView mav = new ModelAndView("categorias/resultadoBusqueda");
+        log.info("resultado = " + categoriaService.buscarPorNombre(criterio.getNombre()));
+        mav.getModel().put("resultado",categoriaService.buscarPorNombre(criterio.getNombre()));
         return mav;
     }
-    
-//    @RequestMapping(value = "/categorias/buscar", method=RequestMethod.POST)
-//    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") CriterioBusqueda criterio, SessionStatus status) {
-//        ModelAndView mav = new ModelAndView("categorias/resultadoBusqueda");
-//        log.info("resultado = " + categoriaService.buscarPorNombre(criterio.getcCatNombre()));
-//        mav.getModel().put("resultado",categoriaService.buscarPorNombre(criterio.getcCatNombre()));
-//        return mav;
-//    }
 }

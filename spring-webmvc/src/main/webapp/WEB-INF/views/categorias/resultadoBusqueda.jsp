@@ -15,10 +15,25 @@
 
 <div class="container">
     <h1 style="float:left">Administracion de Categorias</h1>
-    <div style="float:right;margin-bottom:10px">
+    <div style="float:right;margin-bottom:30px">
         <a href="<c:url value='/pages/categorias/new' />" class="btn btn-primary">Agregar nueva categoria</a>
     </div>
     <div class="clear"></div>
+    <div class="buscar-form">
+        <form:form action="buscar" method="post" commandName="criterioBusqueda">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td><label>Buscar:</label></td>
+                    <td>
+                        <form:input path="cCatNombre" size="10"></form:input>
+                    </td>
+                    <td>
+                        <input type="submit" value="Buscar" class="btn btn-primary"/>
+                    </td>
+                </tr>
+            </table>
+        </form:form>
+    </div>
     <ul class="columnas">
         <c:forEach var="categoria" items="${categoria}">
             <li>
