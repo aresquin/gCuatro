@@ -41,16 +41,17 @@ public class ComentarioDaoImpl extends SimpleJdbcDaoSupport implements Comentari
         return getSimpleJdbcTemplate().queryForInt("call identity()");
     }*/
       public Integer comentar(Comentario objComentario) {
-        getJdbcTemplate().update("insert into Categoria (cComDescripcion,nPlaID,nUsuID,cComFecCrea)"
-                + " values (?, ?, ?, ?, SYSDATE())", objComentario.getcComDescripcion(), objComentario.getnPlaID(), objComentario.getnUsuID(), 
-                 objComentario.getcComFecCrea());
+        getJdbcTemplate().update("insert into Comentario(cComDescripcion,nPlaID,nUsuID,cComFecCrea)"
+                + " values (?, ?, ?, SYSDATE())", objComentario.getcComDescripcion(), objComentario.getnPlaID(), objComentario.getnUsuID());
         return getSimpleJdbcTemplate().queryForInt("select last_insert_id()");
     }
 
     
     @Override
     public Integer eliminar(Comentario objComentario) {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return getJdbcTemplate().update("DELETE FROM Comentario where nComID =?",
+               objComentario.getnComID() );
+     
+        
     }
-    
 }
