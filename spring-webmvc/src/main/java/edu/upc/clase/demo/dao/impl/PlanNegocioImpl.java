@@ -139,5 +139,20 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
                objPlan.getnAAdjID() );
     }
     
+    @Override
+    public List<PlanNegocio> buscarArchivosPlanID(PlanNegocio objPlan) {
+        
+          try{
+            Map<String, Object> parametros= new HashMap<String, Object>();
+            parametros.put("nPlanID", objPlan.getnPlaID());
+           return (List<PlanNegocio>) getSimpleJdbcTemplate().query(
+                   "SELECT  * FROM Archivo_Adjunto where nPlaID=? "
+                   , new BeanPropertyRowMapper<PlanNegocio>(PlanNegocio.class), parametros);
+        } catch(EmptyResultDataAccessException e)
+        {
+            return null;
+        }
+
+    }
     
 }

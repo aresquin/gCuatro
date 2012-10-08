@@ -35,8 +35,18 @@
 	</definition>
         
                 
+         
         <definition name="plan/lista" extends="defaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/plan/index.jsp" />
 	</definition>
+        
+          <definition name="plan/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/plan/new.jsp"/>
+        </definition>
+        
+        <definition name="plan/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/plan/edit.jsp"/>
+        </definition>
+        
         
 </tiles-definitions>

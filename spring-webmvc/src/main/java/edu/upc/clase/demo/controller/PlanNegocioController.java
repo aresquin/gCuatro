@@ -36,10 +36,90 @@ public class PlanNegocioController {
         ModelAndView mav = new ModelAndView("plan/lista");
         PlanNegocio objPlan= new PlanNegocio();
         List<PlanNegocio> ListadoPlan = planNService.buscarPlanNegocio(objPlan);
-        CriterioBusqueda criterioBusqueda = new CriterioBusqueda();
+        PlanNegocio criterioBusqueda = new PlanNegocio();
+        mav.addObject("criterioBusqueda",criterioBusqueda);
         mav.addObject("ListadoPlanes", ListadoPlan);
         return mav;
     }
     
+    @RequestMapping(value = "/plan/buscar", method=RequestMethod.POST)
+    public ModelAndView buscar(@ModelAttribute("criterioBusqueda") PlanNegocio objPlan, SessionStatus status) {
+        ModelAndView mav = new ModelAndView("plan/lista");
+        log.info("resultado = " + planNService.buscarPlanNegocio(objPlan));        
+        mav.addObject("criterioBusqueda",objPlan);
+        mav.addObject("ListadoPlanes",planNService.buscarPlanNegocio(objPlan));
+        return mav;
+    }
+    
+    
+    @RequestMapping(value = "/plan/nuevo", method = RequestMethod.GET)
+    public ModelAndView NuevoPlan() {
+        ModelAndView mav = new ModelAndView("plan/new");
+        PlanNegocio objPlan = new PlanNegocio();
+        mav.getModelMap().put("Plan", objPlan);
+        return mav;
+    }
+
+    @RequestMapping(value = "/plan/nuevo", method = RequestMethod.POST)
+    public String Create(@ModelAttribute("Plan")PlanNegocio objPlan, SessionStatus status) {    
+        planNService.insertar(objPlan);
+        status.setComplete();
+        return "redirect:/pages/plan/listado";
+        
+    }
+    
+    @RequestMapping(value = "/plan/editar", method = RequestMethod.GET)
+    public ModelAndView editPlan(@RequestParam("id")Integer id) {    
+        ModelAndView mav = new ModelAndView("plan/edit");
+        PlanNegocio objPlan = planNService.buscarPorId(id);
+        mav.getModelMap().put("Plan", objPlan);
+        return mav;        
+    }
+    @RequestMapping(value="/plan/editar", method=RequestMethod.POST)
+    public String update(@ModelAttribute("Plan") PlanNegocio objPlan, SessionStatus status) {
+        planNService.actualizar(objPlan);
+        status.setComplete();
+        return "redirect:/pages/plan/listado";
+    }
+    
+    @RequestMapping("/plan/eliminar")
+    public ModelAndView delete(@RequestParam("id")Integer id)
+    {
+        ModelAndView mav = new ModelAndView("redirect:/pages/plan/listado");
+        PlanNegocio objPlan = planNService.buscarPorId(id);
+        objPlan.setnEstID(3);
+        planNService.cambiarEstado(objPlan);
+        return mav;
+    }
+    
+    /*Archivos adjuntos*/
+    
+    @RequestMapping(value = "/plan/Archivo", method = RequestMethod.GET)
+    public ModelAndView listadoArchivos() {
+        ModelAndView mav = new ModelAndView("plan/listaArchivo");
+        PlanNegocio objPlan= new PlanNegocio();
+        List<PlanNegocio> ListadoArchivo = planNService.buscarArchivosPlanID(objPlan);
+        mav.addObject("ListadoArchivos", ListadoArchivo);
+        return mav;
+    }
+    
+    
+   @RequestMapping(value = "/plan/Archivo", method = RequestMethod.POST)
+    public String Cargar(@ModelAttribute("Archivo")PlanNegocio objPlan, SessionStatus status) {    
+        planNService.insertar(objPlan);
+        status.setComplete();
+        return "redirect:/pages/plan/Archivo";
+        
+    }
+      
+    @RequestMapping("/plan/eliminarArchivo")
+    public ModelAndView EliminarArchivo(@RequestParam("id")Integer id)
+    {
+        ModelAndView mav = new ModelAndView("redirect:/pages/plan/Archivo");
+        PlanNegocio objPlan = planNService.buscarPorId(id);
+        objPlan.setnEstID(3);
+        planNService.cambiarEstado(objPlan);
+        return mav;
+    }
     
 }

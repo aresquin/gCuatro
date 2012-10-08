@@ -36,40 +36,42 @@
             <td style="text-align:left ; height:50px; "    >
                  <fieldset >
                      <legend><span class="Label" >Filtros de Búsqueda</span></legend>
+                     <form:form action="buscar" method="post" commandName="criterioBusqueda">
                       <table class="style1" cellpadding="0" cellspacing="0" >
                         <tr>
                             <td style="width: 112px;">
                                <span class="Label" >Titulo:</span>
                             </td>
                             <td colspan="5" class="style7">
-                                <input id="txtTitulo" type="text" style="width:95%;"  /></td>    
+                                 <form:input path="cPlaTitulo" size="10"></form:input>
+                            </td>    
                         </tr>
                         <tr>
                             <td style="width: 112px">
                                 <span  class="Label" >Categoria:</span>   
                             </td>
                             <td style=" width: 236px">
-                                <select id="cmbCategoria">
-                                    <option>:::Todas:::</option>
-                                    <option>Categoria1</option>
-                                    <option>Categoria2</option>
-                                    <option>Categoria3</option>
-                                    <option>Categoria4</option>
-                                    <option>Categoria5</option>
-                                    <option>Categoria6</option>
-                                </select>
+                                <form:select path="nCatID">
+                                    <form:option value="-1" >:::Seleccionar:::</form:option>
+                                    <form:option value="1" >Categoria 1</form:option>
+                                    <form:option value="2" >Categoria 2</form:option>
+                                    <form:option value="3" >Categoria 3</form:option>
+                                    <form:option value="4" >Categoria 4</form:option>
+                                </form:select>
+                                <form:errors path="nCatID" cssstyle="color:red"></form:errors>
                             </td>
                             <td style="width: 64px;">&nbsp;</td>
                              <td style="width: 102px;">
                                 <span class="Label" >Estado:</span>
                             </td>
                             <td style="width: 238px;">
-                                <select id="cmbEstado">
-                                   
-                                    <option>Pendiente</option>
-                                    <option>Activo</option>
-                                    <option>Rechazado</option>
-                                </select>
+                                <form:select path="nEstID">
+                                    <form:option value="-1" >:::Seleccionar:::</form:option>
+                                    <form:option value="1" >Registrado</form:option>
+                                    <form:option value="2" >Aprobador</form:option>
+                                    <form:option value="3" >Rechazado</form:option>
+                                </form:select>
+                                <form:errors path="nEstID" cssstyle="color:red"></form:errors>
                             </td>
                         </tr>
                         <tr>
@@ -88,8 +90,16 @@
                                 <input id="txtInvIni" type="text"  style="width:86px;"  onkeypress="return fSoloNumeros(event);" />&nbsp;&nbsp;
                                 <input id="txtInvFin" type="text"  style="width:86px;"  onkeypress="return fSoloNumeros(event);" />
                             </td>
+                            
                         </tr>
-                      </table >
+                        <tr>
+                            <td colspan="5">
+                                <input type="submit" value="Buscar" class="btn btn-primary"/></td>
+                            
+                        </tr>
+                         
+                      </table >                      
+                      </form:form>
                  </fieldset >
             </td>
         </tr>
@@ -98,6 +108,7 @@
             <td class="style11">
                 &nbsp;</td>
             <td class="style6" style="text-align:center; ">
+                <a href="<c:url value='/pages/plan/nuevo'/>" class="btn btn-primary">Nuevo</a>        
                 <input id="btnbuscar" type="button" value="Buscar"  />&nbsp;
                 <input id="btnNuevo" type="button" value="Nuevo" onClick="javascript:Nuevo();"/></td>
         </tr>

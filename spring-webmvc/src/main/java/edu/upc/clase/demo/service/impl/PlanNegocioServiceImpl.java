@@ -170,5 +170,9 @@ import org.springframework.stereotype.Service;
             
         }
         
-       
+       @Override
+    public List<PlanNegocio> buscarArchivosPlanID(PlanNegocio objPlan) {
+        
+          return plannegocioDao.buscarArchivosPlanID(objPlan);
+    }    
 }

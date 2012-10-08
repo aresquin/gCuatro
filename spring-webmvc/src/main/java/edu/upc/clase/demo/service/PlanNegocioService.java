@@ -23,6 +23,7 @@ public interface PlanNegocioService {
     public Integer obtenerSecuencia(PlanNegocio objPlan);    
     public Integer insertarArchivo(PlanNegocio objPlan);
     public Integer eliminarArchivo(PlanNegocio objPlan);
+    public List<PlanNegocio> buscarArchivosPlanID(PlanNegocio objPlan);
     
     
 }
