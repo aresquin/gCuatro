@@ -59,4 +59,10 @@ public class CategoriaServiceImpl implements CategoriaService {
         log.info("Buscando categoria por ID");
         return categoriaDao.buscarPorId(id);
     }
+    
+    @Override
+    public Categoria buscarPorNombre(String nombre) {
+        log.info("Buscando categoria por nombre");
+        return categoriaDao.buscarPorNombre(nombre);
+    }
 }
