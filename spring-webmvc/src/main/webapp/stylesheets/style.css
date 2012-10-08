@@ -71,3 +71,14 @@ ul.columnas li {
     -webkit-border-radius: 4px; -moz-border-radius: 4px;
     /*cursor: pointer;*/
 }
+
+
+.CabeceraListado
+{
+    background-color: #00CC99;
+}
+
+.FilaAlternativa
+{
+    background-color: #CCFFCC;
+}

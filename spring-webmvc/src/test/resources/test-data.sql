@@ -42,7 +42,9 @@ values ('Pesca industrial',4,SYSDATE(),1);
 insert into Subcategoria (cSCatNombre,nCatID,cSCatFecCrea,nUsuCrea)
 values ('Pesca deportiva',4,SYSDATE(),1);
 
+
+/*insertar plannegocio*/
 insert into PlanNegocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaInvTotal, nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, cPlaFecCrea)
 values ('Plan de Negocio 1', 1, 'Vision 1', 'Razon indescriptible', '6 meses',123456, 123456, 12345, 1234567, 1, 1, SYSDATE());
 insert into PlanNegocio( cPlaTitulo, nCatID, cPlaVision, cPlaRazon, cPlaTiempo, nPlaInvTotal, nPlaNeto, nPlaROI, nPlaPreVenta, nEstID  , nUsuCrea, cPlaFecCrea)
-values ('Plan de Negocio 1', 1, 'Vision 1', 'Razon indescriptible', '6 meses',123456, 123456, 12345, 1234567, 1, 1, SYSDATE());
+values ('Plan de Negocio 1', 2, 'Vision 2', 'Razon indescriptible', '6 meses',12.3456, 1234.56, 123.45, 12345.67, 1, 1, SYSDATE());

@@ -29,11 +29,13 @@ import org.springframework.stereotype.Service;
         public String ValidarDatos(PlanNegocio objPlan)
         {
            String sMsg="";
-            if (objPlan.getcPlaTitulo().equals(""))
+          if (objPlan!= null)
+          {
+            if (objPlan.getcPlaTitulo() !=null && objPlan.getcPlaTitulo().equals(""))
             {
                 sMsg="Debe ingresar un titulo del plan";
             }
-            else if (objPlan.getnCatID().equals(0))
+            else if (objPlan.getnCatID().equals(0) &&  objPlan.getnCatID().equals(""))
             {
                 sMsg="Debe elegir una categoria";
             }
@@ -53,6 +55,7 @@ import org.springframework.stereotype.Service;
             {
                 sMsg="Debe ingresar un precio de venta";
             }
+          }
             return sMsg;
         }
         
@@ -149,7 +152,7 @@ import org.springframework.stereotype.Service;
         @Override
         public Integer eliminarArchivo(PlanNegocio objPlan) {
              String sMsg="";
-            if(objPlan.getcAAdjNombre().trim().equals(""))
+            if(objPlan.getnAAdjID().equals(0))
             {
                 sMsg="Debe elegir un archivo a eliminar";
             }

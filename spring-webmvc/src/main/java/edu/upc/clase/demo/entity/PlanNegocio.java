@@ -31,9 +31,15 @@ public class PlanNegocio implements Serializable {
     private Integer nUsuCrea;
     private Date cPlaFecModi;
     private Integer nUsuModi;
+    private Integer nAAdjID;
+    private Integer nAAdjSecuencia;
+    private String cAAdjNombre;
+    private String cAAdjExtension;
+    private String cAAdjFecCrea;
 
     public PlanNegocio() {
     }
+
 
     /**
      * @return the nPlaID
@@ -120,14 +126,14 @@ public class PlanNegocio implements Serializable {
     }
 
     /**
-     * @return the nPlaTotal
+     * @return the nPlaInvTotal
      */
     public double getnPlaInvTotal() {
         return nPlaInvTotal;
     }
 
     /**
-     * @param nPlaTotal the nPlaTotal to set
+     * @param nPlaInvTotal the nPlaInvTotal to set
      */
     public void setnPlaInvTotal(double nPlaInvTotal) {
         this.nPlaInvTotal = nPlaInvTotal;
@@ -213,8 +219,8 @@ public class PlanNegocio implements Serializable {
     /**
      * @param cPlaFecCrea the cPlaFecCrea to set
      */
-    public void setcPlaFecCrea(Date nPlaFecCrea) {
-        this.cPlaFecCrea = nPlaFecCrea;
+    public void setcPlaFecCrea(Date cPlaFecCrea) {
+        this.cPlaFecCrea = cPlaFecCrea;
     }
 
     /**
@@ -258,14 +264,6 @@ public class PlanNegocio implements Serializable {
     public void setnUsuModi(Integer nUsuModi) {
         this.nUsuModi = nUsuModi;
     }
-    /**
-     * Detalle de plan de negocio
-     */
-    private Integer nAAdjID;
-    private Integer nAAdjSecuencia;
-    private String cAAdjNombre;
-    private String cAAdjExtension;
-    private String cAAdjFecCrea;
 
     /**
      * @return the nAAdjID

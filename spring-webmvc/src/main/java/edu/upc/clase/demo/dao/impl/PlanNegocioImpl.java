@@ -78,7 +78,7 @@ public class PlanNegocioImpl extends SimpleJdbcDaoSupport implements PlanNegocio
             parametros.put("cPlanTitulo", objPlan.getcPlaTitulo());
             parametros.put("nCatID", objPlan.getnCatID());
             parametros.put("nEstID", objPlan.getnEstID());
-            return (List<PlanNegocio>) getSimpleJdbcTemplate().queryForObject(
+            return (List<PlanNegocio>) getSimpleJdbcTemplate().query(
                     
                     "SELECT * FROM PlanNegocio WHERE 1=1 ",
                     //+ " AND (:cPlanTitulo='' or cPlaTitulo like %:cPlanTitulo%)"

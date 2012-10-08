@@ -28,9 +28,18 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller("plannegocioController")
 public class PlanNegocioController {
      @Autowired
-    private PlanNegocioService plannegocioService;
+    private PlanNegocioService planNService;
     private static Logger log = LoggerFactory.getLogger(PlanNegocioController.class);
     
+    @RequestMapping("/plan/listado")
+    public ModelAndView index() {
+        ModelAndView mav = new ModelAndView("plan/lista");
+        PlanNegocio objPlan= new PlanNegocio();
+        List<PlanNegocio> ListadoPlan = planNService.buscarPlanNegocio(objPlan);
+        CriterioBusqueda criterioBusqueda = new CriterioBusqueda();
+        mav.addObject("ListadoPlanes", ListadoPlan);
+        return mav;
+    }
     
     
 }

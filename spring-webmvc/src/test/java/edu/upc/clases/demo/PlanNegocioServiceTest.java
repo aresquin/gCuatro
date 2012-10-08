@@ -36,6 +36,30 @@ public class PlanNegocioServiceTest {
     Integer iRes=0;
    
     
+    @Test
+    public void testInsertarPlanNegocio() {
+        //c.getTime()
+                
+        PlanNegocio objPlan = new PlanNegocio();
+        objPlan.setcPlaTitulo("Plan1");
+       
+        objPlan.setnCatID(1);
+        objPlan.setcPlaVision("El negocio es prospero.....");
+        objPlan.setcPlaTiempo("6 meses");
+        objPlan.setnPlaInvTotal(2000.00);        
+        objPlan.setcPlaRazon("Razon1");
+        objPlan.setnPlaROI(3000.40);
+        objPlan.setnPlaNeto(1500.50);
+        objPlan.setnPlaPreVenta(4000.00);
+        objPlan.setnEstID(1);
+        objPlan.setnUsuCrea(1);
+        objPlan.setcPlaFecCrea(fecha);
+      
+        Integer id= planNService.insertar(objPlan);
+        Assert.assertNotNull(id);
+    }
+      
+    
      @Test
     public void testActualizarPlan() {
         
@@ -100,7 +124,7 @@ public class PlanNegocioServiceTest {
     
     
     
-  // @Test 
+   @Test 
     public void testListarPlanes()
     {
         PlanNegocio objPlan2 = new PlanNegocio();
@@ -109,7 +133,7 @@ public class PlanNegocioServiceTest {
         objPlan2.setnEstID(-1);
         List<PlanNegocio> objListado=new ArrayList<PlanNegocio>();
                 objListado=planNService.buscarPlanNegocio(objPlan2);
-        Assert.assertNotNull(objListado);    
+       Assert.assertEquals(2,objListado.size());     
     }
     
     @Test 
