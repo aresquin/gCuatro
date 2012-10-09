@@ -6,10 +6,13 @@
 
 
 <div class="container">
+    <br />
         <form:form action="editar" method="post" commandName="Plan" cssClass="form-horizontal">
         <div class="row">
             
             <form:hidden path="nPlaID"></form:hidden>
+            <form:hidden path="nUsuModi"></form:hidden>
+            
             <table  >
                 <tr>
                     <td class="style10" style="text-align:center; "    >
@@ -36,11 +39,12 @@
                     </td>
                     <td class="style13">
                         <form:select path="nCatID">
-                            <form:option value="1" >Categoria 1</form:option>
-                            <form:option value="2" >Categoria 2</form:option>
-                            <form:option value="3" >Categoria 3</form:option>
-                            <form:option value="4" >Categoria 4</form:option>
+                            <form:option value="-1" >:::Seleccionar:::</form:option>
+                            <c:forEach var="categorias" items="${categorias}">
+                                <form:option value="${categorias.nCatID}" >${categorias.cCatNombre}</form:option>
+                            </c:forEach>    
                         </form:select>
+                        <form:errors path="nCatID" cssstyle="color:red"></form:errors>
                     </td>
                     <td>
                         &nbsp;</td>
@@ -131,12 +135,12 @@
                         <span class="Label" >Estado:</span>
                     </td>
                     <td class="style13">
-                        <select id="cmbEstado">
-                            <option>:::Seleccionar:::</option>
-                            <option>Pendiente</option>
-                            <option>Activo</option>
-                            <option>Rechazado</option>
-                        </select>
+                       <form:select path="nEstID">
+                            <form:option value="1" >Registrado</form:option>
+                            <form:option value="2" >Publicado</form:option>
+                            <form:option value="3" >Rechazado</form:option>
+                        </form:select>
+                        <form:errors path="nEstID" cssstyle="color:red"></form:errors>  
                     </td>
                     <td>
                         &nbsp;</td>

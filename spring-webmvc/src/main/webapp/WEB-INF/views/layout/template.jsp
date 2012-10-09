@@ -12,13 +12,36 @@
         <link rel="stylesheet" type="text/css" href="<c:url value='/stylesheets/bootstrap.min.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/stylesheets/style.css'/>"/>        
         <title>Canchas Online</title>
+            <style type="text/css">        
+                .BorderCat
+                {
+                    border-style: solid;
+                    border-width: 1px;
+                }
+            </style>
+
     </head>
     <body>
         <div>
             <tiles:insertAttribute name="header" />
         </div>
         <div>
-            <tiles:insertAttribute name="body" />
+            <div class="container">
+                <table border="2" style="width: 100%; " >
+                    <tr>
+                        <td style="width: 200px; text-align: left; vertical-align: top; ">
+                            <div style="display: inline;">
+                            <tiles:insertAttribute name="DivIzquierdo" />
+                            </div>
+                        </td>
+                        <td >
+                            <div style="overflow: auto;">
+                            <tiles:insertAttribute name="body" />
+                            </div>
+                        </td>
+                    </tr>    
+                </table>
+            </div>
         </div>
         <div>
             <tiles:insertAttribute name="footer" />

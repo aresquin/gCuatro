@@ -19,6 +19,14 @@
 
 </script>
 <div class="container">
+    
+    <br />
+    <div style="width: 100%; text-align: center;">
+           <span class="Subtitulo" >Archivos Adjuntos</span>
+    </div >
+    <br />
+    <div class="clear"></div>
+    
     <div >    
 
     <form:form action="CargarArchivo" method="post" commandName="fileupload"> 

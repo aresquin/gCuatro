@@ -22,6 +22,7 @@
 
 
 <div class="container">
+    <br />
     <div style="width: 100%; text-align: center;">
            <span class="Subtitulo" >Listado de Plan de Negocio </span>
     </div >
@@ -29,6 +30,8 @@
     <div class="clear"></div>
     <div class="buscar-form">
             <form:form action="buscar" method="post" commandName="criterioBusqueda">
+                
+            <form:hidden path="nUsuModi"></form:hidden>
             <table class="style1" cellpadding="0" cellspacing="0" >
             <tr>
                 <td style="width: 112px;">
@@ -59,30 +62,13 @@
                     <form:select path="nEstID">
                         <form:option value="-1" >:::Seleccionar:::</form:option>
                         <form:option value="1" >Registrado</form:option>
-                        <form:option value="2" >Aprobador</form:option>
+                        <form:option value="2" >Publicado</form:option>
                         <form:option value="3" >Rechazado</form:option>
                     </form:select>
                     <form:errors path="nEstID" cssstyle="color:red"></form:errors>
                 </td>
             </tr>
-            <tr>
-                <td >
-                    <span  class="Label" >Precio de Venta:</span>   
-                </td>
-                <td >
-                    <input id="txtPreIni" type="text" size="20px" style="width:86px;" onkeypress="return fSoloNumeros(event);"  />&nbsp;&nbsp;
-                    <input id="txtPreFin" type="text"  style="width:86px;"  onkeypress="return fSoloNumeros(event);" />
-                </td>
-                <td >&nbsp;</td>
-                    <td >
-                    <span class="Label" >Inversion Total:</span>
-                </td>
-                <td >
-                    <input id="txtInvIni" type="text"  style="width:86px;"  onkeypress="return fSoloNumeros(event);" />&nbsp;&nbsp;
-                    <input id="txtInvFin" type="text"  style="width:86px;"  onkeypress="return fSoloNumeros(event);" />
-                </td>
-
-            </tr>
+            
            
             </table >
             <div style="display: inline; text-align: right; width: 50%" ><input type="submit" value="Buscar" class="btn btn-primary"/>
