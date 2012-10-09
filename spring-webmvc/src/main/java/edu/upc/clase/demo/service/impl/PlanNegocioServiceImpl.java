@@ -60,42 +60,43 @@ import org.springframework.stereotype.Service;
         }
         
         @Override
-        public Integer insertar(PlanNegocio objPlan) {
+        public String insertar(PlanNegocio objPlan) {
             String sMsg=ValidarDatos(objPlan);
             if (sMsg.equals(""))
             {
-                
                 log.info("Registrando un nuevo plan");
-                return plannegocioDao.insertar(objPlan);
+                Integer iRes= plannegocioDao.insertar(objPlan);
+                sMsg="OK";
             }
             else
             {
                 log.info(sMsg);
-                return 0;
             }
             
-            
+            return sMsg;
         }
         
         @Override
-        public Integer actualizar(PlanNegocio objPlan) {
+        public String actualizar(PlanNegocio objPlan) {
            String sMsg=ValidarDatos(objPlan);
             if (sMsg.equals(""))
             {
                 log.info("Actualizando plan");
-                return plannegocioDao.actualizar(objPlan);
+                plannegocioDao.actualizar(objPlan);
+                sMsg="OK";
             } 
             else
             {
                 log.info(sMsg);
-                return 0;
             }
+             return sMsg;
         }
 
         @Override
-        public Integer cambiarEstado(PlanNegocio objPlan) {
+        public String cambiarEstado(PlanNegocio objPlan) {
             log.info("Cambiando el estado del plan");
-            return plannegocioDao.cambiarEstado(objPlan);
+            plannegocioDao.cambiarEstado(objPlan);
+            return "OK";
         }
 
         @Override
@@ -132,7 +133,7 @@ import org.springframework.stereotype.Service;
         @Override
         public Integer insertarArchivo(PlanNegocio objPlan) {
             String sMsg="";
-            if(objPlan.getcAAdjNombre().trim().equals(""))
+            if(null==objPlan.getcAAdjNombre() || objPlan.getcAAdjNombre().trim().equals(""))
             {
                 sMsg="Debe ingresar un archivo a cargar";
             }
@@ -170,9 +171,10 @@ import org.springframework.stereotype.Service;
             
         }
         
-       @Override
+    @Override
     public List<PlanNegocio> buscarArchivosPlanID(PlanNegocio objPlan) {
         
           return plannegocioDao.buscarArchivosPlanID(objPlan);
-    }    
+    }  
+       
 }

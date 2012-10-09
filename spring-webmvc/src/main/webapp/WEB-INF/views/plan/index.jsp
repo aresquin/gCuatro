@@ -26,7 +26,8 @@
            <span class="Subtitulo" >Listado de Plan de Negocio </span>
     </div >
     <br />
-    <div >
+    <div class="clear"></div>
+    <div class="buscar-form">
             <form:form action="buscar" method="post" commandName="criterioBusqueda">
             <table class="style1" cellpadding="0" cellspacing="0" >
             <tr>
@@ -88,46 +89,38 @@
             </form:form>
             <div style="display: inline; text-align: left; width: 50%" ><a href="<c:url value='/pages/plan/nuevo'/>" class="btn btn-primary">Nuevo</a>        
     </div >
-    <table class="style1" cellpadding="0" cellspacing="0" >
-      
-        <tr>
-            <td class="style11">
-                &nbsp;</td>
-            <td class="style6" style="text-align:center; ">
-                 <table border="1" width="98%"   >
-                    <tr class="CabeceraListado" >
-                        <td><span>Id</span></td>
-                        <td><span>Titulo</span></td>
-                        <td><span>Categoria</span></td>
-                        <td><span>Inversion</span></td>
-                        <td><span>Precio de Venta</span></td>
-                        <td><span>Estado</span></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <% int fila=0; %>
-                    <c:forEach var="Listado" items="${ListadoPlanes}">
-                       
-                    <% fila=fila+1; %>
-                    <tr >
-                        
-                        <td><%=fila%></td>
-                        <td>${Listado.cPlaTitulo}</td>
-                        <td>${Listado.cCatNombre}</td>
-                        <td>${Listado.nPlaInvTotal}</td>
-                        <td>${Listado.nPlaPreVenta}</td>
-                        <td>${Listado.cEstNombre}</td>
-                        <td><a href="<c:url value='/pages/plan/editar?id=${Listado.nPlaID}'/>"><img alt="Editar" src="<c:url value='/image/bt_edit.gif' />" /></a></td>
-                        <td><a href="<c:url value='/pages/plan/eliminar?id=${Listado.nPlaID}'/>" onclick="if (Eliminar()) { return true; } else { return false; }"><img alt="Editar" src="<c:url value='/image/bt_Delete.gif' />" /></a></td>
-                        <td><a href="<c:url value='/pages/plan/CargarArchivo?id=${Listado.nPlaID}'/>"><img alt="Cargar" src="<c:url value='/image/file_upload.png' />" width="16" width="16" /></a></td>
-                    </tr>
-                    </c:forEach>    
-                </table>  
-            </td>    
-                
+
+    <table class="table table-striped" border="0" width="98%"   >
+        <tr >
+            <th><span>Id</span></th>
+            <th><span>Titulo</span></th>
+            <th><span>Categoria</span></th>
+            <th><span>Inversion</span></th>
+            <th><span>Precio de Venta</span></th>
+            <th><span>Estado</span></th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
-</table>
+        <% int fila=0; %>
+        <c:forEach var="Listado" items="${ListadoPlanes}">
+
+        <% fila=fila+1; %>
+        <tr >
+
+            <td><%=fila%></td>
+            <td>${Listado.cPlaTitulo}</td>
+            <td>${Listado.cCatNombre}</td>
+            <td>${Listado.nPlaInvTotal}</td>
+            <td>${Listado.nPlaPreVenta}</td>
+            <td>${Listado.cEstNombre}</td>
+            <td><a href="<c:url value='/pages/plan/editar?id=${Listado.nPlaID}'/>"><img alt="Editar" src="<c:url value='/image/bt_edit.gif' />" /></a></td>
+            <td><a href="<c:url value='/pages/plan/eliminar?id=${Listado.nPlaID}'/>" onclick="if (Eliminar()) { return true; } else { return false; }"><img alt="Editar" src="<c:url value='/image/bt_Delete.gif' />" /></a></td>
+            <td><a href="<c:url value='/pages/plan/CargarArchivo?nPlaID=${Listado.nPlaID}'/>"><img alt="Cargar" src="<c:url value='/image/file_upload.png' />" width="16" width="16" /></a></td>
+        </tr>
+    </c:forEach>    
+    </table>  
+
 <br/>  
 <br/>  
 </div>

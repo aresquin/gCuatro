@@ -19,8 +19,9 @@
 
 </script>
 <div class="container">
-    <div >
-    <form:form action="CargarArchivo" method="post" commandName="fileupload">        
+    <div >    
+
+    <form:form action="CargarArchivo" method="post" commandName="fileupload"> 
         <form:hidden path="nPlaID"></form:hidden>
         <form:input path="cAAdjNombre" size="100" type="file"  ></form:input>
         <br/>  
@@ -29,23 +30,23 @@
     </form:form>
     <div>
     <br/>
-    <table class="table table-striped">
+    <table class="table table-striped" style="width:850px; ">
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Extension</th>
-            <th>Fec. Reg</th>
-            <th style="width: 150px;"></th>
-            <th style="width: 150px;"></th>
+            <th style="width: 450px;">Nombre</th>
+           
+            <th style="width: 250px;">Fec. Reg</th>
+            <th style="width: 20px;"></th>
+            <th style="width: 20px;"></th>
         </tr>
-        <c:forEach var="archivo" items="${listaArchivo}">
+        <c:forEach var="archivo" items="${ListadoArchivos}">
             <tr>
                 <td>${archivo.nAAdjSecuencia}</td>
                 <td>${archivo.cAAdjNombre}</td>
-                <td>${archivo.cAAdjExtension}</td>
+                
                 <td>${archivo.cAAdjFecCrea}</td>
-                <td><a href="<c:url value='/pages/usuarios/ver?id=${archivo.nAAdjID}'/>">Ver</a></td>
-                <td><a href="<c:url value='/pages/usuarios/delete?id=${archivo.nAAdjID}'/>" onclick="if (deleteUsuario()) { return true; } else { return false; }">Eliminar usuario</a></td>
+                <td><a href="<c:url value='/pages/plan/ver?id=${archivo.nAAdjID}'/>"><img alt="Ver" src="<c:url value='/image/verdetalle.gif' />" /></a></td>
+                <td><a href="<c:url value='/pages/plan/eliminarArchivo?nPlaID=${archivo.nPlaID}&id=${archivo.nAAdjID}'/>" onclick="if (Eliminar()) { return true; } else { return false; }"><img alt="Editar" src="<c:url value='/image/bt_Delete.gif' />" /></a></td>
             </tr>
         </c:forEach>
     </table>

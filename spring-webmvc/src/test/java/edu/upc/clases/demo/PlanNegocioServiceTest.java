@@ -55,7 +55,7 @@ public class PlanNegocioServiceTest {
         objPlan.setnUsuCrea(1);
         objPlan.setcPlaFecCrea(fecha);
       
-        Integer id= planNService.insertar(objPlan);
+        String id= planNService.insertar(objPlan);
         Assert.assertNotNull(id);
     }
       
@@ -78,8 +78,8 @@ public class PlanNegocioServiceTest {
         objPlan.setnUsuModi(1);
         objPlan.setcPlaFecModi(fecha);
         
-        iRes= planNService.actualizar(objPlan);
-         Assert.assertNotNull(iRes);
+        String sRes= planNService.actualizar(objPlan);
+         Assert.assertNotNull(sRes);
         //Assert.assertTrue( "Datos actualizados correctamente", iRes>0);
     }
     
@@ -92,8 +92,8 @@ public class PlanNegocioServiceTest {
         objPlan.setnUsuModi(1);
         objPlan.setcPlaFecModi(fecha);
           
-        iRes= planNService.cambiarEstado(objPlan);
-         Assert.assertNotNull(iRes);
+        String sRes= planNService.cambiarEstado(objPlan);
+         Assert.assertNotNull(sRes);
         //Assert.assertTrue ( "Cambio estado satisfactorio", iRes>0);
     }  
     

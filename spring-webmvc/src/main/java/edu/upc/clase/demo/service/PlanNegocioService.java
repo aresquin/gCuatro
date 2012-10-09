@@ -12,9 +12,9 @@ import java.util.List;
  * @author Johan
  */
 public interface PlanNegocioService {
-    public Integer insertar(PlanNegocio plannegocio);
-    public Integer actualizar(PlanNegocio plannegocio);
-    public Integer cambiarEstado(PlanNegocio plannegocio);
+    public String insertar(PlanNegocio plannegocio);
+    public String actualizar(PlanNegocio plannegocio);
+    public String cambiarEstado(PlanNegocio plannegocio);
     public List<PlanNegocio> buscarPlanNegocio(PlanNegocio objPlan);
     public PlanNegocio buscarPorId(Integer id);
             
@@ -24,6 +24,8 @@ public interface PlanNegocioService {
     public Integer insertarArchivo(PlanNegocio objPlan);
     public Integer eliminarArchivo(PlanNegocio objPlan);
     public List<PlanNegocio> buscarArchivosPlanID(PlanNegocio objPlan);
+    
+    
     
     
 }
