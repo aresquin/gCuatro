@@ -11,14 +11,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value='/stylesheets/bootstrap.min.css'/>"/>
         <link rel="stylesheet" type="text/css" href="<c:url value='/stylesheets/style.css'/>"/>        
-        <title>Canchas Online</title>
+        <title>Planes Empresariales</title>
     </head>
     <body>        
         <div>
             <tiles:insertAttribute name="body" />
         </div>
-        <div>
-            <tiles:insertAttribute name="footer" />
-        </div>
+       
     </body>
 </html>

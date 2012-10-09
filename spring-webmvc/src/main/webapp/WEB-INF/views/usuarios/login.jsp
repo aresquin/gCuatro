@@ -4,13 +4,14 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<div class="navbar">      
-    <div class="navbar-inner">
-        <div class="container">
-            <a href="javascript:void(0);" class="brand">Canchas Online</a>
+<div  >      
+    <div  >
+        <div class="container" style="background-color:#00CC33; height: 40px; "s>
+            <h1>&nbsp;Acceso al Sistema</h1>
         </div>
     </div><!-- /topbar-inner -->
 </div>
+<br />
 <div class="container">
     <form:form action="autenticar" method="post" commandName="credential" cssClass="form-horizontal">
         <div class="row">

@@ -24,7 +24,7 @@
     <div >
         <div class="container">
             <table  style="text-align:left; width:100%;  " class="style1" border="0" >
-                <tr style="background-color:#00CC33 ">
+                <tr style="background-color:#00CC33; height: 40px; ">
                     <td  align="left"  >
                     <span>Bienvenido ${credential.correo} </span>              
                     </td>
@@ -43,7 +43,7 @@
                     <td style="text-align:center"  >
                     <br /><br /> 
                     <span style="font-size: 45px; font-family: Arial; font-weight:bold;   text-align:center; "><i>PLANES EMPRESARIALES</i> </span><br /><br />
-                    <span style="font-size: 20px; font-family: Arial;   text-align:center; "><i>Busca, Compra y se un emprendedor....</i></span>
+                    <span style="font-size: 20px; font-family: Arial;   text-align:center; "><i>Busca, compra y se un emprendedor....</i></span>
                     <br />
                     <br />
                     </td>
