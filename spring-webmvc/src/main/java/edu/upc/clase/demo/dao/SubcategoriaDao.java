@@ -15,6 +15,6 @@ public interface SubcategoriaDao {
     public Integer insertar (Subcategoria objSubcategoria);
     public void actualizar (Subcategoria objSubcategoria);
     public void eliminar (Subcategoria objCategoria);
-    public List<Subcategoria> buscarSubCategoria();
+    public List<Subcategoria> buscarSubCategoria(Integer id);
     public Subcategoria buscarPorId(Integer id);
 }

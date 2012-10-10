@@ -42,7 +42,8 @@
                     </div>
                     <div>
                         <a href="<c:url value='/pages/categorias/edit?nCatID=${categoria.nCatID}' />" >Editar</a><br/>
-                        <a href="<c:url value='/pages/categorias/delete?nCatID=${categoria.nCatID}'/>" onclick="if (eliminaCategoria()) { return true; } else { return false; }">Eliminar</a>
+                        <a href="<c:url value='/pages/categorias/delete?nCatID=${categoria.nCatID}'/>" onclick="if (eliminaCategoria()) { return true; } else { return false; }">Eliminar</a><br/>
+                        <a href="<c:url value='/pages/subcategorias/index?nCatID=${categoria.nCatID}'/>" >SubCategorias</a>
                     </div>
                     <div class="clear"></div>
                 </div>                    

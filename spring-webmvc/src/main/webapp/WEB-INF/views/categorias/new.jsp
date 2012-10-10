@@ -5,7 +5,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <div class="container">
-    <h1>Nuevo Categoria</h1><br/>
+    <h1>Nueva Categoria</h1><br/>
     <form:form action="new" method="post" commandName="categoria" cssClass="form-horizontal">
         <div class="row">
             <div class="control-group">

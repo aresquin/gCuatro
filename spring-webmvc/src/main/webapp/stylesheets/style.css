@@ -62,3 +62,26 @@
 {
  font-size: 20px; font-family: Arial; font-weight:bold;   text-align:center;
 }
+
+ul.columnas {
+    width: 100%;
+    overflow: hidden;
+    margin:0px;
+    padding:0px;
+}
+
+ul.columnas li {
+    float: left;
+    display: inline;
+    width: 25%;
+}
+
+.card {
+    margin: 10px 10px;
+    background-color: whitesmoke;
+    height: 80px;
+    border: 1px solid #000000;
+    padding: 4px;
+    -webkit-border-radius: 4px; -moz-border-radius: 4px;
+    /*cursor: pointer;*/
+}

@@ -52,10 +52,11 @@ public class SubcategoriaDaoImpl extends SimpleJdbcDaoSupport implements Subcate
      }
 
     @Override
-    public List<Subcategoria> buscarSubCategoria() {
+    public List<Subcategoria> buscarSubCategoria(Integer id) {
         try {
-            return (List<Subcategoria>) getSimpleJdbcTemplate().queryForObject(
-                    "select * from Subcategoria", new BeanPropertyRowMapper<Subcategoria>(Subcategoria.class));
+            return getSimpleJdbcTemplate().query(
+                    "select * from Subcategoria where nCatID=?", 
+                    new BeanPropertyRowMapper<Subcategoria>(Subcategoria.class), id);
         } catch(EmptyResultDataAccessException e) {
             return null;
         }
@@ -65,7 +66,7 @@ public class SubcategoriaDaoImpl extends SimpleJdbcDaoSupport implements Subcate
     public Subcategoria buscarPorId(Integer id) {
         try {
             return getSimpleJdbcTemplate().queryForObject(
-                    "select cSCatNombre, nCatID from Subcategoria where nSCatID=?",
+                    "select * from Subcategoria where nSCatID=?",
                     new BeanPropertyRowMapper<Subcategoria>(Subcategoria.class), id);
         } catch (EmptyResultDataAccessException e) {
             return null;

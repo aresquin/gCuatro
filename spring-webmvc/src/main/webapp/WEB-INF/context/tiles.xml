@@ -46,7 +46,18 @@
 	<definition name="categorias/resultadoBusqueda" extends="defaultTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/categorias/resultadoBusqueda.jsp" />
 	</definition>                
-         
+
+        <definition name="subcategorias/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/subcategorias/edit.jsp"/>
+        </definition>         
+
+        <definition name="subcategorias/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/subcategorias/new.jsp"/>
+        </definition>
+
+        <definition name="subcategorias/index" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/subcategorias/index.jsp"/>
+        </definition>                                        
        
         <!-- Inicio Plan de Negocio -->
         <definition name="plan/lista" extends="defaultTemplate">

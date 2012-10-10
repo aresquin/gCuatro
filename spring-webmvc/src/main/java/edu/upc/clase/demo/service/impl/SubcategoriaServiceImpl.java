@@ -52,9 +52,9 @@ public class SubcategoriaServiceImpl implements SubcategoriaService {
     }
 
     @Override
-    public List<Subcategoria> buscarSubCategoria() {
+    public List<Subcategoria> buscarSubCategoria(Integer id) {
         log.info("Buscando todas las subcategoria");
-        return subCategoriaDao.buscarSubCategoria();
+        return subCategoriaDao.buscarSubCategoria(id);
     }
 
     @Override
