@@ -84,7 +84,7 @@ public class CategoriaController {
     public ModelAndView buscar(@ModelAttribute("criterioBusqueda") Categoria categoria, SessionStatus status) {
         ModelAndView mav = new ModelAndView("categorias/resultadoBusqueda");
         log.info("resultado = " + categoriaService.buscarPorNombre(categoria.getcCatNombre()));
-        mav.getModel().put("resultado",categoriaService.buscarPorNombre(categoria.getcCatNombre()));
+        mav.getModel().put("categoria",categoriaService.buscarPorNombre(categoria.getcCatNombre()));
         return mav;
     }
 }
