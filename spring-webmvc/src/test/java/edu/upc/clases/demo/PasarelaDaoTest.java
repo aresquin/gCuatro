@@ -23,6 +23,7 @@ public class PasarelaDaoTest {
     @Autowired
     PasarelaDao pasarelaDao;
 
+    
     @Test
     public void testInsertarPasarela() {
         PasarelaV pasarela = new PasarelaV("Peru",123456789,"12/12",123,"av.mexico");

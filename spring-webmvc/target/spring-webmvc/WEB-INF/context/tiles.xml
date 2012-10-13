@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="defaultTemplate" template="/WEB-INF/views/layout/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+                <put-attribute name="DivIzquierdo" value="/WEB-INF/views/layout/DivIzquierdo.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>       
+
+	<definition name="usuarios/index" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/usuarios/index.jsp" />
+	</definition>
+        
+        <definition name="usuarios/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/usuarios/new.jsp"/>
+        </definition>
+        
+        <definition name="usuarios/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/usuarios/edit.jsp"/>
+        </definition>
+        
+        <definition name="usuarios/login" template="/WEB-INF/views/layout/login.jsp">
+            <put-attribute name="body" value="/WEB-INF/views/usuarios/login.jsp"/>
+            <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+        </definition>
+        
+	<definition name="usuarios/resultadoBusqueda" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/usuarios/resultadoBusqueda.jsp" />
+	</definition>
+
+        <definition name="categorias/index" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/categorias/index.jsp" />
+	</definition>
+        
+        <definition name="categorias/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/categorias/new.jsp"/>
+        </definition>
+        
+        <definition name="categorias/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/categorias/edit.jsp"/>
+        </definition>
+       
+	<definition name="categorias/resultadoBusqueda" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/categorias/resultadoBusqueda.jsp" />
+	</definition>                
+
+        <definition name="subcategorias/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/subcategorias/edit.jsp"/>
+        </definition>         
+
+        <definition name="subcategorias/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/subcategorias/new.jsp"/>
+        </definition>
+
+        <definition name="subcategorias/index" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/subcategorias/index.jsp"/>
+        </definition>                                        
+       
+        <!-- Inicio Plan de Negocio -->
+        <definition name="plan/lista" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/plan/index.jsp" />
+	</definition>
+        
+          <definition name="plan/new" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/plan/new.jsp"/>
+        </definition>
+        
+        <definition name="plan/edit" extends="defaultTemplate">
+            <put-attribute name="body" value="/WEB-INF/views/plan/edit.jsp"/>
+        </definition>
+        
+         <!-- Fin Plan de Negocio -->
+         <!-- Inicio Archivo-->
+        <definition name="plan/listaArchivo" extends="defaultTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/plan/file.jsp" />
+	</definition>
+         <!-- Fin Archivo -->
+        
+        
+        
+</tiles-definitions>
